@@ -1,0 +1,1182 @@
+/* Master style sheet for pocketyoga.com*/
+
+@font-face {
+    font-family: helveticaReg;
+    src: url("../fonts/HelveticaLTStd-Roman.otf") format('opentype');
+}
+
+/* Chrome- and Safari-specific on non-retina machines hack
+   - helvetica font look weird on windows*/
+@media screen and (-webkit-device-pixel-ratio: 1) {
+    @font-face {
+        font-family: helveticaReg;
+        src: local('Helvetica'), local('Arial');
+    }
+}
+
+@font-face {
+    font-family: avenirLTStd;
+    src: url("../fonts/AvenirLTStd-Medium.otf") format('opentype');
+}
+
+@font-face {
+	font-family: avenirLTStdLight;
+	src: url("../fonts/AvenirLTStd-Light.otf") format('opentype');
+}
+
+/* reset */
+* 	{
+    margin: 0;
+    padding: 0;
+    outline: none;
+    border-width: 0px;
+    text-decoration: none;
+    list-style: none;
+}
+
+header, footer, section, article, nav, aside {
+    display: block;
+}
+
+a {
+    color: #1F71A3; /* dark blue */
+}
+
+a:hover {
+    color: #5CADDD; /* light blue */
+}
+
+p {
+    font-size: 0.9em;
+    line-height: 150%;
+}
+
+sup {
+	line-height: 1;
+}
+
+img.right {
+    float: right;
+}
+
+/* labels for all sections: Apps, Poses, Support, and Support (Q/A) */
+h1 {
+    display: inline-block;
+    *display: inline; /* fix for inline-block in IE7 */
+	zoom: 1;          /* fix for inline-block in IE7 */
+    font-family: avenirLTStdLight, helveticaReg, Helvetica, Arial, sans-serif;
+    font-weight: normal;
+    font-size: 1.65em;
+    color: #959592; /* dark gray */
+}
+
+/* aside header (Accolades/Review), Poses (Cat/Sub-Cat..), Pose Detail (Prev/Next Pose), caution box text */
+h2 {
+    display: inline-block;
+    *display: inline; /* fix for inline-block in IE7 */
+	zoom: 1;          /* fix for inline-block in IE7 */
+    font-family: avenirLTStdLight, helveticaReg, Helvetica, Arial, sans-serif;
+    font-weight: normal;
+    font-size: 1.05em;
+    color: #959592; /* dark gray */
+}
+
+/* Pose detail (pose name) */
+h3 {
+    display: inline-block;
+    *display: inline; /* fix for inline-block in IE7 */
+	zoom: 1;          /* fix for inline-block in IE7 */
+    font-family: helveticaReg, Helvetica, Arial, sans-serif;
+    font-weight: normal;
+    font-size: 1.6em;
+    color: #959592; /* dark gray */
+}
+
+/* Home page tile header */
+h4 {
+    display: inline-block;
+    *display: inline; /* fix for inline-block in IE7 */
+	zoom: 1;          /* fix for inline-block in IE7 */
+    font-family: helveticaReg, Helvetica, Arial, sans-serif;
+    font-weight: normal;
+    font-size: 1.05em;
+}
+
+/* Pose detail (category titles) */
+h5 {
+    display: inline-block;
+    *display: inline; /* fix for inline-block in IE7 */
+	zoom: 1;          /* fix for inline-block in IE7 */
+    font-family: helveticaReg, Helvetica, Arial, sans-serif;
+    font-weight: normal;
+    font-size: 0.9em;
+}
+
+/* Poses thumbnails sanskrit */
+h6 {
+    font-family: helveticaReg, Helvetica, Arial, sans-serif;
+    font-weight: normal;
+    font-size: 0.7em;
+}
+
+.blue {
+    color: #1F71A3; /* dark blue */
+}
+
+.bold {
+    font-weight: bold;
+}
+
+
+body {
+    font-family: helveticaReg, Helvetica, Arial, sans-serif;
+    background-color: #F0F0F0; /* light gray */
+	text-align:center;
+    margin: 0px auto 0px auto;
+	min-width:980px;
+    color: #959592; /* dark gray */
+}
+
+header {
+    background-color: #F0F0F0; /* light gray */
+	background-image: url("../images/navigation/borderTop.jpg");
+	background-repeat: repeat-x;
+	background-size: 1px 1px;
+	background-position: bottom;
+    text-align: left;
+    padding: 20px 0px 20px 0px;
+}
+
+header.home {
+	height: 60px;
+}
+    
+    header nav.head {
+        font-family: avenirLTStd, helveticaReg, Helvetica, Arial, sans-serif;
+        font-size: 1.05em;
+        width: 980px;
+        margin: 0px auto 0px auto;
+        cursor: default;
+    }
+
+        header nav.head img {
+            vertical-align: middle;
+        }
+
+            header nav.head img#pocketYogaHeader {
+                margin-left: 20px;
+                margin-right: 15px; /* to give same spacing as links */
+            }
+
+        header nav.head div {
+            vertical-align: middle;
+        }
+
+        header nav.head ul {
+            display: inline-block;
+            *display: inline; /* fix for inline-block in IE7 */
+            zoom: 1;          /* fix for inline-block in IE7 */
+        }
+        
+            header nav.head ul li {
+                display: inline-block;
+                *display: inline; /* fix for inline-block in IE7 */
+                zoom: 1;          /* fix for inline-block in IE7 */
+                margin: 0px 15px 0px 15px;
+            }
+
+                header nav.head ul li a.selected {
+                    color: #5CADDD; /* light blue */
+                }
+        
+        ul#social {
+            font-family: helveticaReg, Helvetica, Arial, sans-serif;
+            float: right;
+            font-size: 0.60em;
+            margin-right: 20px;
+        }
+            
+            ul#social li {
+                margin: 0px 4px 0px 4px;
+                vertical-align: middle;
+            }
+            
+
+#mainSection {
+    background-color: white; /* white */
+}
+
+    #mainSection.home {
+        height: 330px;  /* have to set so white background expands on home page */
+    }
+
+.mainContent {
+    text-align: left;
+    width: 980px;
+    margin: 0px auto 0px auto;
+}
+
+div#sliderAlign {
+    position: absolute;
+    /*float: left;*/
+    margin-top: -30px;
+    margin-left: 20px;
+}
+
+#slider {
+    position: relative;
+    height: 425px;
+    width: 960px;  /* 980px minus the 20px margin left */
+}
+
+    #slider li {
+        position: absolute;
+        display: none;
+    }
+
+        #slider li:first-child {
+		    display: block;
+		}
+
+		#slider div.left {
+			float: left;
+			width: 270px;
+			padding-top: 120px;
+			padding-right: 25px;
+		}
+			
+			#slider p {
+				padding-top: 10px;
+                color: #959592; /* dark gray */
+			}
+
+		#slider li img.moreLeft {
+			margin-left: -50px;
+		}
+
+		#slider li img.center {
+			padding-top: 15px;
+			margin-left: -20px;
+		}
+
+    #counter {
+		position: absolute;
+        width: 960px;
+        text-align: center;
+		margin-top: 0px;
+        cursor: default;
+	}
+    
+        #counter li {
+            display: inline-block;
+            *display: inline; /* fix for inline-block in IE7 */
+            zoom: 1;          /* fix for inline-block in IE7 */
+            margin: 0px 5px 0px 5px;
+        }
+        
+            #counter li div {
+                background-image: url("../images/navigation/sliderButton.png");
+                background-size: 12px auto;
+                background-position: 0px 13px;
+                height: 13px;
+                width: 12px;
+                cursor: pointer;
+            }
+            @media screen and (-webkit-min-device-pixel-ratio: 2) {
+                #counter li div {
+                    background-image: url("../images/navigation/sliderButton@2x.png");
+                }
+            }
+
+            #counter li div.active {
+                background-position: 0px 0px;
+            }
+	
+
+ul#tiles {
+    background-color: #F0F0F0; /* light gray */
+    background-image: url("../images/navigation/borderTop.jpg");
+	background-repeat: repeat-x;
+	background-size: 1px 1px;
+	background-position: 0px 0px;
+    vertical-align: top;
+    padding: 70px 0px 0px 20px;
+}
+
+    ul#tiles li {
+        display: inline-block;
+        *display: inline; /* fix for inline-block in IE7 */
+        zoom: 1;          /* fix for inline-block in IE7 */
+		background-image: url("../images/navigation/tileDivide.png");
+        background-size: 1px 143px;
+		background-repeat: no-repeat;
+        width: 295px;
+		height: 145px;
+        text-align: left;
+		padding: 20px 0px 0px 20px;
+    }
+    @media screen and (-webkit-min-device-pixel-ratio: 2) {
+        ul#tiles li {
+            background-image: url("../images/navigation/tileDivide@2x.png");
+        }
+    }
+
+    /* Get the Apps tile */
+	ul#tiles li:first-child {
+		background-image: none;  /* removes left tile divider image on first tile */
+	}
+	
+        ul#tiles li a div.text {
+            display: inline-block;
+            *display: inline; /* fix for inline-block in IE7 */
+            zoom: 1;          /* fix for inline-block in IE7 */
+            vertical-align: middle;
+            width: 158px;
+        }
+
+        ul#tiles li a div.image {
+            display: inline-block;
+            *display: inline; /* fix for inline-block in IE7 */
+            zoom: 1;          /* fix for inline-block in IE7 */
+            vertical-align: middle;
+            width: 132px;
+        }
+
+            ul#tiles li a div.text h4 {
+                margin-bottom: 4px;
+            }
+            
+            ul#tiles li a div.text p {
+                font-size: 0.75em;
+                color: #959592; /* dark gray */
+            }
+
+            ul#tiles li a div.image img {
+                display: block;
+                margin-left: auto;
+                margin-right: auto;
+            }
+
+
+.productSelection {
+    height: 125px;
+    background-image: url("../images/navigation/borderTop.jpg");
+    background-repeat: repeat-x;
+	background-size: 1px 1px;
+	background-position: 20px 110px;
+    margin: 0px 20px 0px 20px;
+}
+
+    .productSelection h1 {
+		position: absolute;
+        margin-top: 40px;
+    }
+
+    .productSelection nav {
+		text-align:center;
+    }
+
+    .productSelection nav a {
+        display: inline-block;
+        *display: inline; /* fix for inline-block in IE7 */
+        zoom: 1;          /* fix for inline-block in IE7 */
+		vertical-align:top;
+		margin-top: 10px;
+		margin-right: 50px;
+		cursor: pointer;
+    }
+
+	.productSelection nav a:last-child {
+		margin-right: 0px;
+	}
+
+	.productSelection nav a.selected {
+		background-image: url("../images/navigation/chevron.jpg");
+		background-size: 22px 10px;
+		background-repeat: no-repeat;
+		background-position: center 92px;
+		padding-bottom: 30px;
+		cursor: default;
+	}
+		@media screen and (-webkit-min-device-pixel-ratio: 2) {
+			.productSelection nav a.selected {
+				background-image: url("../images/navigation/chevron@2x.jpg");
+			}
+		}
+
+	.productSelection nav a img {
+		margin-bottom:2px;
+	}
+
+    .productSelection nav a p {
+		font-size: 0.6em;
+		text-align: center;
+		line-height: 130%;
+		color: #959592; /* dark gray */
+	}
+
+    #PosesBackButton {
+        background-image: url("../images/navigation/posesBackButton.png");
+        background-position: 0px 27px;
+        background-color: transparent;
+        height: 27px;
+        width: 116px;
+        margin-top: 20px;
+        cursor: pointer;
+    }
+
+    #PosesBackButton:hover {
+        background-position: 0px 0px;
+    }
+
+
+.pageHeader {
+	height: 85px;
+	background-image: url("../images/navigation/borderTop.jpg");
+	background-repeat: repeat-x;
+	background-size: 1px 1px;
+	background-position: 20px 70px;
+	margin: 0px 20px 0px 20px;
+}
+
+	.pageHeader h1 {
+		margin-top: 20px;
+	}
+
+
+.mainProduct {
+	position: relative;
+    margin-left: 20px;
+    min-height: 450px;
+}
+
+.mainProduct.teacher {
+	min-height: 470px;
+}
+
+    .mainProduct div.left {
+        float: left;
+        width: 240px;
+        margin-top: 10px;
+    }
+
+        .mainProduct div.left img {
+            margin-top: 10px;
+        }
+
+        .mainProduct div.left p {
+			margin-top: 10px;
+            margin-bottom: 69px;
+        }
+
+			.mainProduct div.left p.single {
+				margin-top: 10px;
+				margin-bottom: 0px;
+			}
+
+			.mainProduct div.left p.videoTitle {
+				margin-top: 0px;
+				margin-bottom: 0px;
+			}
+
+        .mainProduct div.left a img {
+            margin-top: 0px;
+        }
+
+    /* overloaded the img.right to include a margin */
+    .mainProduct img.right {
+		position: absolute;
+		right: 20px;
+    }
+
+	.mainProduct img.right.pad {
+		top: 40px;
+	}
+
+.description {
+    width: 980px;
+    min-height: 640px;
+    margin: 20px auto 0px auto;
+}
+
+    aside {
+        position: absolute;
+        margin-left: 674px; /* move over the featured content */
+        background-image: url("../images/navigation/asideDivider.png");
+        background-size: 16px 1020px;
+        background-repeat: no-repeat;
+        background-position: left;
+        height: 1020px;
+        width: 250px;
+        padding-left: 36px; /* 20px margin + size of asideDivider */
+    }
+    @media screen and (-webkit-min-device-pixel-ratio: 2) {
+       aside {
+            background-image: url("../images/navigation/asideDivider@2x.png");
+        }
+    }
+
+        aside section {
+            padding-bottom: 15px;
+        }
+
+        aside h2 {
+            margin-bottom: 5px;
+        }
+
+        aside p {
+            font-size: 0.7em;
+            margin-bottom: 13px;
+        }
+
+        aside section.review span {
+            display: block;
+        }
+
+    .features {
+        margin-left: 20px;
+    }
+
+        .features article {
+            padding-bottom: 40px;
+        }
+
+            .features article:last-child {
+                padding-bottom: 20px;
+            }
+
+            .features article span {
+                display: inline-block;
+                *display: inline; /* fix for inline-block in IE7 */
+                zoom: 1;          /* fix for inline-block in IE7 */
+                vertical-align: middle;
+                min-width: 230px;  /*adding padding for smaller width images */
+            }
+
+			.features article span.morePadding {
+				min-width: 260px;  /*adding padding for smaller width images */
+			}
+
+            .features article span.center {
+                min-width: 640px;
+            }
+
+                .features article span img, .features article span.center img {
+                    display: block;
+                    margin-left: auto;
+                    margin-right: auto;
+                }
+
+                .features article span.farRight {
+                    width: 300px;
+                }
+
+                    .features article span.farRight img {
+                        margin-right: 0px;
+                    }
+
+            .features article div.right {
+                display: inline-block;
+                *display: inline; /* fix for inline-block in IE7 */
+                zoom: 1;          /* fix for inline-block in IE7 */
+                vertical-align: middle;
+                width: 345px;
+                margin-left: 20px;
+            }
+
+            .features article div.left {
+                display: inline-block;
+                *display: inline; /* fix for inline-block in IE7 */
+                zoom: 1;          /* fix for inline-block in IE7 */
+                vertical-align: middle;
+                width: 345px;
+                margin-right: 20px;
+            }
+
+            .features article div.center {
+                display: inline-block;
+                *display: inline; /* fix for inline-block in IE7 */
+                zoom: 1;          /* fix for inline-block in IE7 */
+                vertical-align: middle;
+                width: 645px;
+                margin-bottom: 10px;
+            }
+
+
+.posesNav {
+    width: 940px;  /* length of line */
+    height: 60px;
+    background-image: url("../images/navigation/borderTop.jpg");
+	background-repeat: repeat-x;
+	background-size: 1px 1px;
+	background-position: bottom;
+    margin-left: 20px;
+}
+
+    .posesNav h1 {
+        margin-top: 15px;
+    }
+
+    .posesNav ul {
+        margin-top: 18px;
+    }
+
+    .searchBar {
+        display: inline-block;
+        *display: inline; /* fix for inline-block in IE7 */
+        zoom: 1;          /* fix for inline-block in IE7 */
+        vertical-align: top;
+        background-image: url("../images/navigation/searchBar.png");
+        background-size: 461px 28px;
+        background-repeat: no-repeat;
+        height: 28px;
+        width: 461px;
+        margin: 15px 0px 0px 185px;
+    }
+    @media screen and (-webkit-min-device-pixel-ratio: 2) {
+        .searchBar {
+            background-image: url("../images/navigation/searchBar@2x.png");
+        }
+    }
+
+        .searchBar #search {
+            margin: 4px 0px 4px 8px;
+            padding: auto 0px auto 0px;
+            height: 20px;
+            width: 426px;
+            font-size: 0.8em;
+        }
+
+        .searchBar #searchButton {
+            background-image: url("../images/navigation/magGlass.png");
+            background-size: 15px 16px;
+            background-repeat: no-repeat;
+            height: 16px;
+            width: 15px;
+            padding: 0px 4px 0px 4px;
+            vertical-align: middle;
+            cursor: pointer;
+        }
+        @media screen and (-webkit-min-device-pixel-ratio: 2) {
+            .searchBar #searchButton {
+                background-image: url("../images/navigation/magGlass@2x.png");
+            }
+        }
+
+    ul.pages {
+        float: right;
+    }
+
+        ul.pages li {
+            display: inline-block;
+            *display: inline; /* fix for inline-block in IE7 */
+            zoom: 1;          /* fix for inline-block in IE7 */
+            margin: 0px 4px 0px 4px;
+        }
+
+            ul.pages li a {
+                display: block;
+                text-align: center;
+                font-size: 0.9em; /* Same as p element */
+                line-height: 25px;
+                height: 23px;
+                width: 23px;
+            }
+
+            ul.pages li a.selected {
+                background-image: url("../images/navigation/pageSelection.png");
+                background-size: 23px 23px;
+                background-repeat: no-repeat;
+                color: #5CADDD; /* light blue */
+                /*color: #959592; dark gray */
+                cursor: default;
+            }
+            @media screen and (-webkit-min-device-pixel-ratio: 2) {
+                ul.pages li a.selected {
+                    background-image: url("../images/navigation/pageSelection@2x.png");
+                }
+            }
+
+.navBottom {
+    height: 23px;
+    padding-bottom: 4px;
+    padding-right: 20px;
+}
+
+
+.posesSelection {
+    position: absolute;
+    background-image: url("../images/navigation/poseDivider.png");
+    background-size: 15px 592px;
+    background-repeat: no-repeat;
+    background-position: right;
+    margin: 20px 0px 20px 20px;
+    width: 200px;
+    height: 600px;
+}
+@media screen and (-webkit-min-device-pixel-ratio: 2) {
+    .posesSelection {
+        background-image: url("../images/navigation/poseDivider@2x.png");
+    }
+}
+
+    .posesSelection section {
+        margin-bottom: 20px;
+    }
+
+    .posesSelection li {
+        margin: 3px 0px 3px 0px;
+    }
+
+    .posesSelection label {
+        padding-top: 0px;
+        font-size: 0.8em;  /* Same size as h6.big the size of the pose name */
+        //line-height: 130%;
+    }
+
+    .posesSelection input[type="radio"] {
+        display: none;
+    }
+
+    .posesSelection input[type="radio"] + label {
+        background-image: url("../images/navigation/radioButton.png");
+        background-size: 14px auto;
+        background-repeat: no-repeat;
+        background-position: 0px -16px;
+        height: 16px;
+        color: #1F71A3; /* dark blue */
+        cursor: pointer;
+        padding-left: 18px;
+    }
+
+    .posesSelection input[type="radio"]:checked + label {
+        background-image: url("../images/navigation/radioButton.png");
+        background-size: 14px auto;
+        background-position: 0px 0px;
+        background-repeat: no-repeat;
+        height: 16px;
+        color: #5CADDD; /* light blue */
+        /*color: #959592;  dark gray */
+        padding-left: 18px;
+    }
+
+    @media screen and (-webkit-min-device-pixel-ratio: 2) {
+        .posesSelection label {
+            padding-top: 4px;
+        }
+        .posesSelection input[type="radio"] + label {
+            background-image: url("../images/navigation/radioButton@2x.png");
+        }
+        .posesSelection input[type="radio"]:checked + label {
+            background-image: url("../images/navigation/radioButton@2x.png");
+        }
+    }
+
+
+.posesDisplay {
+    vertical-align: top;
+    margin: 0px 0px 20px 230px;
+    min-height: 720px;
+}
+
+    .posesDisplay p {
+        text-align: center;
+        margin: 20px 0px 0px 0px;
+    }
+
+    .posesDisplay ul li {
+        display: inline-block;
+        *display: inline; /* fix for inline-block in IE7 */
+        zoom: 1;          /* fix for inline-block in IE7 */
+        vertical-align: top;
+        width: 115px;
+        margin: 0px 4px 0px 4px;
+        cursor: pointer;
+    }
+
+        .posesDisplay ul li a div {
+            background-repeat: no-repeat;
+            background-position: center bottom;
+            background-size: auto 115px;
+            height: 115px;
+            margin-bottom: -2px;
+        }
+
+        .posesDisplay ul li h6 {
+            text-align: center;
+            vertical-align: top;
+            line-height: 130%;
+            white-space: nowrap;
+            text-overflow: ellipsis;
+            overflow: hidden;
+        }
+
+        .posesDisplay ul li h6.big {
+            font-size: 0.8em;
+        }
+
+
+.poseImages {
+    display: inline-block;
+    *display: inline; /* fix for inline-block in IE7 */
+    zoom: 1;          /* fix for inline-block in IE7 */
+    width: 500px;
+    cursor: default;
+}
+
+    .poseImages button#rotateButton {
+        position: absolute;
+        background-image: url("../images/navigation/rotationButton.png");
+        background-size: 43px auto;
+        background-position: 0px 26px;
+        background-color: transparent;
+        height: 26px;
+        width: 43px;
+		margin-top: 40px;
+        cursor: pointer;
+    }
+    @media screen and (-webkit-min-device-pixel-ratio: 2) {
+        .poseImages button#rotateButton {
+            background-image: url("../images/navigation/rotationButton@2x.png");
+        }
+    }
+
+.poseImages button#rotateButton:hover {
+        background-position: 0px 0px;
+    }
+
+    .poseImages #poseImg {
+        /*background-repeat: no-repeat;
+        background-position: center bottom;
+        background-size: auto 380px;
+        height: 380px;*/
+        display: block;
+        height: 380px;
+        margin: 0px auto 0px auto;
+        /*outline: black solid;*/
+    }
+
+    .poseImages h2 {
+        width: 120px;
+        margin-top: 40px;
+    }
+
+    .poseImages ul {
+        display: inline-block;
+        *display: inline; /* fix for inline-block in IE7 */
+        zoom: 1;          /* fix for inline-block in IE7 */
+        vertical-align: top;
+        width: 380px;
+    }
+
+        .poseImages ul li {
+            display: inline-block;
+            *display: inline; /* fix for inline-block in IE7 */
+            zoom: 1;          /* fix for inline-block in IE7 */
+        }
+
+            .poseImages ul li a div {
+                background-repeat: no-repeat;
+                background-size: 75px 75px;
+                height: 75px;
+                width: 75px;
+                cursor: pointer;
+            }
+
+.poseDescription {
+    display: inline-block;
+    *display: inline; /* fix for inline-block in IE7 */
+    zoom: 1;          /* fix for inline-block in IE7 */
+    vertical-align: top;
+    width: 440px;    /* 20px less for right margin */
+    margin-top: 40px;
+}
+
+    .poseDescription ul {
+        margin-bottom: 20px;
+    }
+
+        .poseDescription ul li {
+             margin: 2px 0px 2px 0px;
+        }
+
+            .poseDescription ul li h3, .poseDescription ul li h4 {
+                display: block;
+                text-align: center;
+            }
+
+            .poseDescription ul li h4.big {
+                font-size: 1.05em;
+            }
+
+            .poseDescription ul li h5.category {
+                display: inline-block;
+                *display: inline; /* fix for inline-block in IE7 */
+                zoom: 1;          /* fix for inline-block in IE7 */
+                width: 80px;
+            }
+
+            .poseDescription ul li div.trans {
+                font-style: italic;
+                font-size: 0.9em;  /* Same size as p elements */
+            }
+
+            .poseDescription ul li span.cat {
+                font-size: 0.9em;  /* Same size as p elements */
+            }
+
+            .poseDescription ul li p.text {
+                margin-bottom: 10px;
+            }
+
+
+/* For videoPlayer */
+.video {
+	padding-top: 7px;
+	text-align: center;
+}
+
+.videoDescription {
+	padding: 10px 50px 0px 50px;
+}
+
+	.videoDescription h1 {
+		padding-bottom: 15px;
+	}
+
+	.videoDescription p {
+		padding-bottom: 10px;
+	}
+
+	.videoDescription span {
+		/* same as p */
+		font-size: 0.9em;
+		line-height: 150%;
+	}
+
+	.videoDescription ul {
+		padding-bottom: 10px;
+	}
+
+	.videoDescription li span {
+		display: inline-block;
+		width: 3%;
+		vertical-align: top;
+	}
+
+	.videoDescription li p {
+		display: inline-block;
+		width: 97%;
+		padding-bottom: 0px;
+	}
+
+
+/* For Support Pocket Yoga Teacher */
+.videoThumbnails {
+}
+
+	.videoThumbnails.aside {
+		margin-right: 4px;
+	}
+
+	.videoThumbnails.bottomDivider {
+		height: 215px;
+		background-image: url("../images/navigation/borderTop.jpg");
+		background-repeat: repeat-x;
+		background-size: 1px 1px;
+		background-position: 20px 215px;
+		padding-bottom: 15px;
+		margin-right: 20px;
+	}
+
+	.videoThumbnails.aside h2 {
+		margin-bottom: 6px;
+	}
+
+	.videoThumbnails.bottomDivider h2 {
+		margin-bottom: 11px;
+	}
+
+	.videoThumbnails ul {
+		text-align: justify;
+	}
+
+	.videoThumbnails ul:after {
+		display: inline-block;
+		content: "";
+		width: 100%;
+	}
+
+	.videoThumbnails li {
+		display: inline-block;
+	}
+
+	.videoThumbnails div {
+		position: relative;
+		display: inline-block;
+		*display: inline; /* fix for inline-block in IE7 */
+		zoom: 1;          /* fix for inline-block in IE7 */
+		vertical-align: top;
+	}
+
+	.videoThumbnails p {
+		font-size: 0.7em;  /* same as accolades */
+		text-align: center;
+		color: #959592; /* dark gray */
+		margin-bottom: -10px;
+	}
+
+	div.showPlayButton:before {
+		position: absolute;
+		top: 0; left:0; bottom:0; right: 0;
+		margin: auto auto auto auto;
+		overflow: hidden;
+		width: 40px;
+		height: 40px;
+		background-image: url("../images/navigation/videoThumbnailPlayButton.png");
+		background-size: 40px 40px;
+		content:"";
+	}
+
+	div.showPlayButton:hover:before {
+		background-image: url("../images/navigation/videoThumbnailPlayButtonSelected.png");
+	}
+
+		@media screen and (-webkit-min-device-pixel-ratio: 2) {
+			div.showPlayButton:before {
+				background-image: url("../images/navigation/videoThumbnailPlayButton@2x.png");
+			}
+			
+			div.showPlayButton:hover:before {
+				background-image: url("../images/navigation/videoThumbnailPlayButtonSelected@2x.png");
+			}
+		}
+
+
+.support {
+    padding-bottom: 10px;
+}
+
+    .support h1 {
+        display: inline-block;
+        *display: inline; /* fix for inline-block in IE7 */
+        zoom: 1;          /* fix for inline-block in IE7 */
+        text-align: right;
+        margin-right: 10px;
+        width: 30px;
+    }
+
+    .support p {
+        display: inline-block;
+        *display: inline; /* fix for inline-block in IE7 */
+        zoom: 1;          /* fix for inline-block in IE7 */
+        width: 900px;
+    }
+
+    .support span {
+        display: block;
+        margin-bottom: 4px;
+    }
+
+    .support span:last-child {
+        margin-bottom: 0px;
+    }
+
+    .question {
+        color: #1F71A3; /* dark blue */
+    }
+
+    .question h1 {
+        vertical-align: middle;
+    }
+
+    .answer h1 {
+        vertical-align: top;
+    }
+
+.caution {
+    padding: 10px 0px 10px 0px;
+}
+
+    .cautionBox {
+        background-image: url("../images/navigation/envelope.jpg");
+        background-size: 940px 92px;
+        width: 940px;
+        height: 92px;
+        margin: 0px auto 0px auto;
+    }
+    @media screen and (-webkit-min-device-pixel-ratio: 2) {
+        .cautionBox {
+            background-image: url("../images/navigation/envelope@2x.jpg");
+        }
+    }
+
+        .cautionBox div {
+            display: inline-block;
+            *display: inline; /* fix for inline-block in IE7 */
+            zoom: 1;          /* fix for inline-block in IE7 */
+            width: 940px;
+            text-align: center;
+            margin: 20px 0px 0px 0px;
+        }
+
+            .cautionBox div h2 {
+                display: block;
+                line-height: 150%;
+            }
+
+
+.privacyHeader {
+	padding-top: 10px;
+	padding-bottom: 8px;
+	margin-right: 20px;
+}
+
+.privacy {
+	padding-bottom: 8px;
+	margin-right: 20px;
+}
+
+.privacyHeader p, .privacy p {
+	padding-bottom: 8px;
+}
+
+
+footer {
+    background-color: #F0F0F0; /* light gray */
+    background-image: url("../images/navigation/borderTop.jpg");
+    background-repeat: repeat-x;
+	background-size: 1px 1px;
+	background-position: 0px 0px;
+    padding: 10px 0px 10px 0px;
+}
+
+footer.home {
+    background-image: none;
+    padding: 0px 0px 10px 0px;
+}
+
+    footer div {
+        width: 980px;
+        text-align: center;
+        margin: 0px auto 0px auto;
+    }
+    
+        footer div span {
+            font-size: 0.6em;
+            cursor: default;
+        }
+
+.error {
+    padding: 20px 0px 20px 0px;
+    min-height: 410px;
+}
+
+.errorLinks {
+    padding-bottom: 40px;
+}
+
+.errorLinks ul li {
+    font-size: 0.9em; /* Same as p element */
+    margin: 2px 0px 2px 0px;
+}
