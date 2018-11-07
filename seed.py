@@ -17,9 +17,9 @@ def load_poses(filename):
     """
 
     with open(filename) as file:
-        for url in file: # assumes each line in the file is a url
-            url = url.rstrip()
-            data = poseparser.parseYogaUrl(url)
+        for localurl in file: # assumes each line in the file is a url
+            localurl = localurl.rstrip()
+            data = poseparser.parseYogaFile(localurl)
             
             # add the pose to the database
             pose = Pose(name=data['name'], description=data['description'],
@@ -29,6 +29,8 @@ def load_poses(filename):
             # get all the optional fields and set them as necessary
             if data.get('altNames'):
                 pose.altNames = data.get('altNames')
+            if data.get('sanskrit'):
+                pose.sanskrit = data.get('sanskrit')
             if data.get('nextPoses'):
                 pose.next_pose_str = data.get('nextPoses')
             if data.get('previousPoses'):
@@ -64,5 +66,6 @@ if __name__ == "__main__":
     # In case tables haven't been created, create them
     db.create_all()
 
-    filename = 'poselinks-sample.txt'
-    load_poses(filename)
+    filename1 = 'static/localposefiles.txt'
+    load_poses(filename1)
+
