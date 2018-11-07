@@ -1,0 +1,72 @@
+<!doctype html>
+
+
+<html>
+<head>
+	<base href="http://www.pocketyoga.com/">
+	<meta charset="utf-8">                             <!-- needed to display nonEnglish characters -->
+    <title>Yoga Pose: Lunge | Pocket Yoga</title>
+    <meta name="description" content= "A detailed description and benefits of the Lunge pose including image, sanskrit name, category, difficulty, and a list of variations, previous, and next poses." />
+    <meta name="keywords" content= "yoga pose, Lunge, " />
+    <link rel="stylesheet" href=./stylesheets/master.css?1501533599 type="text/css" />
+    <link rel="shortcut icon" href="./images/navigation/favicon.ico" />
+    <script type="text/javascript" src="./javascript/jquery-1.8.2.min.js"></script>
+    <script type="text/javascript" src="./javascript/basicFunctions.js"></script>
+    <!-- converts img tags to high resoution images if on retina display -->
+    <script type="text/javascript">
+        $(document).ready(function() {
+            hiResConversion();
+        });
+        window.matchMedia('(-webkit-device-pixel-ratio:1)').addListener(lowResConversion);
+        window.matchMedia('(-webkit-min-device-pixel-ratio:2)').addListener(hiResConversion);
+    </script>
+    <script type="text/javascript">HTML5ieCompatability();</script> <!-- allows HTML5 tags to work on IE 8 or less -->
+</head>
+
+<body>
+    <script type="text/javascript">
+
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-15356291-1']);
+    _gaq.push(['_trackPageview']);
+
+    (function() {
+     var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+     ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+     var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+     })();
+
+</script>    <header >
+    <nav class="head">
+        <!-- floats should come before main text to prevent loading issues -->
+        <ul id="social">
+            <li><a href="http://twitter.com/pocketyogaapp" target="_blank"><img src="./images/navigation/twitter.png" alt="Twitter" width="23" height="20"/></a></li>
+            <li><a href="http://www.facebook.com/pocketyoga" target="_blank"><img src="./images/navigation/facebook.png" alt="Facebook" width="8" height="20"/></a></li>
+        </ul>
+        <a href="./Home"><img id="pocketYogaHeader" src="./images/navigation/pocketYogaHeader.png" alt="Pocket Yoga" width="213" height="25"/></a>
+        <ul>
+        <li><a href='./Home'>Home</a></li><li><a href='./Apps/PocketYoga'>Apps</a></li><li><a href='./Pose'>Poses</a></li><li><a href='./Support/PocketYoga'>Support</a></li>        </ul>
+    </nav>
+</header>
+    
+    <section id="mainSection">
+    <section class="mainContent">
+        
+        <section class="mainProduct">
+        <section class='poseImages'><button id='rotateButton' onclick='switchImage("poseImg")'></button><img id='poseImg' src='./images/poses/lunge_R.png' alt="Yoga Pose: Lunge" height='380'/><h2>Previous Poses</h2><ul><li><a href='./Pose/lunge_crescent' title="Crescent Lunge"><style>#poseThumbPrev1 {background-image: url('./images/thumbnails/lunge_crescent_R-tn.png');}@media screen and (-webkit-min-device-pixel-ratio: 2) {#poseThumbPrev1 {background-image: url('./images/thumbnails/lunge_crescent_R-tn@2x.png');}}</style><div id='poseThumbPrev1'></div></a></li><li><a href='./Pose/lunge_crescent_twist' title="Crescent Lunge Twist"><style>#poseThumbPrev2 {background-image: url('./images/thumbnails/lunge_crescent_twist_R-tn.png');}@media screen and (-webkit-min-device-pixel-ratio: 2) {#poseThumbPrev2 {background-image: url('./images/thumbnails/lunge_crescent_twist_R-tn@2x.png');}}</style><div id='poseThumbPrev2'></div></a></li><li><a href='./Pose/downward_dog_bent_knees' title="Downward-Facing Dog with Bent Knees"><style>#poseThumbPrev3 {background-image: url('./images/thumbnails/downward_dog_bent_knees-tn.png');}@media screen and (-webkit-min-device-pixel-ratio: 2) {#poseThumbPrev3 {background-image: url('./images/thumbnails/downward_dog_bent_knees-tn@2x.png');}}</style><div id='poseThumbPrev3'></div></a></li><li><a href='./Pose/downward_dog_knee_to_forehead' title="Downward-Facing Dog with Knee to Forehead"><style>#poseThumbPrev4 {background-image: url('./images/thumbnails/downward_dog_knee_to_forehead_R-tn.png');}@media screen and (-webkit-min-device-pixel-ratio: 2) {#poseThumbPrev4 {background-image: url('./images/thumbnails/downward_dog_knee_to_forehead_R-tn@2x.png');}}</style><div id='poseThumbPrev4'></div></a></li><li><a href='./Pose/downward_dog_leg_up' title="One Legged Downward-Facing Dog"><style>#poseThumbPrev5 {background-image: url('./images/thumbnails/downward_dog_leg_up_R-tn.png');}@media screen and (-webkit-min-device-pixel-ratio: 2) {#poseThumbPrev5 {background-image: url('./images/thumbnails/downward_dog_leg_up_R-tn@2x.png');}}</style><div id='poseThumbPrev5'></div></a></li><li><a href='./Pose/forward_bend' title="Standing Forward Bend"><style>#poseThumbPrev6 {background-image: url('./images/thumbnails/forward_bend-tn.png');}@media screen and (-webkit-min-device-pixel-ratio: 2) {#poseThumbPrev6 {background-image: url('./images/thumbnails/forward_bend-tn@2x.png');}}</style><div id='poseThumbPrev6'></div></a></li><li><a href='./Pose/forward_bend_half_way' title="Halfway Lift"><style>#poseThumbPrev7 {background-image: url('./images/thumbnails/forward_bend_half_way-tn.png');}@media screen and (-webkit-min-device-pixel-ratio: 2) {#poseThumbPrev7 {background-image: url('./images/thumbnails/forward_bend_half_way-tn@2x.png');}}</style><div id='poseThumbPrev7'></div></a></li><li><a href='./Pose/lunge_arm_forward' title="Lunge with Arm Extended Forward"><style>#poseThumbPrev8 {background-image: url('./images/thumbnails/lunge_arm_forward_R-tn.png');}@media screen and (-webkit-min-device-pixel-ratio: 2) {#poseThumbPrev8 {background-image: url('./images/thumbnails/lunge_arm_forward_R-tn@2x.png');}}</style><div id='poseThumbPrev8'></div></a></li><li><a href='./Pose/lunge_arm_up' title="Lunge with Arm Extended Up"><style>#poseThumbPrev9 {background-image: url('./images/thumbnails/lunge_arm_up_R-tn.png');}@media screen and (-webkit-min-device-pixel-ratio: 2) {#poseThumbPrev9 {background-image: url('./images/thumbnails/lunge_arm_up_R-tn@2x.png');}}</style><div id='poseThumbPrev9'></div></a></li><li><a href='./Pose/lunge_kneeling' title="Lunge on the Knee"><style>#poseThumbPrev10 {background-image: url('./images/thumbnails/lunge_kneeling_R-tn.png');}@media screen and (-webkit-min-device-pixel-ratio: 2) {#poseThumbPrev10 {background-image: url('./images/thumbnails/lunge_kneeling_R-tn@2x.png');}}</style><div id='poseThumbPrev10'></div></a></li><li><a href='./Pose/pyramid' title="Pyramid"><style>#poseThumbPrev11 {background-image: url('./images/thumbnails/pyramid_R-tn.png');}@media screen and (-webkit-min-device-pixel-ratio: 2) {#poseThumbPrev11 {background-image: url('./images/thumbnails/pyramid_R-tn@2x.png');}}</style><div id='poseThumbPrev11'></div></a></li><li><a href='./Pose/warrior_II_reverse' title="Reverse Warrior"><style>#poseThumbPrev12 {background-image: url('./images/thumbnails/warrior_II_reverse_R-tn.png');}@media screen and (-webkit-min-device-pixel-ratio: 2) {#poseThumbPrev12 {background-image: url('./images/thumbnails/warrior_II_reverse_R-tn@2x.png');}}</style><div id='poseThumbPrev12'></div></a></li><li><a href='./Pose/warrior_II' title="Warrior II"><style>#poseThumbPrev13 {background-image: url('./images/thumbnails/warrior_II_R-tn.png');}@media screen and (-webkit-min-device-pixel-ratio: 2) {#poseThumbPrev13 {background-image: url('./images/thumbnails/warrior_II_R-tn@2x.png');}}</style><div id='poseThumbPrev13'></div></a></li></ul><h2>Next Poses</h2><ul><li><a href='./Pose/lunge_crescent' title="Crescent Lunge"><style>#poseThumbNext1 {background-image: url('./images/thumbnails/lunge_crescent_R-tn.png');}@media screen and (-webkit-min-device-pixel-ratio: 2) {#poseThumbNext1 {background-image: url('./images/thumbnails/lunge_crescent_R-tn@2x.png');}}</style><div id='poseThumbNext1'></div></a></li><li><a href='./Pose/downward_dog_leg_up' title="One Legged Downward-Facing Dog"><style>#poseThumbNext2 {background-image: url('./images/thumbnails/downward_dog_leg_up_R-tn.png');}@media screen and (-webkit-min-device-pixel-ratio: 2) {#poseThumbNext2 {background-image: url('./images/thumbnails/downward_dog_leg_up_R-tn@2x.png');}}</style><div id='poseThumbNext2'></div></a></li><li><a href='./Pose/forward_bend' title="Standing Forward Bend"><style>#poseThumbNext3 {background-image: url('./images/thumbnails/forward_bend-tn.png');}@media screen and (-webkit-min-device-pixel-ratio: 2) {#poseThumbNext3 {background-image: url('./images/thumbnails/forward_bend-tn@2x.png');}}</style><div id='poseThumbNext3'></div></a></li><li><a href='./Pose/lunge_arm_forward' title="Lunge with Arm Extended Forward"><style>#poseThumbNext4 {background-image: url('./images/thumbnails/lunge_arm_forward_R-tn.png');}@media screen and (-webkit-min-device-pixel-ratio: 2) {#poseThumbNext4 {background-image: url('./images/thumbnails/lunge_arm_forward_R-tn@2x.png');}}</style><div id='poseThumbNext4'></div></a></li><li><a href='./Pose/lunge_kneeling' title="Lunge on the Knee"><style>#poseThumbNext5 {background-image: url('./images/thumbnails/lunge_kneeling_R-tn.png');}@media screen and (-webkit-min-device-pixel-ratio: 2) {#poseThumbNext5 {background-image: url('./images/thumbnails/lunge_kneeling_R-tn@2x.png');}}</style><div id='poseThumbNext5'></div></a></li><li><a href='./Pose/pyramid' title="Pyramid"><style>#poseThumbNext6 {background-image: url('./images/thumbnails/pyramid_R-tn.png');}@media screen and (-webkit-min-device-pixel-ratio: 2) {#poseThumbNext6 {background-image: url('./images/thumbnails/pyramid_R-tn@2x.png');}}</style><div id='poseThumbNext6'></div></a></li><li><a href='./Pose/splits_standing' title="Standing Splits"><style>#poseThumbNext7 {background-image: url('./images/thumbnails/splits_standing_R-tn.png');}@media screen and (-webkit-min-device-pixel-ratio: 2) {#poseThumbNext7 {background-image: url('./images/thumbnails/splits_standing_R-tn@2x.png');}}</style><div id='poseThumbNext7'></div></a></li><li><a href='./Pose/warrior_II_reverse' title="Reverse Warrior"><style>#poseThumbNext8 {background-image: url('./images/thumbnails/warrior_II_reverse_R-tn.png');}@media screen and (-webkit-min-device-pixel-ratio: 2) {#poseThumbNext8 {background-image: url('./images/thumbnails/warrior_II_reverse_R-tn@2x.png');}}</style><div id='poseThumbNext8'></div></a></li><li><a href='./Pose/warrior_I' title="Warrior I"><style>#poseThumbNext9 {background-image: url('./images/thumbnails/warrior_I_R-tn.png');}@media screen and (-webkit-min-device-pixel-ratio: 2) {#poseThumbNext9 {background-image: url('./images/thumbnails/warrior_I_R-tn@2x.png');}}</style><div id='poseThumbNext9'></div></a></li></ul></section><section class='poseDescription'><ul><li><h3>Lunge</h3></li></ul><ul><li><h5 class='category'>Category:</h5><span class='cat'>Arm and Leg Support / Balancing</span></li><li><h5 class='category'>Difficulty:</h5><span class='cat'>Beginner</span></li></ul><ul><li><h5>Description:</h5><p class='text'>The weight of the body is supported on the front foot and the back toes.  The front knee is bent directly above the ankle in a 90-degree angle to the ankle.  The back heel is pressed to the back.  The inner thighs scissor towards each other and the hips are squared.  The ribcage is lifted and the heart is open.  The fingertips straddle the front leg and rest softly on the earth for balance.  You may use a block if necessary to keep the proper alignment.  The gaze is down and slightly forward.</p></li></ul><ul><li><h5>Benefits:</h5><p class='text'>Creates flexible strength.  Promotes stability in the front and back of the torso.  Tones the lower body.</p></li></ul></section>        </section>
+
+    </section>
+    </section>
+
+    <footer  >
+    <div>
+		<span>
+			<a href="./PrivacyPolicy">privacy</a> |
+			<a href="./TermsOfUse">terms</a> |
+			© 2018 Rainfrog, LLC. All Rights Reserved.
+		</span>
+	</div>
+</footer>
+
+</body>
+</html>

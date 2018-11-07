@@ -1,0 +1,72 @@
+<!doctype html>
+
+
+<html>
+<head>
+	<base href="http://www.pocketyoga.com/">
+	<meta charset="utf-8">                             <!-- needed to display nonEnglish characters -->
+    <title>Yoga Pose: Warrior II | Pocket Yoga</title>
+    <meta name="description" content= "A detailed description and benefits of the Warrior II pose including image, sanskrit name, category, difficulty, and a list of variations, previous, and next poses." />
+    <meta name="keywords" content= "yoga pose, Warrior II, Vīrabhadrāsana II" />
+    <link rel="stylesheet" href=./stylesheets/master.css?1501533599 type="text/css" />
+    <link rel="shortcut icon" href="./images/navigation/favicon.ico" />
+    <script type="text/javascript" src="./javascript/jquery-1.8.2.min.js"></script>
+    <script type="text/javascript" src="./javascript/basicFunctions.js"></script>
+    <!-- converts img tags to high resoution images if on retina display -->
+    <script type="text/javascript">
+        $(document).ready(function() {
+            hiResConversion();
+        });
+        window.matchMedia('(-webkit-device-pixel-ratio:1)').addListener(lowResConversion);
+        window.matchMedia('(-webkit-min-device-pixel-ratio:2)').addListener(hiResConversion);
+    </script>
+    <script type="text/javascript">HTML5ieCompatability();</script> <!-- allows HTML5 tags to work on IE 8 or less -->
+</head>
+
+<body>
+    <script type="text/javascript">
+
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-15356291-1']);
+    _gaq.push(['_trackPageview']);
+
+    (function() {
+     var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+     ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+     var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+     })();
+
+</script>    <header >
+    <nav class="head">
+        <!-- floats should come before main text to prevent loading issues -->
+        <ul id="social">
+            <li><a href="http://twitter.com/pocketyogaapp" target="_blank"><img src="./images/navigation/twitter.png" alt="Twitter" width="23" height="20"/></a></li>
+            <li><a href="http://www.facebook.com/pocketyoga" target="_blank"><img src="./images/navigation/facebook.png" alt="Facebook" width="8" height="20"/></a></li>
+        </ul>
+        <a href="./Home"><img id="pocketYogaHeader" src="./images/navigation/pocketYogaHeader.png" alt="Pocket Yoga" width="213" height="25"/></a>
+        <ul>
+        <li><a href='./Home'>Home</a></li><li><a href='./Apps/PocketYoga'>Apps</a></li><li><a href='./Pose'>Poses</a></li><li><a href='./Support/PocketYoga'>Support</a></li>        </ul>
+    </nav>
+</header>
+    
+    <section id="mainSection">
+    <section class="mainContent">
+        
+        <section class="mainProduct">
+        <section class='poseImages'><button id='rotateButton' onclick='switchImage("poseImg")'></button><img id='poseImg' src='./images/poses/warrior_II_R.png' alt="Yoga Pose: Warrior II (Vīrabhadrāsana II)" height='380'/><h2>Previous Poses</h2><ul><li><a href='./Pose/half_moon' title="Half Moon"><style>#poseThumbPrev1 {background-image: url('./images/thumbnails/half_moon_R-tn.png');}@media screen and (-webkit-min-device-pixel-ratio: 2) {#poseThumbPrev1 {background-image: url('./images/thumbnails/half_moon_R-tn@2x.png');}}</style><div id='poseThumbPrev1'></div></a></li><li><a href='./Pose/triangle' title="Triangle (Preparation)"><style>#poseThumbPrev2 {background-image: url('./images/thumbnails/triangle_R-tn.png');}@media screen and (-webkit-min-device-pixel-ratio: 2) {#poseThumbPrev2 {background-image: url('./images/thumbnails/triangle_R-tn@2x.png');}}</style><div id='poseThumbPrev2'></div></a></li><li><a href='./Pose/warrior_II_reverse' title="Reverse Warrior"><style>#poseThumbPrev3 {background-image: url('./images/thumbnails/warrior_II_reverse_R-tn.png');}@media screen and (-webkit-min-device-pixel-ratio: 2) {#poseThumbPrev3 {background-image: url('./images/thumbnails/warrior_II_reverse_R-tn@2x.png');}}</style><div id='poseThumbPrev3'></div></a></li><li><a href='./Pose/warrior_I' title="Warrior I"><style>#poseThumbPrev4 {background-image: url('./images/thumbnails/warrior_I_R-tn.png');}@media screen and (-webkit-min-device-pixel-ratio: 2) {#poseThumbPrev4 {background-image: url('./images/thumbnails/warrior_I_R-tn@2x.png');}}</style><div id='poseThumbPrev4'></div></a></li><li><a href='./Pose/warrior_I_hands_on_hips' title="Warrior I with Hands on Hips"><style>#poseThumbPrev5 {background-image: url('./images/thumbnails/warrior_I_hands_on_hips_R-tn.png');}@media screen and (-webkit-min-device-pixel-ratio: 2) {#poseThumbPrev5 {background-image: url('./images/thumbnails/warrior_I_hands_on_hips_R-tn@2x.png');}}</style><div id='poseThumbPrev5'></div></a></li><li><a href='./Pose/warrior_prayer' title="Warrior I with Prayer Hands"><style>#poseThumbPrev6 {background-image: url('./images/thumbnails/warrior_prayer_R-tn.png');}@media screen and (-webkit-min-device-pixel-ratio: 2) {#poseThumbPrev6 {background-image: url('./images/thumbnails/warrior_prayer_R-tn@2x.png');}}</style><div id='poseThumbPrev6'></div></a></li><li><a href='./Pose/warrior_II_forward' title="Warrior II Forward Bend"><style>#poseThumbPrev7 {background-image: url('./images/thumbnails/warrior_II_forward_R-tn.png');}@media screen and (-webkit-min-device-pixel-ratio: 2) {#poseThumbPrev7 {background-image: url('./images/thumbnails/warrior_II_forward_R-tn@2x.png');}}</style><div id='poseThumbPrev7'></div></a></li></ul><h2>Next Poses</h2><ul><li><a href='./Pose/half_moon' title="Half Moon"><style>#poseThumbNext1 {background-image: url('./images/thumbnails/half_moon_R-tn.png');}@media screen and (-webkit-min-device-pixel-ratio: 2) {#poseThumbNext1 {background-image: url('./images/thumbnails/half_moon_R-tn@2x.png');}}</style><div id='poseThumbNext1'></div></a></li><li><a href='./Pose/lunge' title="Lunge"><style>#poseThumbNext2 {background-image: url('./images/thumbnails/lunge_R-tn.png');}@media screen and (-webkit-min-device-pixel-ratio: 2) {#poseThumbNext2 {background-image: url('./images/thumbnails/lunge_R-tn@2x.png');}}</style><div id='poseThumbNext2'></div></a></li><li><a href='./Pose/lunge_kneeling' title="Lunge on the Knee"><style>#poseThumbNext3 {background-image: url('./images/thumbnails/lunge_kneeling_R-tn.png');}@media screen and (-webkit-min-device-pixel-ratio: 2) {#poseThumbNext3 {background-image: url('./images/thumbnails/lunge_kneeling_R-tn@2x.png');}}</style><div id='poseThumbNext3'></div></a></li><li><a href='./Pose/plank' title="Plank"><style>#poseThumbNext4 {background-image: url('./images/thumbnails/plank-tn.png');}@media screen and (-webkit-min-device-pixel-ratio: 2) {#poseThumbNext4 {background-image: url('./images/thumbnails/plank-tn@2x.png');}}</style><div id='poseThumbNext4'></div></a></li><li><a href='./Pose/plank_kneeling' title="Plank on the Knees"><style>#poseThumbNext5 {background-image: url('./images/thumbnails/plank_kneeling-tn.png');}@media screen and (-webkit-min-device-pixel-ratio: 2) {#poseThumbNext5 {background-image: url('./images/thumbnails/plank_kneeling-tn@2x.png');}}</style><div id='poseThumbNext5'></div></a></li><li><a href='./Pose/four_limbed_staff' title="Four Limbed Staff"><style>#poseThumbNext6 {background-image: url('./images/thumbnails/four_limbed_staff-tn.png');}@media screen and (-webkit-min-device-pixel-ratio: 2) {#poseThumbNext6 {background-image: url('./images/thumbnails/four_limbed_staff-tn@2x.png');}}</style><div id='poseThumbNext6'></div></a></li><li><a href='./Pose/triangle' title="Triangle (Preparation)"><style>#poseThumbNext7 {background-image: url('./images/thumbnails/triangle_R-tn.png');}@media screen and (-webkit-min-device-pixel-ratio: 2) {#poseThumbNext7 {background-image: url('./images/thumbnails/triangle_R-tn@2x.png');}}</style><div id='poseThumbNext7'></div></a></li><li><a href='./Pose/warrior_II_reverse' title="Reverse Warrior"><style>#poseThumbNext8 {background-image: url('./images/thumbnails/warrior_II_reverse_R-tn.png');}@media screen and (-webkit-min-device-pixel-ratio: 2) {#poseThumbNext8 {background-image: url('./images/thumbnails/warrior_II_reverse_R-tn@2x.png');}}</style><div id='poseThumbNext8'></div></a></li><li><a href='./Pose/warrior_I' title="Warrior I"><style>#poseThumbNext9 {background-image: url('./images/thumbnails/warrior_I_R-tn.png');}@media screen and (-webkit-min-device-pixel-ratio: 2) {#poseThumbNext9 {background-image: url('./images/thumbnails/warrior_I_R-tn@2x.png');}}</style><div id='poseThumbNext9'></div></a></li><li><a href='./Pose/warrior_prayer' title="Warrior I with Prayer Hands"><style>#poseThumbNext10 {background-image: url('./images/thumbnails/warrior_prayer_R-tn.png');}@media screen and (-webkit-min-device-pixel-ratio: 2) {#poseThumbNext10 {background-image: url('./images/thumbnails/warrior_prayer_R-tn@2x.png');}}</style><div id='poseThumbNext10'></div></a></li><li><a href='./Pose/warrior_II_forward' title="Warrior II Forward Bend"><style>#poseThumbNext11 {background-image: url('./images/thumbnails/warrior_II_forward_R-tn.png');}@media screen and (-webkit-min-device-pixel-ratio: 2) {#poseThumbNext11 {background-image: url('./images/thumbnails/warrior_II_forward_R-tn@2x.png');}}</style><div id='poseThumbNext11'></div></a></li></ul></section><section class='poseDescription'><ul><li><h3>Warrior II</h3></li><li><h4 class='big'>Vīrabhadrāsana II</h4></li></ul><ul><li><div class='trans'>vīrabhadra = warrior</div></li><li><div class='trans'>āsana = posture</div></li></ul><ul><li><h5 class='category'>Category:</h5><span class='cat'>Standing / Balancing</span></li><li><h5 class='category'>Difficulty:</h5><span class='cat'>Beginner</span></li></ul><ul><li><h5>Description:</h5><p class='text'>From a standing position, the legs are separated into a wide stance.  The front knee is bent in a 90-degree angle directly above the ankle.  The back leg is extended and straight with the outside edge of the back foot gripping the earth in a 60-degree angle towards the front.  The inner thighs are externally rotated away from each other.  The pelvis is tucked.  The ribcage is lifted.  The arms are extended out to the sides and are aligned with the shoulders in a straight line with the fingers reaching out as the shoulder blades squeeze together.  The gaze is toward the front fingers.</p></li></ul><ul><li><h5>Benefits:</h5><p class='text'>Strengthens and stretches the legs and ankles.  Stretches the groin, chest, lungs, and shoulders.  Stimulates abdominal organs.  Increases stamina.  Relieves backaches, especially through second trimester of pregnancy.  Therapeutic for carpal tunnel syndrome, flat feet, infertility, osteoporosis, and sciatica.</p></li></ul></section>        </section>
+
+    </section>
+    </section>
+
+    <footer  >
+    <div>
+		<span>
+			<a href="./PrivacyPolicy">privacy</a> |
+			<a href="./TermsOfUse">terms</a> |
+			© 2018 Rainfrog, LLC. All Rights Reserved.
+		</span>
+	</div>
+</footer>
+
+</body>
+</html>

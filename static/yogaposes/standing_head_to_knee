@@ -1,0 +1,72 @@
+<!doctype html>
+
+
+<html>
+<head>
+	<base href="http://www.pocketyoga.com/">
+	<meta charset="utf-8">                             <!-- needed to display nonEnglish characters -->
+    <title>Yoga Pose: Standing Head to Knee | Pocket Yoga</title>
+    <meta name="description" content= "A detailed description and benefits of the Standing Head to Knee pose including image, sanskrit name, category, difficulty, and a list of variations, previous, and next poses." />
+    <meta name="keywords" content= "yoga pose, Standing Head to Knee, Daṇḍayamana Jānushīrāsana" />
+    <link rel="stylesheet" href=./stylesheets/master.css?1501533599 type="text/css" />
+    <link rel="shortcut icon" href="./images/navigation/favicon.ico" />
+    <script type="text/javascript" src="./javascript/jquery-1.8.2.min.js"></script>
+    <script type="text/javascript" src="./javascript/basicFunctions.js"></script>
+    <!-- converts img tags to high resoution images if on retina display -->
+    <script type="text/javascript">
+        $(document).ready(function() {
+            hiResConversion();
+        });
+        window.matchMedia('(-webkit-device-pixel-ratio:1)').addListener(lowResConversion);
+        window.matchMedia('(-webkit-min-device-pixel-ratio:2)').addListener(hiResConversion);
+    </script>
+    <script type="text/javascript">HTML5ieCompatability();</script> <!-- allows HTML5 tags to work on IE 8 or less -->
+</head>
+
+<body>
+    <script type="text/javascript">
+
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-15356291-1']);
+    _gaq.push(['_trackPageview']);
+
+    (function() {
+     var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+     ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+     var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+     })();
+
+</script>    <header >
+    <nav class="head">
+        <!-- floats should come before main text to prevent loading issues -->
+        <ul id="social">
+            <li><a href="http://twitter.com/pocketyogaapp" target="_blank"><img src="./images/navigation/twitter.png" alt="Twitter" width="23" height="20"/></a></li>
+            <li><a href="http://www.facebook.com/pocketyoga" target="_blank"><img src="./images/navigation/facebook.png" alt="Facebook" width="8" height="20"/></a></li>
+        </ul>
+        <a href="./Home"><img id="pocketYogaHeader" src="./images/navigation/pocketYogaHeader.png" alt="Pocket Yoga" width="213" height="25"/></a>
+        <ul>
+        <li><a href='./Home'>Home</a></li><li><a href='./Apps/PocketYoga'>Apps</a></li><li><a href='./Pose'>Poses</a></li><li><a href='./Support/PocketYoga'>Support</a></li>        </ul>
+    </nav>
+</header>
+    
+    <section id="mainSection">
+    <section class="mainContent">
+        
+        <section class="mainProduct">
+        <section class='poseImages'><button id='rotateButton' onclick='switchImage("poseImg")'></button><img id='poseImg' src='./images/poses/standing_head_to_knee_R.png' alt="Yoga Pose: Standing Head to Knee (Daṇḍayamana Jānushīrāsana)" height='380'/><h2>Previous Poses</h2><ul><li><a href='./Pose/standing_head_to_knee_preparation' title="Standing Head to Knee (Preparation)"><style>#poseThumbPrev1 {background-image: url('./images/thumbnails/standing_head_to_knee_preparation_R-tn.png');}@media screen and (-webkit-min-device-pixel-ratio: 2) {#poseThumbPrev1 {background-image: url('./images/thumbnails/standing_head_to_knee_preparation_R-tn@2x.png');}}</style><div id='poseThumbPrev1'></div></a></li></ul><h2>Next Poses</h2><ul><li><a href='./Pose/mountain' title="Mountain"><style>#poseThumbNext1 {background-image: url('./images/thumbnails/mountain-tn.png');}@media screen and (-webkit-min-device-pixel-ratio: 2) {#poseThumbNext1 {background-image: url('./images/thumbnails/mountain-tn@2x.png');}}</style><div id='poseThumbNext1'></div></a></li></ul></section><section class='poseDescription'><ul><li><h3>Standing Head to Knee</h3></li><li><h4 class='big'>Daṇḍayamana Jānushīrāsana</h4></li></ul><ul><li><div class='trans'>daṇḍayamana = standing</div></li><li><div class='trans'>jānu = knee</div></li><li><div class='trans'>sīrsa = head</div></li><li><div class='trans'>āsana = posture</div></li></ul><ul><li><h5 class='category'>Category:</h5><span class='cat'>Standing / Balancing</span></li><li><h5 class='category'>Difficulty:</h5><span class='cat'>Expert</span></li></ul><ul><li><h5>Description:</h5><p class='text'>From a standing position with the feet together, the weight of the body is shifted to balance on one leg.  The opposite foot is then clasped with both hands and lifted up by pulling the knee in towards the chest.  Fingers are interlaced under the sole of the foot, specifically at the arch.  Avoid placing the thumbs on the tops of the feet.  The standing leg is straight, but the knee joint is not locked.  The standing foot is rooted firmly into the earth while the weight is shifted slightly forward, closer to the ball of the foot, not the heel.  The bent knee then extends straight until it is parallel with the earth.  Maintain balance in the pose with good pranayama (breath work) and bandhas.  Keep a leveled pelvis.  It is helpful to think about extending the foot up rather than out.  Continue to lengthen the spine from the neck down to the tailbone.  Allow the shoulders to fall into their natural position away from the ears and extend the arms, maintaining the grip on the foot and straightening the leg.  Engage the muscles of the thigh for more stability.  To achieve the full extension of the pose, round the spine and drop the elbows while lowering the head to your knee.  Avoid dropping the abdominals onto your thigh.  Pull the navel up and into the spine while folding forward.  Lower the head to the knee and tuck the chin into the chest into Jalandhara bandha.  This will extend the stretch of the spine up through the neck.  The gaze is towards the knee or out in front.</p></li></ul><ul><li><h5>Benefits:</h5><p class='text'>Improves balance.  Enhances agility.  Helps digestion.  Massages the internal organs.  Improves circulation.  Enhances memory.</p></li></ul></section>        </section>
+
+    </section>
+    </section>
+
+    <footer  >
+    <div>
+		<span>
+			<a href="./PrivacyPolicy">privacy</a> |
+			<a href="./TermsOfUse">terms</a> |
+			© 2018 Rainfrog, LLC. All Rights Reserved.
+		</span>
+	</div>
+</footer>
+
+</body>
+</html>

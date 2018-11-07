@@ -1,0 +1,72 @@
+<!doctype html>
+
+
+<html>
+<head>
+	<base href="http://www.pocketyoga.com/">
+	<meta charset="utf-8">                             <!-- needed to display nonEnglish characters -->
+    <title>Yoga Pose: Bound Half Moon | Pocket Yoga</title>
+    <meta name="description" content= "A detailed description and benefits of the Bound Half Moon pose including image, sanskrit name, category, difficulty, and a list of variations, previous, and next poses." />
+    <meta name="keywords" content= "yoga pose, Bound Half Moon, Sugarcane, Baddha Ardha Chandrāsana" />
+    <link rel="stylesheet" href=./stylesheets/master.css?1501533599 type="text/css" />
+    <link rel="shortcut icon" href="./images/navigation/favicon.ico" />
+    <script type="text/javascript" src="./javascript/jquery-1.8.2.min.js"></script>
+    <script type="text/javascript" src="./javascript/basicFunctions.js"></script>
+    <!-- converts img tags to high resoution images if on retina display -->
+    <script type="text/javascript">
+        $(document).ready(function() {
+            hiResConversion();
+        });
+        window.matchMedia('(-webkit-device-pixel-ratio:1)').addListener(lowResConversion);
+        window.matchMedia('(-webkit-min-device-pixel-ratio:2)').addListener(hiResConversion);
+    </script>
+    <script type="text/javascript">HTML5ieCompatability();</script> <!-- allows HTML5 tags to work on IE 8 or less -->
+</head>
+
+<body>
+    <script type="text/javascript">
+
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-15356291-1']);
+    _gaq.push(['_trackPageview']);
+
+    (function() {
+     var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+     ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+     var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+     })();
+
+</script>    <header >
+    <nav class="head">
+        <!-- floats should come before main text to prevent loading issues -->
+        <ul id="social">
+            <li><a href="http://twitter.com/pocketyogaapp" target="_blank"><img src="./images/navigation/twitter.png" alt="Twitter" width="23" height="20"/></a></li>
+            <li><a href="http://www.facebook.com/pocketyoga" target="_blank"><img src="./images/navigation/facebook.png" alt="Facebook" width="8" height="20"/></a></li>
+        </ul>
+        <a href="./Home"><img id="pocketYogaHeader" src="./images/navigation/pocketYogaHeader.png" alt="Pocket Yoga" width="213" height="25"/></a>
+        <ul>
+        <li><a href='./Home'>Home</a></li><li><a href='./Apps/PocketYoga'>Apps</a></li><li><a href='./Pose'>Poses</a></li><li><a href='./Support/PocketYoga'>Support</a></li>        </ul>
+    </nav>
+</header>
+    
+    <section id="mainSection">
+    <section class="mainContent">
+        
+        <section class="mainProduct">
+        <section class='poseImages'><button id='rotateButton' onclick='switchImage("poseImg")'></button><img id='poseImg' src='./images/poses/half_moon_bound_R.png' alt="Yoga Pose: Bound Half Moon, Sugarcane (Baddha Ardha Chandrāsana)" height='380'/><h2>Previous Poses</h2><ul><li><a href='./Pose/half_moon' title="Half Moon"><style>#poseThumbPrev1 {background-image: url('./images/thumbnails/half_moon_R-tn.png');}@media screen and (-webkit-min-device-pixel-ratio: 2) {#poseThumbPrev1 {background-image: url('./images/thumbnails/half_moon_R-tn@2x.png');}}</style><div id='poseThumbPrev1'></div></a></li></ul><h2>Next Poses</h2><ul><li><a href='./Pose/half_moon' title="Half Moon"><style>#poseThumbNext1 {background-image: url('./images/thumbnails/half_moon_R-tn.png');}@media screen and (-webkit-min-device-pixel-ratio: 2) {#poseThumbNext1 {background-image: url('./images/thumbnails/half_moon_R-tn@2x.png');}}</style><div id='poseThumbNext1'></div></a></li></ul></section><section class='poseDescription'><ul><li><h3>Bound Half Moon</h3></li><li><h4 class='big'>Baddha Ardha Chandrāsana</h4></li></ul><ul><li><div class='trans'>baddha = bound</div></li><li><div class='trans'>ardha = half</div></li><li><div class='trans'>chandra = moon</div></li><li><div class='trans'>āsana = posture</div></li></ul><ul><li><h5 class='category'>Alt. Name:</h5><span class='cat'>Sugarcane</span></li><li><h5 class='category'>Category:</h5><span class='cat'>Standing / Balancing</span></li><li><h5 class='category'>Difficulty:</h5><span class='cat'>Expert</span></li></ul><ul><li><h5>Description:</h5><p class='text'>From a standing position one leg is straight while the other is extended back parallel to the earth (or a little above parallel) and one hand is on the earth (beyond the little-toe side of the foot, about 12 inches) while the other hand reaches back to grasp the outside of the foot or ankle of the raised leg.  The shoulder blades are squeezed together.  The weight of the body is supported mostly by the standing leg while the bottom hand has very little weight on it but is used perceptively to maintain balance.  The upper torso is rotated open to the sky.  Both hips are externally rotated.  Energy is extended actively through the flexed toes to keep the raised leg strong.  The inner ankle of the standing foot is lifted strongly upward, as if drawing energy from the earth.  The sacrum and scapulae are firmly pressed against the back torso and lengthen the coccyx toward the raised leg.  The gaze is either up or down, depending on the condition of the neck.  If the neck is injured, the gaze is down.</p></li></ul><ul><li><h5>Benefits:</h5><p class='text'>Strengthens the abdomen, ankles, thighs, buttocks and spine.  Stretches the groins, hamstrings, calves, shoulders, chest and spine.  Improves coordination and sense of balance.  Helps relieve stress.  Improves digestion.  Increases circulation.</p></li></ul></section>        </section>
+
+    </section>
+    </section>
+
+    <footer  >
+    <div>
+		<span>
+			<a href="./PrivacyPolicy">privacy</a> |
+			<a href="./TermsOfUse">terms</a> |
+			© 2018 Rainfrog, LLC. All Rights Reserved.
+		</span>
+	</div>
+</footer>
+
+</body>
+</html>

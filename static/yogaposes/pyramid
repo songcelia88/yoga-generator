@@ -1,0 +1,72 @@
+<!doctype html>
+
+
+<html>
+<head>
+	<base href="http://www.pocketyoga.com/">
+	<meta charset="utf-8">                             <!-- needed to display nonEnglish characters -->
+    <title>Yoga Pose: Pyramid | Pocket Yoga</title>
+    <meta name="description" content= "A detailed description and benefits of the Pyramid pose including image, sanskrit name, category, difficulty, and a list of variations, previous, and next poses." />
+    <meta name="keywords" content= "yoga pose, Pyramid, Pārśvottānāsana" />
+    <link rel="stylesheet" href=./stylesheets/master.css?1501533599 type="text/css" />
+    <link rel="shortcut icon" href="./images/navigation/favicon.ico" />
+    <script type="text/javascript" src="./javascript/jquery-1.8.2.min.js"></script>
+    <script type="text/javascript" src="./javascript/basicFunctions.js"></script>
+    <!-- converts img tags to high resoution images if on retina display -->
+    <script type="text/javascript">
+        $(document).ready(function() {
+            hiResConversion();
+        });
+        window.matchMedia('(-webkit-device-pixel-ratio:1)').addListener(lowResConversion);
+        window.matchMedia('(-webkit-min-device-pixel-ratio:2)').addListener(hiResConversion);
+    </script>
+    <script type="text/javascript">HTML5ieCompatability();</script> <!-- allows HTML5 tags to work on IE 8 or less -->
+</head>
+
+<body>
+    <script type="text/javascript">
+
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-15356291-1']);
+    _gaq.push(['_trackPageview']);
+
+    (function() {
+     var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+     ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+     var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+     })();
+
+</script>    <header >
+    <nav class="head">
+        <!-- floats should come before main text to prevent loading issues -->
+        <ul id="social">
+            <li><a href="http://twitter.com/pocketyogaapp" target="_blank"><img src="./images/navigation/twitter.png" alt="Twitter" width="23" height="20"/></a></li>
+            <li><a href="http://www.facebook.com/pocketyoga" target="_blank"><img src="./images/navigation/facebook.png" alt="Facebook" width="8" height="20"/></a></li>
+        </ul>
+        <a href="./Home"><img id="pocketYogaHeader" src="./images/navigation/pocketYogaHeader.png" alt="Pocket Yoga" width="213" height="25"/></a>
+        <ul>
+        <li><a href='./Home'>Home</a></li><li><a href='./Apps/PocketYoga'>Apps</a></li><li><a href='./Pose'>Poses</a></li><li><a href='./Support/PocketYoga'>Support</a></li>        </ul>
+    </nav>
+</header>
+    
+    <section id="mainSection">
+    <section class="mainContent">
+        
+        <section class="mainProduct">
+        <section class='poseImages'><button id='rotateButton' onclick='switchImage("poseImg")'></button><img id='poseImg' src='./images/poses/pyramid_R.png' alt="Yoga Pose: Pyramid (Pārśvottānāsana)" height='380'/><h2>Previous Poses</h2><ul><li><a href='./Pose/lunge_crescent' title="Crescent Lunge"><style>#poseThumbPrev1 {background-image: url('./images/thumbnails/lunge_crescent_R-tn.png');}@media screen and (-webkit-min-device-pixel-ratio: 2) {#poseThumbPrev1 {background-image: url('./images/thumbnails/lunge_crescent_R-tn@2x.png');}}</style><div id='poseThumbPrev1'></div></a></li><li><a href='./Pose/lunge' title="Lunge"><style>#poseThumbPrev2 {background-image: url('./images/thumbnails/lunge_R-tn.png');}@media screen and (-webkit-min-device-pixel-ratio: 2) {#poseThumbPrev2 {background-image: url('./images/thumbnails/lunge_R-tn@2x.png');}}</style><div id='poseThumbPrev2'></div></a></li></ul><h2>Next Poses</h2><ul><li><a href='./Pose/lunge_crescent' title="Crescent Lunge"><style>#poseThumbNext1 {background-image: url('./images/thumbnails/lunge_crescent_R-tn.png');}@media screen and (-webkit-min-device-pixel-ratio: 2) {#poseThumbNext1 {background-image: url('./images/thumbnails/lunge_crescent_R-tn@2x.png');}}</style><div id='poseThumbNext1'></div></a></li><li><a href='./Pose/lunge' title="Lunge"><style>#poseThumbNext2 {background-image: url('./images/thumbnails/lunge_R-tn.png');}@media screen and (-webkit-min-device-pixel-ratio: 2) {#poseThumbNext2 {background-image: url('./images/thumbnails/lunge_R-tn@2x.png');}}</style><div id='poseThumbNext2'></div></a></li></ul></section><section class='poseDescription'><ul><li><h3>Pyramid</h3></li><li><h4 class='big'>Pārśvottānāsana</h4></li></ul><ul><li><div class='trans'>pārśva = side</div></li><li><div class='trans'>uttāna = stretch out</div></li><li><div class='trans'>āsana = posture</div></li></ul><ul><li><h5 class='category'>Category:</h5><span class='cat'>Arm and Leg Support / Forward Bend</span></li><li><h5 class='category'>Difficulty:</h5><span class='cat'>Intermediate</span></li></ul><ul><li><h5>Description:</h5><p class='text'>From a standing position with one leg forward and one back lean the torso forward at the crease of the hip joint.  Stop when the torso is parallel to the floor.  Press the fingertips or flat palms to the floor on either side of the front foot, maintaining a straight elongated spine.  If it isn’t possible to touch the floor, or to maintain a straight spine, support the hands on a pair of blocks.  Press the thighs back and lengthen the torso forward, lifting up through the top of the sternum.  Then, as flexibility allows, bring the front torso closer to the top of the thigh without rounding the spine.  Eventually the long front torso will rest down on the thigh.  The gaze is down.</p></li></ul><ul><li><h5>Benefits:</h5><p class='text'>Calms the brain.  Stretches the spine, the shoulders, the hips and the hamstrings.  Strengthens the legs.  Stimulates the abdominal organs.  Improves posture and sense of balance.  Improves digestion.</p></li></ul></section>        </section>
+
+    </section>
+    </section>
+
+    <footer  >
+    <div>
+		<span>
+			<a href="./PrivacyPolicy">privacy</a> |
+			<a href="./TermsOfUse">terms</a> |
+			© 2018 Rainfrog, LLC. All Rights Reserved.
+		</span>
+	</div>
+</footer>
+
+</body>
+</html>

@@ -1,0 +1,72 @@
+<!doctype html>
+
+
+<html>
+<head>
+	<base href="http://www.pocketyoga.com/">
+	<meta charset="utf-8">                             <!-- needed to display nonEnglish characters -->
+    <title>Yoga Pose: Downward-Facing Dog with Bent Knees | Pocket Yoga</title>
+    <meta name="description" content= "A detailed description and benefits of the Downward-Facing Dog with Bent Knees pose including image, sanskrit name, category, difficulty, and a list of variations, previous, and next poses." />
+    <meta name="keywords" content= "yoga pose, Downward-Facing Dog with Bent Knees, " />
+    <link rel="stylesheet" href=./stylesheets/master.css?1501533599 type="text/css" />
+    <link rel="shortcut icon" href="./images/navigation/favicon.ico" />
+    <script type="text/javascript" src="./javascript/jquery-1.8.2.min.js"></script>
+    <script type="text/javascript" src="./javascript/basicFunctions.js"></script>
+    <!-- converts img tags to high resoution images if on retina display -->
+    <script type="text/javascript">
+        $(document).ready(function() {
+            hiResConversion();
+        });
+        window.matchMedia('(-webkit-device-pixel-ratio:1)').addListener(lowResConversion);
+        window.matchMedia('(-webkit-min-device-pixel-ratio:2)').addListener(hiResConversion);
+    </script>
+    <script type="text/javascript">HTML5ieCompatability();</script> <!-- allows HTML5 tags to work on IE 8 or less -->
+</head>
+
+<body>
+    <script type="text/javascript">
+
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-15356291-1']);
+    _gaq.push(['_trackPageview']);
+
+    (function() {
+     var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+     ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+     var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+     })();
+
+</script>    <header >
+    <nav class="head">
+        <!-- floats should come before main text to prevent loading issues -->
+        <ul id="social">
+            <li><a href="http://twitter.com/pocketyogaapp" target="_blank"><img src="./images/navigation/twitter.png" alt="Twitter" width="23" height="20"/></a></li>
+            <li><a href="http://www.facebook.com/pocketyoga" target="_blank"><img src="./images/navigation/facebook.png" alt="Facebook" width="8" height="20"/></a></li>
+        </ul>
+        <a href="./Home"><img id="pocketYogaHeader" src="./images/navigation/pocketYogaHeader.png" alt="Pocket Yoga" width="213" height="25"/></a>
+        <ul>
+        <li><a href='./Home'>Home</a></li><li><a href='./Apps/PocketYoga'>Apps</a></li><li><a href='./Pose'>Poses</a></li><li><a href='./Support/PocketYoga'>Support</a></li>        </ul>
+    </nav>
+</header>
+    
+    <section id="mainSection">
+    <section class="mainContent">
+        
+        <section class="mainProduct">
+        <section class='poseImages'><img id='poseImg' src='./images/poses/downward_dog_bent_knees.png' alt="Yoga Pose: Downward-Facing Dog with Bent Knees" height='380'/><h2>Previous Poses</h2><ul><li><a href='./Pose/downward_dog' title="Downward-Facing Dog"><style>#poseThumbPrev1 {background-image: url('./images/thumbnails/downward_dog-tn.png');}@media screen and (-webkit-min-device-pixel-ratio: 2) {#poseThumbPrev1 {background-image: url('./images/thumbnails/downward_dog-tn@2x.png');}}</style><div id='poseThumbPrev1'></div></a></li></ul><h2>Next Poses</h2><ul><li><a href='./Pose/downward_dog' title="Downward-Facing Dog"><style>#poseThumbNext1 {background-image: url('./images/thumbnails/downward_dog-tn.png');}@media screen and (-webkit-min-device-pixel-ratio: 2) {#poseThumbNext1 {background-image: url('./images/thumbnails/downward_dog-tn@2x.png');}}</style><div id='poseThumbNext1'></div></a></li><li><a href='./Pose/downward_dog_knee_to_forehead' title="Downward-Facing Dog with Knee to Forehead"><style>#poseThumbNext2 {background-image: url('./images/thumbnails/downward_dog_knee_to_forehead_R-tn.png');}@media screen and (-webkit-min-device-pixel-ratio: 2) {#poseThumbNext2 {background-image: url('./images/thumbnails/downward_dog_knee_to_forehead_R-tn@2x.png');}}</style><div id='poseThumbNext2'></div></a></li><li><a href='./Pose/forward_bend' title="Standing Forward Bend"><style>#poseThumbNext3 {background-image: url('./images/thumbnails/forward_bend-tn.png');}@media screen and (-webkit-min-device-pixel-ratio: 2) {#poseThumbNext3 {background-image: url('./images/thumbnails/forward_bend-tn@2x.png');}}</style><div id='poseThumbNext3'></div></a></li><li><a href='./Pose/lunge' title="Lunge"><style>#poseThumbNext4 {background-image: url('./images/thumbnails/lunge_R-tn.png');}@media screen and (-webkit-min-device-pixel-ratio: 2) {#poseThumbNext4 {background-image: url('./images/thumbnails/lunge_R-tn@2x.png');}}</style><div id='poseThumbNext4'></div></a></li><li><a href='./Pose/lunge_kneeling' title="Lunge on the Knee"><style>#poseThumbNext5 {background-image: url('./images/thumbnails/lunge_kneeling_R-tn.png');}@media screen and (-webkit-min-device-pixel-ratio: 2) {#poseThumbNext5 {background-image: url('./images/thumbnails/lunge_kneeling_R-tn@2x.png');}}</style><div id='poseThumbNext5'></div></a></li></ul></section><section class='poseDescription'><ul><li><h3>Downward-Facing Dog with Bent Knees</h3></li></ul><ul><li><h5 class='category'>Category:</h5><span class='cat'>Arm and Leg Support / Forward Bend</span></li><li><h5 class='category'>Difficulty:</h5><span class='cat'>Beginner</span></li></ul><ul><li><h5>Description:</h5><p class='text'>From <a href='./Pose/downward_dog'>Downward-Facing Dog (Adho Mukha Śvānāsana)</a>, the arms are extended straight and the knees are bent with the sits bones tilted up and reaching for the sky in dog tilt.  The belly is pulled in and up.  The gaze is towards the belly.</p></li></ul><ul><li><h5>Benefits:</h5><p class='text'>Calms the brain and helps relieve stress and mild depression.  Energizes the body.  Stretches the shoulders, hamstrings, calves, arches, and hands.  Strengthens the arms and legs.  Helps relieve the symptoms of menopause.  Relieves menstrual discomfort when done with the head supported.  Helps prevent osteoporosis.  Improves digestion.  Relieves headache, insomnia, back pain, and fatigue.  Therapeutic for high blood pressure, asthma, flat feet, sciatica, and sinusitis.  Warms up the ankles, toes, knees and hamstrings.</p></li></ul></section>        </section>
+
+    </section>
+    </section>
+
+    <footer  >
+    <div>
+		<span>
+			<a href="./PrivacyPolicy">privacy</a> |
+			<a href="./TermsOfUse">terms</a> |
+			© 2018 Rainfrog, LLC. All Rights Reserved.
+		</span>
+	</div>
+</footer>
+
+</body>
+</html>

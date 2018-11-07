@@ -1,0 +1,72 @@
+<!doctype html>
+
+
+<html>
+<head>
+	<base href="http://www.pocketyoga.com/">
+	<meta charset="utf-8">                             <!-- needed to display nonEnglish characters -->
+    <title>Yoga Pose: Downward-Facing Dog | Pocket Yoga</title>
+    <meta name="description" content= "A detailed description and benefits of the Downward-Facing Dog pose including image, sanskrit name, category, difficulty, and a list of variations, previous, and next poses." />
+    <meta name="keywords" content= "yoga pose, Downward-Facing Dog, Adho Mukha Śvānāsana" />
+    <link rel="stylesheet" href=./stylesheets/master.css?1501533599 type="text/css" />
+    <link rel="shortcut icon" href="./images/navigation/favicon.ico" />
+    <script type="text/javascript" src="./javascript/jquery-1.8.2.min.js"></script>
+    <script type="text/javascript" src="./javascript/basicFunctions.js"></script>
+    <!-- converts img tags to high resoution images if on retina display -->
+    <script type="text/javascript">
+        $(document).ready(function() {
+            hiResConversion();
+        });
+        window.matchMedia('(-webkit-device-pixel-ratio:1)').addListener(lowResConversion);
+        window.matchMedia('(-webkit-min-device-pixel-ratio:2)').addListener(hiResConversion);
+    </script>
+    <script type="text/javascript">HTML5ieCompatability();</script> <!-- allows HTML5 tags to work on IE 8 or less -->
+</head>
+
+<body>
+    <script type="text/javascript">
+
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-15356291-1']);
+    _gaq.push(['_trackPageview']);
+
+    (function() {
+     var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+     ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+     var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+     })();
+
+</script>    <header >
+    <nav class="head">
+        <!-- floats should come before main text to prevent loading issues -->
+        <ul id="social">
+            <li><a href="http://twitter.com/pocketyogaapp" target="_blank"><img src="./images/navigation/twitter.png" alt="Twitter" width="23" height="20"/></a></li>
+            <li><a href="http://www.facebook.com/pocketyoga" target="_blank"><img src="./images/navigation/facebook.png" alt="Facebook" width="8" height="20"/></a></li>
+        </ul>
+        <a href="./Home"><img id="pocketYogaHeader" src="./images/navigation/pocketYogaHeader.png" alt="Pocket Yoga" width="213" height="25"/></a>
+        <ul>
+        <li><a href='./Home'>Home</a></li><li><a href='./Apps/PocketYoga'>Apps</a></li><li><a href='./Pose'>Poses</a></li><li><a href='./Support/PocketYoga'>Support</a></li>        </ul>
+    </nav>
+</header>
+    
+    <section id="mainSection">
+    <section class="mainContent">
+        
+        <section class="mainProduct">
+        <section class='poseImages'><img id='poseImg' src='./images/poses/downward_dog.png' alt="Yoga Pose: Downward-Facing Dog (Adho Mukha Śvānāsana)" height='380'/><h2>Previous Poses</h2><ul><li><a href='./Pose/box_neutral' title="Box"><style>#poseThumbPrev1 {background-image: url('./images/thumbnails/box_neutral-tn.png');}@media screen and (-webkit-min-device-pixel-ratio: 2) {#poseThumbPrev1 {background-image: url('./images/thumbnails/box_neutral-tn@2x.png');}}</style><div id='poseThumbPrev1'></div></a></li><li><a href='./Pose/downward_dog_bent_knees' title="Downward-Facing Dog with Bent Knees"><style>#poseThumbPrev2 {background-image: url('./images/thumbnails/downward_dog_bent_knees-tn.png');}@media screen and (-webkit-min-device-pixel-ratio: 2) {#poseThumbPrev2 {background-image: url('./images/thumbnails/downward_dog_bent_knees-tn@2x.png');}}</style><div id='poseThumbPrev2'></div></a></li><li><a href='./Pose/downward_dog_on_toes' title="Downward-Facing Dog with Toe Raises"><style>#poseThumbPrev3 {background-image: url('./images/thumbnails/downward_dog_on_toes-tn.png');}@media screen and (-webkit-min-device-pixel-ratio: 2) {#poseThumbPrev3 {background-image: url('./images/thumbnails/downward_dog_on_toes-tn@2x.png');}}</style><div id='poseThumbPrev3'></div></a></li><li><a href='./Pose/downward_dog_leg_up' title="One Legged Downward-Facing Dog"><style>#poseThumbPrev4 {background-image: url('./images/thumbnails/downward_dog_leg_up_R-tn.png');}@media screen and (-webkit-min-device-pixel-ratio: 2) {#poseThumbPrev4 {background-image: url('./images/thumbnails/downward_dog_leg_up_R-tn@2x.png');}}</style><div id='poseThumbPrev4'></div></a></li><li><a href='./Pose/downward_dog_hand_to_ankle' title="Revolved Downward-Facing Dog"><style>#poseThumbPrev5 {background-image: url('./images/thumbnails/downward_dog_hand_to_ankle_R-tn.png');}@media screen and (-webkit-min-device-pixel-ratio: 2) {#poseThumbPrev5 {background-image: url('./images/thumbnails/downward_dog_hand_to_ankle_R-tn@2x.png');}}</style><div id='poseThumbPrev5'></div></a></li><li><a href='./Pose/headstand_tripod' title="Tripod Headstand"><style>#poseThumbPrev6 {background-image: url('./images/thumbnails/headstand_tripod-tn.png');}@media screen and (-webkit-min-device-pixel-ratio: 2) {#poseThumbPrev6 {background-image: url('./images/thumbnails/headstand_tripod-tn@2x.png');}}</style><div id='poseThumbPrev6'></div></a></li><li><a href='./Pose/plank' title="Plank"><style>#poseThumbPrev7 {background-image: url('./images/thumbnails/plank-tn.png');}@media screen and (-webkit-min-device-pixel-ratio: 2) {#poseThumbPrev7 {background-image: url('./images/thumbnails/plank-tn@2x.png');}}</style><div id='poseThumbPrev7'></div></a></li><li><a href='./Pose/upward_dog' title="Upward-Facing Dog"><style>#poseThumbPrev8 {background-image: url('./images/thumbnails/upward_dog-tn.png');}@media screen and (-webkit-min-device-pixel-ratio: 2) {#poseThumbPrev8 {background-image: url('./images/thumbnails/upward_dog-tn@2x.png');}}</style><div id='poseThumbPrev8'></div></a></li></ul><h2>Next Poses</h2><ul><li><a href='./Pose/box_neutral' title="Box"><style>#poseThumbNext1 {background-image: url('./images/thumbnails/box_neutral-tn.png');}@media screen and (-webkit-min-device-pixel-ratio: 2) {#poseThumbNext1 {background-image: url('./images/thumbnails/box_neutral-tn@2x.png');}}</style><div id='poseThumbNext1'></div></a></li><li><a href='./Pose/downward_dog_bent_knees' title="Downward-Facing Dog with Bent Knees"><style>#poseThumbNext2 {background-image: url('./images/thumbnails/downward_dog_bent_knees-tn.png');}@media screen and (-webkit-min-device-pixel-ratio: 2) {#poseThumbNext2 {background-image: url('./images/thumbnails/downward_dog_bent_knees-tn@2x.png');}}</style><div id='poseThumbNext2'></div></a></li><li><a href='./Pose/downward_dog_on_toes' title="Downward-Facing Dog with Toe Raises"><style>#poseThumbNext3 {background-image: url('./images/thumbnails/downward_dog_on_toes-tn.png');}@media screen and (-webkit-min-device-pixel-ratio: 2) {#poseThumbNext3 {background-image: url('./images/thumbnails/downward_dog_on_toes-tn@2x.png');}}</style><div id='poseThumbNext3'></div></a></li><li><a href='./Pose/downward_dog_leg_up' title="One Legged Downward-Facing Dog"><style>#poseThumbNext4 {background-image: url('./images/thumbnails/downward_dog_leg_up_R-tn.png');}@media screen and (-webkit-min-device-pixel-ratio: 2) {#poseThumbNext4 {background-image: url('./images/thumbnails/downward_dog_leg_up_R-tn@2x.png');}}</style><div id='poseThumbNext4'></div></a></li><li><a href='./Pose/downward_dog_hand_to_ankle' title="Revolved Downward-Facing Dog"><style>#poseThumbNext5 {background-image: url('./images/thumbnails/downward_dog_hand_to_ankle_R-tn.png');}@media screen and (-webkit-min-device-pixel-ratio: 2) {#poseThumbNext5 {background-image: url('./images/thumbnails/downward_dog_hand_to_ankle_R-tn@2x.png');}}</style><div id='poseThumbNext5'></div></a></li><li><a href='./Pose/forward_bend_half_way' title="Halfway Lift"><style>#poseThumbNext6 {background-image: url('./images/thumbnails/forward_bend_half_way-tn.png');}@media screen and (-webkit-min-device-pixel-ratio: 2) {#poseThumbNext6 {background-image: url('./images/thumbnails/forward_bend_half_way-tn@2x.png');}}</style><div id='poseThumbNext6'></div></a></li><li><a href='./Pose/headstand_tripod' title="Tripod Headstand"><style>#poseThumbNext7 {background-image: url('./images/thumbnails/headstand_tripod-tn.png');}@media screen and (-webkit-min-device-pixel-ratio: 2) {#poseThumbNext7 {background-image: url('./images/thumbnails/headstand_tripod-tn@2x.png');}}</style><div id='poseThumbNext7'></div></a></li><li><a href='./Pose/plank' title="Plank"><style>#poseThumbNext8 {background-image: url('./images/thumbnails/plank-tn.png');}@media screen and (-webkit-min-device-pixel-ratio: 2) {#poseThumbNext8 {background-image: url('./images/thumbnails/plank-tn@2x.png');}}</style><div id='poseThumbNext8'></div></a></li><li><a href='./Pose/plank_kneeling' title="Plank on the Knees"><style>#poseThumbNext9 {background-image: url('./images/thumbnails/plank_kneeling-tn.png');}@media screen and (-webkit-min-device-pixel-ratio: 2) {#poseThumbNext9 {background-image: url('./images/thumbnails/plank_kneeling-tn@2x.png');}}</style><div id='poseThumbNext9'></div></a></li><li><a href='./Pose/splits_wide' title="Side Splits"><style>#poseThumbNext10 {background-image: url('./images/thumbnails/splits_wide-tn.png');}@media screen and (-webkit-min-device-pixel-ratio: 2) {#poseThumbNext10 {background-image: url('./images/thumbnails/splits_wide-tn@2x.png');}}</style><div id='poseThumbNext10'></div></a></li><li><a href='./Pose/warrior_I' title="Warrior I"><style>#poseThumbNext11 {background-image: url('./images/thumbnails/warrior_I_R-tn.png');}@media screen and (-webkit-min-device-pixel-ratio: 2) {#poseThumbNext11 {background-image: url('./images/thumbnails/warrior_I_R-tn@2x.png');}}</style><div id='poseThumbNext11'></div></a></li></ul></section><section class='poseDescription'><ul><li><h3>Downward-Facing Dog</h3></li><li><h4 class='big'>Adho Mukha Śvānāsana</h4></li></ul><ul><li><div class='trans'>adho = downward</div></li><li><div class='trans'>mukha = facing</div></li><li><div class='trans'>śvāna = dog</div></li><li><div class='trans'>āsana = posture</div></li></ul><ul><li><h5 class='category'>Category:</h5><span class='cat'>Arm and Leg Support / Forward Bend</span></li><li><h5 class='category'>Difficulty:</h5><span class='cat'>Beginner</span></li></ul><ul><li><h5>Description:</h5><p class='text'>The body is positioned in an inverted "V" with the palms and feet rooted into the earth and sits bones lifted up towards the sky.  The arms and legs are straight.  The weight of the body is equally distributed between the hands and the feet.  The eye of the elbows face forward.  The ribcage is lifted and the heart is open.  Shoulders are squared to the earth and rotated back, down and inward.  The neck is relaxed and the crown of the head is toward the earth.  The gaze is down and slightly forward.</p></li></ul><ul><li><h5>Benefits:</h5><p class='text'>Calms the brain and helps relieve stress and mild depression.  Energizes the body.  Stretches the shoulders, hamstrings, calves, arches, and hands.  Strengthens the arms and legs.  Helps relieve the symptoms of menopause.  Relieves menstrual discomfort when done with the head supported.  Helps prevent osteoporosis.  Improves digestion.  Relieves headache, insomnia, back pain, and fatigue.  Therapeutic for high blood pressure, asthma, flat feet, sciatica, and sinusitis.  Warms up the ankles and the toes.</p></li></ul></section>        </section>
+
+    </section>
+    </section>
+
+    <footer  >
+    <div>
+		<span>
+			<a href="./PrivacyPolicy">privacy</a> |
+			<a href="./TermsOfUse">terms</a> |
+			© 2018 Rainfrog, LLC. All Rights Reserved.
+		</span>
+	</div>
+</footer>
+
+</body>
+</html>

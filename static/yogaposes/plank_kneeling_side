@@ -1,0 +1,72 @@
+<!doctype html>
+
+
+<html>
+<head>
+	<base href="http://www.pocketyoga.com/">
+	<meta charset="utf-8">                             <!-- needed to display nonEnglish characters -->
+    <title>Yoga Pose: Side Plank on the Knee | Pocket Yoga</title>
+    <meta name="description" content= "A detailed description and benefits of the Side Plank on the Knee pose including image, sanskrit name, category, difficulty, and a list of variations, previous, and next poses." />
+    <meta name="keywords" content= "yoga pose, Side Plank on the Knee, " />
+    <link rel="stylesheet" href=./stylesheets/master.css?1501533599 type="text/css" />
+    <link rel="shortcut icon" href="./images/navigation/favicon.ico" />
+    <script type="text/javascript" src="./javascript/jquery-1.8.2.min.js"></script>
+    <script type="text/javascript" src="./javascript/basicFunctions.js"></script>
+    <!-- converts img tags to high resoution images if on retina display -->
+    <script type="text/javascript">
+        $(document).ready(function() {
+            hiResConversion();
+        });
+        window.matchMedia('(-webkit-device-pixel-ratio:1)').addListener(lowResConversion);
+        window.matchMedia('(-webkit-min-device-pixel-ratio:2)').addListener(hiResConversion);
+    </script>
+    <script type="text/javascript">HTML5ieCompatability();</script> <!-- allows HTML5 tags to work on IE 8 or less -->
+</head>
+
+<body>
+    <script type="text/javascript">
+
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-15356291-1']);
+    _gaq.push(['_trackPageview']);
+
+    (function() {
+     var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+     ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+     var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+     })();
+
+</script>    <header >
+    <nav class="head">
+        <!-- floats should come before main text to prevent loading issues -->
+        <ul id="social">
+            <li><a href="http://twitter.com/pocketyogaapp" target="_blank"><img src="./images/navigation/twitter.png" alt="Twitter" width="23" height="20"/></a></li>
+            <li><a href="http://www.facebook.com/pocketyoga" target="_blank"><img src="./images/navigation/facebook.png" alt="Facebook" width="8" height="20"/></a></li>
+        </ul>
+        <a href="./Home"><img id="pocketYogaHeader" src="./images/navigation/pocketYogaHeader.png" alt="Pocket Yoga" width="213" height="25"/></a>
+        <ul>
+        <li><a href='./Home'>Home</a></li><li><a href='./Apps/PocketYoga'>Apps</a></li><li><a href='./Pose'>Poses</a></li><li><a href='./Support/PocketYoga'>Support</a></li>        </ul>
+    </nav>
+</header>
+    
+    <section id="mainSection">
+    <section class="mainContent">
+        
+        <section class="mainProduct">
+        <section class='poseImages'><button id='rotateButton' onclick='switchImage("poseImg")'></button><img id='poseImg' src='./images/poses/plank_kneeling_side_L.png' alt="Yoga Pose: Side Plank on the Knee" height='380'/><h2>Previous Poses</h2><ul><li><a href='./Pose/plank' title="Plank"><style>#poseThumbPrev1 {background-image: url('./images/thumbnails/plank-tn.png');}@media screen and (-webkit-min-device-pixel-ratio: 2) {#poseThumbPrev1 {background-image: url('./images/thumbnails/plank-tn@2x.png');}}</style><div id='poseThumbPrev1'></div></a></li><li><a href='./Pose/plank_kneeling' title="Plank on the Knees"><style>#poseThumbPrev2 {background-image: url('./images/thumbnails/plank_kneeling-tn.png');}@media screen and (-webkit-min-device-pixel-ratio: 2) {#poseThumbPrev2 {background-image: url('./images/thumbnails/plank_kneeling-tn@2x.png');}}</style><div id='poseThumbPrev2'></div></a></li></ul><h2>Next Poses</h2><ul><li><a href='./Pose/plank_side' title="Side Plank"><style>#poseThumbNext1 {background-image: url('./images/thumbnails/plank_side_L-tn.png');}@media screen and (-webkit-min-device-pixel-ratio: 2) {#poseThumbNext1 {background-image: url('./images/thumbnails/plank_side_L-tn@2x.png');}}</style><div id='poseThumbNext1'></div></a></li><li><a href='./Pose/plank_kneeling' title="Plank on the Knees"><style>#poseThumbNext2 {background-image: url('./images/thumbnails/plank_kneeling-tn.png');}@media screen and (-webkit-min-device-pixel-ratio: 2) {#poseThumbNext2 {background-image: url('./images/thumbnails/plank_kneeling-tn@2x.png');}}</style><div id='poseThumbNext2'></div></a></li></ul></section><section class='poseDescription'><ul><li><h3>Side Plank on the Knee</h3></li></ul><ul><li><h5 class='category'>Category:</h5><span class='cat'>Arm and Leg Support / Balancing</span></li><li><h5 class='category'>Difficulty:</h5><span class='cat'>Beginner</span></li></ul><ul><li><h5>Description:</h5><p class='text'>From <a href='./Pose/box_neutral'>Box (Cakravākāsana)</a>, one leg is extended back with the outside edge of the foot gripping the earth.  The top arm (on the same side of the body as the extended leg) is extended up to the sky with the fingers spread wide.  The supporting leg is bent and the foot and the knee are angled out for balance.  The supporting arm is straight and in line the extended arm with the joints stacked.  The pelvis is tucked under to protect the lumbar spine and the gaze is up.</p></li></ul><ul><li><h5>Benefits:</h5><p class='text'>Strengthens the arms, belly and legs.  Stretches and strengthens the wrists.  Stretches the backs of the legs.  Improves sense of balance and focus.</p></li></ul></section>        </section>
+
+    </section>
+    </section>
+
+    <footer  >
+    <div>
+		<span>
+			<a href="./PrivacyPolicy">privacy</a> |
+			<a href="./TermsOfUse">terms</a> |
+			© 2018 Rainfrog, LLC. All Rights Reserved.
+		</span>
+	</div>
+</footer>
+
+</body>
+</html>

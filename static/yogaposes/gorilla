@@ -1,0 +1,72 @@
+<!doctype html>
+
+
+<html>
+<head>
+	<base href="http://www.pocketyoga.com/">
+	<meta charset="utf-8">                             <!-- needed to display nonEnglish characters -->
+    <title>Yoga Pose: Gorilla | Pocket Yoga</title>
+    <meta name="description" content= "A detailed description and benefits of the Gorilla pose including image, sanskrit name, category, difficulty, and a list of variations, previous, and next poses." />
+    <meta name="keywords" content= "yoga pose, Gorilla, Hand to Foot,Hand Under Foot, Pādahastāsana" />
+    <link rel="stylesheet" href=./stylesheets/master.css?1501533599 type="text/css" />
+    <link rel="shortcut icon" href="./images/navigation/favicon.ico" />
+    <script type="text/javascript" src="./javascript/jquery-1.8.2.min.js"></script>
+    <script type="text/javascript" src="./javascript/basicFunctions.js"></script>
+    <!-- converts img tags to high resoution images if on retina display -->
+    <script type="text/javascript">
+        $(document).ready(function() {
+            hiResConversion();
+        });
+        window.matchMedia('(-webkit-device-pixel-ratio:1)').addListener(lowResConversion);
+        window.matchMedia('(-webkit-min-device-pixel-ratio:2)').addListener(hiResConversion);
+    </script>
+    <script type="text/javascript">HTML5ieCompatability();</script> <!-- allows HTML5 tags to work on IE 8 or less -->
+</head>
+
+<body>
+    <script type="text/javascript">
+
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-15356291-1']);
+    _gaq.push(['_trackPageview']);
+
+    (function() {
+     var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+     ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+     var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+     })();
+
+</script>    <header >
+    <nav class="head">
+        <!-- floats should come before main text to prevent loading issues -->
+        <ul id="social">
+            <li><a href="http://twitter.com/pocketyogaapp" target="_blank"><img src="./images/navigation/twitter.png" alt="Twitter" width="23" height="20"/></a></li>
+            <li><a href="http://www.facebook.com/pocketyoga" target="_blank"><img src="./images/navigation/facebook.png" alt="Facebook" width="8" height="20"/></a></li>
+        </ul>
+        <a href="./Home"><img id="pocketYogaHeader" src="./images/navigation/pocketYogaHeader.png" alt="Pocket Yoga" width="213" height="25"/></a>
+        <ul>
+        <li><a href='./Home'>Home</a></li><li><a href='./Apps/PocketYoga'>Apps</a></li><li><a href='./Pose'>Poses</a></li><li><a href='./Support/PocketYoga'>Support</a></li>        </ul>
+    </nav>
+</header>
+    
+    <section id="mainSection">
+    <section class="mainContent">
+        
+        <section class="mainProduct">
+        <section class='poseImages'><img id='poseImg' src='./images/poses/gorilla.png' alt="Yoga Pose: Gorilla, Hand to Foot, Hand Under Foot (Pādahastāsana)" height='380'/><h2>Previous Poses</h2><ul><li><a href='./Pose/forward_bend_half_way' title="Halfway Lift"><style>#poseThumbPrev1 {background-image: url('./images/thumbnails/forward_bend_half_way-tn.png');}@media screen and (-webkit-min-device-pixel-ratio: 2) {#poseThumbPrev1 {background-image: url('./images/thumbnails/forward_bend_half_way-tn@2x.png');}}</style><div id='poseThumbPrev1'></div></a></li></ul></section><section class='poseDescription'><ul><li><h3>Gorilla</h3></li><li><h4 class='big'>Pādahastāsana</h4></li></ul><ul><li><div class='trans'>pāda = foot or leg</div></li><li><div class='trans'>hasta = hand</div></li><li><div class='trans'>āsana = posture</div></li></ul><ul><li><h5 class='category'>Alt. Name:</h5><span class='cat'>Hand to Foot / Hand Under Foot</span></li><li><h5 class='category'>Category:</h5><span class='cat'>Standing / Forward Bend</span></li><li><h5 class='category'>Difficulty:</h5><span class='cat'>Intermediate</span></li></ul><ul><li><h5>Description:</h5><p class='text'>Begin from an upright standing position with the feet parallel (about six inches apart) and the front of the thighs contracted to lift the kneecaps.  The body is bent forward from the crease of the hip joints with the legs completely straight and the torso parallel to the earth.  The index and middle fingers of each hand are wrapped between the big toes and the second toes.  Fingers and thumbs are curled around and under the big toes to firmly secure the wrap.  The toes press down against the fingers.  To fold deeper into the pose the sitting bones are lifted up towards the sky, the torso is pressed towards the thighs and the crown of the head is lowered towards the earth.  Depending on flexibility, the lower back hollows to a greater or lesser degree.  At the same time, without compressing the back of the neck, the sternum is lifted.  The forehead stays relaxed.  For the full extension of the pose the elbows bend out to the sides as the toes are pulled up.  This lengthens the front and sides of the torso.  For very long hamstrings, draw the forehead toward the shins.  For hamstrings that are short, it is better to focus on keeping the front torso long.  The gaze is down or towards the body.</p></li></ul><ul><li><h5>Benefits:</h5><p class='text'>Calms the brain and helps relieve stress and anxiety.  Stimulates the liver and the kidneys.  Stretches the hamstrings and the calves.  Strengthens the thighs.  Improves digestion.  Helps relieve the symptoms of menopause.  Helps relieve headaches and insomnia.</p></li></ul></section>        </section>
+
+    </section>
+    </section>
+
+    <footer  >
+    <div>
+		<span>
+			<a href="./PrivacyPolicy">privacy</a> |
+			<a href="./TermsOfUse">terms</a> |
+			© 2018 Rainfrog, LLC. All Rights Reserved.
+		</span>
+	</div>
+</footer>
+
+</body>
+</html>

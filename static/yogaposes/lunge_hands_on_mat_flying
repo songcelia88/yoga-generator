@@ -1,0 +1,72 @@
+<!doctype html>
+
+
+<html>
+<head>
+	<base href="http://www.pocketyoga.com/">
+	<meta charset="utf-8">                             <!-- needed to display nonEnglish characters -->
+    <title>Yoga Pose: Flying Man | Pocket Yoga</title>
+    <meta name="description" content= "A detailed description and benefits of the Flying Man pose including image, sanskrit name, category, difficulty, and a list of variations, previous, and next poses." />
+    <meta name="keywords" content= "yoga pose, Flying Man, Eka Pāda Kouṇḍinyāsana" />
+    <link rel="stylesheet" href=./stylesheets/master.css?1501533599 type="text/css" />
+    <link rel="shortcut icon" href="./images/navigation/favicon.ico" />
+    <script type="text/javascript" src="./javascript/jquery-1.8.2.min.js"></script>
+    <script type="text/javascript" src="./javascript/basicFunctions.js"></script>
+    <!-- converts img tags to high resoution images if on retina display -->
+    <script type="text/javascript">
+        $(document).ready(function() {
+            hiResConversion();
+        });
+        window.matchMedia('(-webkit-device-pixel-ratio:1)').addListener(lowResConversion);
+        window.matchMedia('(-webkit-min-device-pixel-ratio:2)').addListener(hiResConversion);
+    </script>
+    <script type="text/javascript">HTML5ieCompatability();</script> <!-- allows HTML5 tags to work on IE 8 or less -->
+</head>
+
+<body>
+    <script type="text/javascript">
+
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-15356291-1']);
+    _gaq.push(['_trackPageview']);
+
+    (function() {
+     var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+     ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+     var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+     })();
+
+</script>    <header >
+    <nav class="head">
+        <!-- floats should come before main text to prevent loading issues -->
+        <ul id="social">
+            <li><a href="http://twitter.com/pocketyogaapp" target="_blank"><img src="./images/navigation/twitter.png" alt="Twitter" width="23" height="20"/></a></li>
+            <li><a href="http://www.facebook.com/pocketyoga" target="_blank"><img src="./images/navigation/facebook.png" alt="Facebook" width="8" height="20"/></a></li>
+        </ul>
+        <a href="./Home"><img id="pocketYogaHeader" src="./images/navigation/pocketYogaHeader.png" alt="Pocket Yoga" width="213" height="25"/></a>
+        <ul>
+        <li><a href='./Home'>Home</a></li><li><a href='./Apps/PocketYoga'>Apps</a></li><li><a href='./Pose'>Poses</a></li><li><a href='./Support/PocketYoga'>Support</a></li>        </ul>
+    </nav>
+</header>
+    
+    <section id="mainSection">
+    <section class="mainContent">
+        
+        <section class="mainProduct">
+        <section class='poseImages'><button id='rotateButton' onclick='switchImage("poseImg")'></button><img id='poseImg' src='./images/poses/lunge_hands_on_mat_flying_L.png' alt="Yoga Pose: Flying Man (Eka Pāda Kouṇḍinyāsana)" height='380'/><h2>Previous Poses</h2><ul><li><a href='./Pose/downward_dog_leg_up' title="One Legged Downward-Facing Dog"><style>#poseThumbPrev1 {background-image: url('./images/thumbnails/downward_dog_leg_up_R-tn.png');}@media screen and (-webkit-min-device-pixel-ratio: 2) {#poseThumbPrev1 {background-image: url('./images/thumbnails/downward_dog_leg_up_R-tn@2x.png');}}</style><div id='poseThumbPrev1'></div></a></li><li><a href='./Pose/eight_angle' title="Eight Angle"><style>#poseThumbPrev2 {background-image: url('./images/thumbnails/eight_angle_L-tn.png');}@media screen and (-webkit-min-device-pixel-ratio: 2) {#poseThumbPrev2 {background-image: url('./images/thumbnails/eight_angle_L-tn@2x.png');}}</style><div id='poseThumbPrev2'></div></a></li><li><a href='./Pose/handstand' title="Handstand"><style>#poseThumbPrev3 {background-image: url('./images/thumbnails/handstand-tn.png');}@media screen and (-webkit-min-device-pixel-ratio: 2) {#poseThumbPrev3 {background-image: url('./images/thumbnails/handstand-tn@2x.png');}}</style><div id='poseThumbPrev3'></div></a></li><li><a href='./Pose/lunge_hands_on_mat' title="Lunge with Hands on the Inside of the Leg"><style>#poseThumbPrev4 {background-image: url('./images/thumbnails/lunge_hands_on_mat_R-tn.png');}@media screen and (-webkit-min-device-pixel-ratio: 2) {#poseThumbPrev4 {background-image: url('./images/thumbnails/lunge_hands_on_mat_R-tn@2x.png');}}</style><div id='poseThumbPrev4'></div></a></li></ul><h2>Next Poses</h2><ul><li><a href='./Pose/downward_dog_leg_up' title="One Legged Downward-Facing Dog"><style>#poseThumbNext1 {background-image: url('./images/thumbnails/downward_dog_leg_up_R-tn.png');}@media screen and (-webkit-min-device-pixel-ratio: 2) {#poseThumbNext1 {background-image: url('./images/thumbnails/downward_dog_leg_up_R-tn@2x.png');}}</style><div id='poseThumbNext1'></div></a></li><li><a href='./Pose/eight_angle' title="Eight Angle"><style>#poseThumbNext2 {background-image: url('./images/thumbnails/eight_angle_L-tn.png');}@media screen and (-webkit-min-device-pixel-ratio: 2) {#poseThumbNext2 {background-image: url('./images/thumbnails/eight_angle_L-tn@2x.png');}}</style><div id='poseThumbNext2'></div></a></li><li><a href='./Pose/four_limbed_staff' title="Four Limbed Staff"><style>#poseThumbNext3 {background-image: url('./images/thumbnails/four_limbed_staff-tn.png');}@media screen and (-webkit-min-device-pixel-ratio: 2) {#poseThumbNext3 {background-image: url('./images/thumbnails/four_limbed_staff-tn@2x.png');}}</style><div id='poseThumbNext3'></div></a></li></ul></section><section class='poseDescription'><ul><li><h3>Flying Man</h3></li><li><h4 class='big'>Eka Pāda Kouṇḍinyāsana</h4></li></ul><ul><li><div class='trans'>eka = one</div></li><li><div class='trans'>pāda = foot or leg</div></li><li><div class='trans'>kouṇḍinya = name of a sage</div></li><li><div class='trans'>āsana = posture</div></li></ul><ul><li><h5 class='category'>Category:</h5><span class='cat'>Arm Balance and Inversion / Balancing</span></li><li><h5 class='category'>Difficulty:</h5><span class='cat'>Expert</span></li></ul><ul><li><h5>Description:</h5><p class='text'>From a lunge position, the palms are rooted into the earth on the inside of the thigh.  Both elbows are bent in a 90-degree angle with one leg forward, extended and resting softly on the elbow.  The other leg is extended back either balanced on the toes or suspended in flight with active toes.  The Body is parallel to the earth.  The gaze is to the front.</p></li></ul><ul><li><h5>Benefits:</h5><p class='text'>Strengthens arms, legs, core and wrists.  Improves balance.</p></li></ul></section>        </section>
+
+    </section>
+    </section>
+
+    <footer  >
+    <div>
+		<span>
+			<a href="./PrivacyPolicy">privacy</a> |
+			<a href="./TermsOfUse">terms</a> |
+			© 2018 Rainfrog, LLC. All Rights Reserved.
+		</span>
+	</div>
+</footer>
+
+</body>
+</html>

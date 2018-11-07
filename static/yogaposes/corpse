@@ -1,0 +1,72 @@
+<!doctype html>
+
+
+<html>
+<head>
+	<base href="http://www.pocketyoga.com/">
+	<meta charset="utf-8">                             <!-- needed to display nonEnglish characters -->
+    <title>Yoga Pose: Corpse | Pocket Yoga</title>
+    <meta name="description" content= "A detailed description and benefits of the Corpse pose including image, sanskrit name, category, difficulty, and a list of variations, previous, and next poses." />
+    <meta name="keywords" content= "yoga pose, Corpse, Śavāsana" />
+    <link rel="stylesheet" href=./stylesheets/master.css?1501533599 type="text/css" />
+    <link rel="shortcut icon" href="./images/navigation/favicon.ico" />
+    <script type="text/javascript" src="./javascript/jquery-1.8.2.min.js"></script>
+    <script type="text/javascript" src="./javascript/basicFunctions.js"></script>
+    <!-- converts img tags to high resoution images if on retina display -->
+    <script type="text/javascript">
+        $(document).ready(function() {
+            hiResConversion();
+        });
+        window.matchMedia('(-webkit-device-pixel-ratio:1)').addListener(lowResConversion);
+        window.matchMedia('(-webkit-min-device-pixel-ratio:2)').addListener(hiResConversion);
+    </script>
+    <script type="text/javascript">HTML5ieCompatability();</script> <!-- allows HTML5 tags to work on IE 8 or less -->
+</head>
+
+<body>
+    <script type="text/javascript">
+
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-15356291-1']);
+    _gaq.push(['_trackPageview']);
+
+    (function() {
+     var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+     ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+     var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+     })();
+
+</script>    <header >
+    <nav class="head">
+        <!-- floats should come before main text to prevent loading issues -->
+        <ul id="social">
+            <li><a href="http://twitter.com/pocketyogaapp" target="_blank"><img src="./images/navigation/twitter.png" alt="Twitter" width="23" height="20"/></a></li>
+            <li><a href="http://www.facebook.com/pocketyoga" target="_blank"><img src="./images/navigation/facebook.png" alt="Facebook" width="8" height="20"/></a></li>
+        </ul>
+        <a href="./Home"><img id="pocketYogaHeader" src="./images/navigation/pocketYogaHeader.png" alt="Pocket Yoga" width="213" height="25"/></a>
+        <ul>
+        <li><a href='./Home'>Home</a></li><li><a href='./Apps/PocketYoga'>Apps</a></li><li><a href='./Pose'>Poses</a></li><li><a href='./Support/PocketYoga'>Support</a></li>        </ul>
+    </nav>
+</header>
+    
+    <section id="mainSection">
+    <section class="mainContent">
+        
+        <section class="mainProduct">
+        <section class='poseImages'><img id='poseImg' src='./images/poses/corpse.png' alt="Yoga Pose: Corpse (Śavāsana)" height='380'/><h2>Previous Poses</h2><ul><li><a href='./Pose/boat_full' title="Boat"><style>#poseThumbPrev1 {background-image: url('./images/thumbnails/boat_full-tn.png');}@media screen and (-webkit-min-device-pixel-ratio: 2) {#poseThumbPrev1 {background-image: url('./images/thumbnails/boat_full-tn@2x.png');}}</style><div id='poseThumbPrev1'></div></a></li><li><a href='./Pose/boat_half' title="Half Boat"><style>#poseThumbPrev2 {background-image: url('./images/thumbnails/boat_half-tn.png');}@media screen and (-webkit-min-device-pixel-ratio: 2) {#poseThumbPrev2 {background-image: url('./images/thumbnails/boat_half-tn@2x.png');}}</style><div id='poseThumbPrev2'></div></a></li><li><a href='./Pose/supine_bound_angle' title="Supine Bound Angle"><style>#poseThumbPrev3 {background-image: url('./images/thumbnails/supine_bound_angle-tn.png');}@media screen and (-webkit-min-device-pixel-ratio: 2) {#poseThumbPrev3 {background-image: url('./images/thumbnails/supine_bound_angle-tn@2x.png');}}</style><div id='poseThumbPrev3'></div></a></li><li><a href='./Pose/bridge' title="Bridge"><style>#poseThumbPrev4 {background-image: url('./images/thumbnails/bridge-tn.png');}@media screen and (-webkit-min-device-pixel-ratio: 2) {#poseThumbPrev4 {background-image: url('./images/thumbnails/bridge-tn@2x.png');}}</style><div id='poseThumbPrev4'></div></a></li><li><a href='./Pose/deaf_man' title="Deaf Man's"><style>#poseThumbPrev5 {background-image: url('./images/thumbnails/deaf_man-tn.png');}@media screen and (-webkit-min-device-pixel-ratio: 2) {#poseThumbPrev5 {background-image: url('./images/thumbnails/deaf_man-tn@2x.png');}}</style><div id='poseThumbPrev5'></div></a></li><li><a href='./Pose/fish' title="Fish"><style>#poseThumbPrev6 {background-image: url('./images/thumbnails/fish-tn.png');}@media screen and (-webkit-min-device-pixel-ratio: 2) {#poseThumbPrev6 {background-image: url('./images/thumbnails/fish-tn@2x.png');}}</style><div id='poseThumbPrev6'></div></a></li><li><a href='./Pose/seated_forward_bend' title="Seated Forward Bend"><style>#poseThumbPrev7 {background-image: url('./images/thumbnails/seated_forward_bend-tn.png');}@media screen and (-webkit-min-device-pixel-ratio: 2) {#poseThumbPrev7 {background-image: url('./images/thumbnails/seated_forward_bend-tn@2x.png');}}</style><div id='poseThumbPrev7'></div></a></li><li><a href='./Pose/supine_hand_to_toe' title="Supine Hand to Toe"><style>#poseThumbPrev8 {background-image: url('./images/thumbnails/supine_hand_to_toe_R-tn.png');}@media screen and (-webkit-min-device-pixel-ratio: 2) {#poseThumbPrev8 {background-image: url('./images/thumbnails/supine_hand_to_toe_R-tn@2x.png');}}</style><div id='poseThumbPrev8'></div></a></li><li><a href='./Pose/supine_hand_to_toe_extended' title="Extended Supine Hand to Toe"><style>#poseThumbPrev9 {background-image: url('./images/thumbnails/supine_hand_to_toe_extended_R-tn.png');}@media screen and (-webkit-min-device-pixel-ratio: 2) {#poseThumbPrev9 {background-image: url('./images/thumbnails/supine_hand_to_toe_extended_R-tn@2x.png');}}</style><div id='poseThumbPrev9'></div></a></li><li><a href='./Pose/blissful_baby' title="Happy Baby"><style>#poseThumbPrev10 {background-image: url('./images/thumbnails/blissful_baby-tn.png');}@media screen and (-webkit-min-device-pixel-ratio: 2) {#poseThumbPrev10 {background-image: url('./images/thumbnails/blissful_baby-tn@2x.png');}}</style><div id='poseThumbPrev10'></div></a></li><li><a href='./Pose/supine_pigeon' title="Supine Pigeon"><style>#poseThumbPrev11 {background-image: url('./images/thumbnails/supine_pigeon_R-tn.png');}@media screen and (-webkit-min-device-pixel-ratio: 2) {#poseThumbPrev11 {background-image: url('./images/thumbnails/supine_pigeon_R-tn@2x.png');}}</style><div id='poseThumbPrev11'></div></a></li><li><a href='./Pose/plow' title="Plow"><style>#poseThumbPrev12 {background-image: url('./images/thumbnails/plow-tn.png');}@media screen and (-webkit-min-device-pixel-ratio: 2) {#poseThumbPrev12 {background-image: url('./images/thumbnails/plow-tn@2x.png');}}</style><div id='poseThumbPrev12'></div></a></li><li><a href='./Pose/corpse_double_leg_raise' title="Rejuvenation"><style>#poseThumbPrev13 {background-image: url('./images/thumbnails/corpse_double_leg_raise-tn.png');}@media screen and (-webkit-min-device-pixel-ratio: 2) {#poseThumbPrev13 {background-image: url('./images/thumbnails/corpse_double_leg_raise-tn@2x.png');}}</style><div id='poseThumbPrev13'></div></a></li><li><a href='./Pose/supine_spinal_twist' title="Supine Spinal Twist"><style>#poseThumbPrev14 {background-image: url('./images/thumbnails/supine_spinal_twist_R-tn.png');}@media screen and (-webkit-min-device-pixel-ratio: 2) {#poseThumbPrev14 {background-image: url('./images/thumbnails/supine_spinal_twist_R-tn@2x.png');}}</style><div id='poseThumbPrev14'></div></a></li><li><a href='./Pose/wheel' title="Wheel"><style>#poseThumbPrev15 {background-image: url('./images/thumbnails/wheel-tn.png');}@media screen and (-webkit-min-device-pixel-ratio: 2) {#poseThumbPrev15 {background-image: url('./images/thumbnails/wheel-tn@2x.png');}}</style><div id='poseThumbPrev15'></div></a></li><li><a href='./Pose/turtle' title="Wind Removing"><style>#poseThumbPrev16 {background-image: url('./images/thumbnails/turtle-tn.png');}@media screen and (-webkit-min-device-pixel-ratio: 2) {#poseThumbPrev16 {background-image: url('./images/thumbnails/turtle-tn@2x.png');}}</style><div id='poseThumbPrev16'></div></a></li><li><a href='./Pose/wind_removing' title="One Legged Wind Removing"><style>#poseThumbPrev17 {background-image: url('./images/thumbnails/wind_removing_R-tn.png');}@media screen and (-webkit-min-device-pixel-ratio: 2) {#poseThumbPrev17 {background-image: url('./images/thumbnails/wind_removing_R-tn@2x.png');}}</style><div id='poseThumbPrev17'></div></a></li></ul><h2>Next Poses</h2><ul><li><a href='./Pose/boat_full' title="Boat"><style>#poseThumbNext1 {background-image: url('./images/thumbnails/boat_full-tn.png');}@media screen and (-webkit-min-device-pixel-ratio: 2) {#poseThumbNext1 {background-image: url('./images/thumbnails/boat_full-tn@2x.png');}}</style><div id='poseThumbNext1'></div></a></li><li><a href='./Pose/boat_half' title="Half Boat"><style>#poseThumbNext2 {background-image: url('./images/thumbnails/boat_half-tn.png');}@media screen and (-webkit-min-device-pixel-ratio: 2) {#poseThumbNext2 {background-image: url('./images/thumbnails/boat_half-tn@2x.png');}}</style><div id='poseThumbNext2'></div></a></li><li><a href='./Pose/supine_bound_angle' title="Supine Bound Angle"><style>#poseThumbNext3 {background-image: url('./images/thumbnails/supine_bound_angle-tn.png');}@media screen and (-webkit-min-device-pixel-ratio: 2) {#poseThumbNext3 {background-image: url('./images/thumbnails/supine_bound_angle-tn@2x.png');}}</style><div id='poseThumbNext3'></div></a></li><li><a href='./Pose/bridge' title="Bridge"><style>#poseThumbNext4 {background-image: url('./images/thumbnails/bridge-tn.png');}@media screen and (-webkit-min-device-pixel-ratio: 2) {#poseThumbNext4 {background-image: url('./images/thumbnails/bridge-tn@2x.png');}}</style><div id='poseThumbNext4'></div></a></li><li><a href='./Pose/fish' title="Fish"><style>#poseThumbNext5 {background-image: url('./images/thumbnails/fish-tn.png');}@media screen and (-webkit-min-device-pixel-ratio: 2) {#poseThumbNext5 {background-image: url('./images/thumbnails/fish-tn@2x.png');}}</style><div id='poseThumbNext5'></div></a></li><li><a href='./Pose/supine_hand_to_toe' title="Supine Hand to Toe"><style>#poseThumbNext6 {background-image: url('./images/thumbnails/supine_hand_to_toe_R-tn.png');}@media screen and (-webkit-min-device-pixel-ratio: 2) {#poseThumbNext6 {background-image: url('./images/thumbnails/supine_hand_to_toe_R-tn@2x.png');}}</style><div id='poseThumbNext6'></div></a></li><li><a href='./Pose/blissful_baby' title="Happy Baby"><style>#poseThumbNext7 {background-image: url('./images/thumbnails/blissful_baby-tn.png');}@media screen and (-webkit-min-device-pixel-ratio: 2) {#poseThumbNext7 {background-image: url('./images/thumbnails/blissful_baby-tn@2x.png');}}</style><div id='poseThumbNext7'></div></a></li><li><a href='./Pose/supine_pigeon' title="Supine Pigeon"><style>#poseThumbNext8 {background-image: url('./images/thumbnails/supine_pigeon_R-tn.png');}@media screen and (-webkit-min-device-pixel-ratio: 2) {#poseThumbNext8 {background-image: url('./images/thumbnails/supine_pigeon_R-tn@2x.png');}}</style><div id='poseThumbNext8'></div></a></li><li><a href='./Pose/corpse_double_leg_raise' title="Rejuvenation"><style>#poseThumbNext9 {background-image: url('./images/thumbnails/corpse_double_leg_raise-tn.png');}@media screen and (-webkit-min-device-pixel-ratio: 2) {#poseThumbNext9 {background-image: url('./images/thumbnails/corpse_double_leg_raise-tn@2x.png');}}</style><div id='poseThumbNext9'></div></a></li><li><a href='./Pose/wheel' title="Wheel"><style>#poseThumbNext10 {background-image: url('./images/thumbnails/wheel-tn.png');}@media screen and (-webkit-min-device-pixel-ratio: 2) {#poseThumbNext10 {background-image: url('./images/thumbnails/wheel-tn@2x.png');}}</style><div id='poseThumbNext10'></div></a></li><li><a href='./Pose/turtle' title="Wind Removing"><style>#poseThumbNext11 {background-image: url('./images/thumbnails/turtle-tn.png');}@media screen and (-webkit-min-device-pixel-ratio: 2) {#poseThumbNext11 {background-image: url('./images/thumbnails/turtle-tn@2x.png');}}</style><div id='poseThumbNext11'></div></a></li><li><a href='./Pose/wind_removing' title="One Legged Wind Removing"><style>#poseThumbNext12 {background-image: url('./images/thumbnails/wind_removing_R-tn.png');}@media screen and (-webkit-min-device-pixel-ratio: 2) {#poseThumbNext12 {background-image: url('./images/thumbnails/wind_removing_R-tn@2x.png');}}</style><div id='poseThumbNext12'></div></a></li></ul></section><section class='poseDescription'><ul><li><h3>Corpse</h3></li><li><h4 class='big'>Śavāsana</h4></li></ul><ul><li><div class='trans'>śava = corpse</div></li><li><div class='trans'>āsana = posture</div></li></ul><ul><li><h5 class='category'>Category:</h5><span class='cat'>Supine / Neutral</span></li><li><h5 class='category'>Difficulty:</h5><span class='cat'>Beginner</span></li></ul><ul><li><h5>Description:</h5><p class='text'>The body rests on the earth in a supine position with the arms resting by the side body.  The palms are relaxed and open toward the sky.  The shoulder blades are pulled back, down and rolled under comfortably, resting evenly on the earth.  The legs are extended down and splayed open.  The heels are in and the toes flop out.  The eyes are closed.  Everything is relaxed.  The gaze is inward.</p></li></ul><ul><li><h5>Benefits:</h5><p class='text'>Calms the brain and helps relieve stress and mild depression.  Relaxes the body.  Reduces headache, fatigue, and insomnia.  Helps to lower blood pressure.</p></li></ul></section>        </section>
+
+    </section>
+    </section>
+
+    <footer  >
+    <div>
+		<span>
+			<a href="./PrivacyPolicy">privacy</a> |
+			<a href="./TermsOfUse">terms</a> |
+			© 2018 Rainfrog, LLC. All Rights Reserved.
+		</span>
+	</div>
+</footer>
+
+</body>
+</html>

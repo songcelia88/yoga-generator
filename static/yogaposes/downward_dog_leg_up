@@ -1,0 +1,72 @@
+<!doctype html>
+
+
+<html>
+<head>
+	<base href="http://www.pocketyoga.com/">
+	<meta charset="utf-8">                             <!-- needed to display nonEnglish characters -->
+    <title>Yoga Pose: One Legged Downward-Facing Dog | Pocket Yoga</title>
+    <meta name="description" content= "A detailed description and benefits of the One Legged Downward-Facing Dog pose including image, sanskrit name, category, difficulty, and a list of variations, previous, and next poses." />
+    <meta name="keywords" content= "yoga pose, One Legged Downward-Facing Dog, Three Legged Downward-Facing Dog, Eka Pāda Adho Mukha Śvānāsana" />
+    <link rel="stylesheet" href=./stylesheets/master.css?1501533599 type="text/css" />
+    <link rel="shortcut icon" href="./images/navigation/favicon.ico" />
+    <script type="text/javascript" src="./javascript/jquery-1.8.2.min.js"></script>
+    <script type="text/javascript" src="./javascript/basicFunctions.js"></script>
+    <!-- converts img tags to high resoution images if on retina display -->
+    <script type="text/javascript">
+        $(document).ready(function() {
+            hiResConversion();
+        });
+        window.matchMedia('(-webkit-device-pixel-ratio:1)').addListener(lowResConversion);
+        window.matchMedia('(-webkit-min-device-pixel-ratio:2)').addListener(hiResConversion);
+    </script>
+    <script type="text/javascript">HTML5ieCompatability();</script> <!-- allows HTML5 tags to work on IE 8 or less -->
+</head>
+
+<body>
+    <script type="text/javascript">
+
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-15356291-1']);
+    _gaq.push(['_trackPageview']);
+
+    (function() {
+     var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+     ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+     var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+     })();
+
+</script>    <header >
+    <nav class="head">
+        <!-- floats should come before main text to prevent loading issues -->
+        <ul id="social">
+            <li><a href="http://twitter.com/pocketyogaapp" target="_blank"><img src="./images/navigation/twitter.png" alt="Twitter" width="23" height="20"/></a></li>
+            <li><a href="http://www.facebook.com/pocketyoga" target="_blank"><img src="./images/navigation/facebook.png" alt="Facebook" width="8" height="20"/></a></li>
+        </ul>
+        <a href="./Home"><img id="pocketYogaHeader" src="./images/navigation/pocketYogaHeader.png" alt="Pocket Yoga" width="213" height="25"/></a>
+        <ul>
+        <li><a href='./Home'>Home</a></li><li><a href='./Apps/PocketYoga'>Apps</a></li><li><a href='./Pose'>Poses</a></li><li><a href='./Support/PocketYoga'>Support</a></li>        </ul>
+    </nav>
+</header>
+    
+    <section id="mainSection">
+    <section class="mainContent">
+        
+        <section class="mainProduct">
+        <section class='poseImages'><button id='rotateButton' onclick='switchImage("poseImg")'></button><img id='poseImg' src='./images/poses/downward_dog_leg_up_R.png' alt="Yoga Pose: One Legged Downward-Facing Dog, Three Legged Downward-Facing Dog (Eka Pāda Adho Mukha Śvānāsana)" height='380'/><h2>Previous Poses</h2><ul><li><a href='./Pose/downward_dog' title="Downward-Facing Dog"><style>#poseThumbPrev1 {background-image: url('./images/thumbnails/downward_dog-tn.png');}@media screen and (-webkit-min-device-pixel-ratio: 2) {#poseThumbPrev1 {background-image: url('./images/thumbnails/downward_dog-tn@2x.png');}}</style><div id='poseThumbPrev1'></div></a></li><li><a href='./Pose/downward_dog_knee_to_forehead' title="Downward-Facing Dog with Knee to Forehead"><style>#poseThumbPrev2 {background-image: url('./images/thumbnails/downward_dog_knee_to_forehead_R-tn.png');}@media screen and (-webkit-min-device-pixel-ratio: 2) {#poseThumbPrev2 {background-image: url('./images/thumbnails/downward_dog_knee_to_forehead_R-tn@2x.png');}}</style><div id='poseThumbPrev2'></div></a></li><li><a href='./Pose/downward_dog_leg_up_stack_hips' title="Downward-Facing Dog with Stacked Hips"><style>#poseThumbPrev3 {background-image: url('./images/thumbnails/downward_dog_leg_up_stack_hips_R-tn.png');}@media screen and (-webkit-min-device-pixel-ratio: 2) {#poseThumbPrev3 {background-image: url('./images/thumbnails/downward_dog_leg_up_stack_hips_R-tn@2x.png');}}</style><div id='poseThumbPrev3'></div></a></li><li><a href='./Pose/lunge_hands_on_mat_flying' title="Flying Man"><style>#poseThumbPrev4 {background-image: url('./images/thumbnails/lunge_hands_on_mat_flying_L-tn.png');}@media screen and (-webkit-min-device-pixel-ratio: 2) {#poseThumbPrev4 {background-image: url('./images/thumbnails/lunge_hands_on_mat_flying_L-tn@2x.png');}}</style><div id='poseThumbPrev4'></div></a></li><li><a href='./Pose/flying_man_revolved' title="Revolved Flying Man"><style>#poseThumbPrev5 {background-image: url('./images/thumbnails/flying_man_revolved_L-tn.png');}@media screen and (-webkit-min-device-pixel-ratio: 2) {#poseThumbPrev5 {background-image: url('./images/thumbnails/flying_man_revolved_L-tn@2x.png');}}</style><div id='poseThumbPrev5'></div></a></li><li><a href='./Pose/pigeon_half' title="One Legged King Pigeon (Preparation)"><style>#poseThumbPrev6 {background-image: url('./images/thumbnails/pigeon_half_R-tn.png');}@media screen and (-webkit-min-device-pixel-ratio: 2) {#poseThumbPrev6 {background-image: url('./images/thumbnails/pigeon_half_R-tn@2x.png');}}</style><div id='poseThumbPrev6'></div></a></li><li><a href='./Pose/lunge' title="Lunge"><style>#poseThumbPrev7 {background-image: url('./images/thumbnails/lunge_R-tn.png');}@media screen and (-webkit-min-device-pixel-ratio: 2) {#poseThumbPrev7 {background-image: url('./images/thumbnails/lunge_R-tn@2x.png');}}</style><div id='poseThumbPrev7'></div></a></li><li><a href='./Pose/lunge_hands_on_mat' title="Lunge with Hands on the Inside of the Leg"><style>#poseThumbPrev8 {background-image: url('./images/thumbnails/lunge_hands_on_mat_R-tn.png');}@media screen and (-webkit-min-device-pixel-ratio: 2) {#poseThumbPrev8 {background-image: url('./images/thumbnails/lunge_hands_on_mat_R-tn@2x.png');}}</style><div id='poseThumbPrev8'></div></a></li><li><a href='./Pose/plank_leg_up' title="One Legged Plank"><style>#poseThumbPrev9 {background-image: url('./images/thumbnails/plank_leg_up_R-tn.png');}@media screen and (-webkit-min-device-pixel-ratio: 2) {#poseThumbPrev9 {background-image: url('./images/thumbnails/plank_leg_up_R-tn@2x.png');}}</style><div id='poseThumbPrev9'></div></a></li><li><a href='./Pose/plank_leg_up_kneeling' title="One Legged Plank on the Knee"><style>#poseThumbPrev10 {background-image: url('./images/thumbnails/plank_leg_up_kneeling_R-tn.png');}@media screen and (-webkit-min-device-pixel-ratio: 2) {#poseThumbPrev10 {background-image: url('./images/thumbnails/plank_leg_up_kneeling_R-tn@2x.png');}}</style><div id='poseThumbPrev10'></div></a></li><li><a href='./Pose/splits_front' title="Front Splits"><style>#poseThumbPrev11 {background-image: url('./images/thumbnails/splits_front_R-tn.png');}@media screen and (-webkit-min-device-pixel-ratio: 2) {#poseThumbPrev11 {background-image: url('./images/thumbnails/splits_front_R-tn@2x.png');}}</style><div id='poseThumbPrev11'></div></a></li><li><a href='./Pose/wild_thing' title="Wild Thing"><style>#poseThumbPrev12 {background-image: url('./images/thumbnails/wild_thing_L-tn.png');}@media screen and (-webkit-min-device-pixel-ratio: 2) {#poseThumbPrev12 {background-image: url('./images/thumbnails/wild_thing_L-tn@2x.png');}}</style><div id='poseThumbPrev12'></div></a></li></ul><h2>Next Poses</h2><ul><li><a href='./Pose/downward_dog' title="Downward-Facing Dog"><style>#poseThumbNext1 {background-image: url('./images/thumbnails/downward_dog-tn.png');}@media screen and (-webkit-min-device-pixel-ratio: 2) {#poseThumbNext1 {background-image: url('./images/thumbnails/downward_dog-tn@2x.png');}}</style><div id='poseThumbNext1'></div></a></li><li><a href='./Pose/downward_dog_knee_to_forehead' title="Downward-Facing Dog with Knee to Forehead"><style>#poseThumbNext2 {background-image: url('./images/thumbnails/downward_dog_knee_to_forehead_R-tn.png');}@media screen and (-webkit-min-device-pixel-ratio: 2) {#poseThumbNext2 {background-image: url('./images/thumbnails/downward_dog_knee_to_forehead_R-tn@2x.png');}}</style><div id='poseThumbNext2'></div></a></li><li><a href='./Pose/downward_dog_leg_up_stack_hips' title="Downward-Facing Dog with Stacked Hips"><style>#poseThumbNext3 {background-image: url('./images/thumbnails/downward_dog_leg_up_stack_hips_R-tn.png');}@media screen and (-webkit-min-device-pixel-ratio: 2) {#poseThumbNext3 {background-image: url('./images/thumbnails/downward_dog_leg_up_stack_hips_R-tn@2x.png');}}</style><div id='poseThumbNext3'></div></a></li><li><a href='./Pose/lunge_hands_on_mat_flying' title="Flying Man"><style>#poseThumbNext4 {background-image: url('./images/thumbnails/lunge_hands_on_mat_flying_L-tn.png');}@media screen and (-webkit-min-device-pixel-ratio: 2) {#poseThumbNext4 {background-image: url('./images/thumbnails/lunge_hands_on_mat_flying_L-tn@2x.png');}}</style><div id='poseThumbNext4'></div></a></li><li><a href='./Pose/flying_man_revolved' title="Revolved Flying Man"><style>#poseThumbNext5 {background-image: url('./images/thumbnails/flying_man_revolved_L-tn.png');}@media screen and (-webkit-min-device-pixel-ratio: 2) {#poseThumbNext5 {background-image: url('./images/thumbnails/flying_man_revolved_L-tn@2x.png');}}</style><div id='poseThumbNext5'></div></a></li><li><a href='./Pose/pigeon_half' title="One Legged King Pigeon (Preparation)"><style>#poseThumbNext6 {background-image: url('./images/thumbnails/pigeon_half_R-tn.png');}@media screen and (-webkit-min-device-pixel-ratio: 2) {#poseThumbNext6 {background-image: url('./images/thumbnails/pigeon_half_R-tn@2x.png');}}</style><div id='poseThumbNext6'></div></a></li><li><a href='./Pose/lunge' title="Lunge"><style>#poseThumbNext7 {background-image: url('./images/thumbnails/lunge_R-tn.png');}@media screen and (-webkit-min-device-pixel-ratio: 2) {#poseThumbNext7 {background-image: url('./images/thumbnails/lunge_R-tn@2x.png');}}</style><div id='poseThumbNext7'></div></a></li><li><a href='./Pose/lunge_hands_on_mat' title="Lunge with Hands on the Inside of the Leg"><style>#poseThumbNext8 {background-image: url('./images/thumbnails/lunge_hands_on_mat_R-tn.png');}@media screen and (-webkit-min-device-pixel-ratio: 2) {#poseThumbNext8 {background-image: url('./images/thumbnails/lunge_hands_on_mat_R-tn@2x.png');}}</style><div id='poseThumbNext8'></div></a></li><li><a href='./Pose/lunge_kneeling' title="Lunge on the Knee"><style>#poseThumbNext9 {background-image: url('./images/thumbnails/lunge_kneeling_R-tn.png');}@media screen and (-webkit-min-device-pixel-ratio: 2) {#poseThumbNext9 {background-image: url('./images/thumbnails/lunge_kneeling_R-tn@2x.png');}}</style><div id='poseThumbNext9'></div></a></li><li><a href='./Pose/plank_leg_up' title="One Legged Plank"><style>#poseThumbNext10 {background-image: url('./images/thumbnails/plank_leg_up_R-tn.png');}@media screen and (-webkit-min-device-pixel-ratio: 2) {#poseThumbNext10 {background-image: url('./images/thumbnails/plank_leg_up_R-tn@2x.png');}}</style><div id='poseThumbNext10'></div></a></li><li><a href='./Pose/plank_leg_up_kneeling' title="One Legged Plank on the Knee"><style>#poseThumbNext11 {background-image: url('./images/thumbnails/plank_leg_up_kneeling_R-tn.png');}@media screen and (-webkit-min-device-pixel-ratio: 2) {#poseThumbNext11 {background-image: url('./images/thumbnails/plank_leg_up_kneeling_R-tn@2x.png');}}</style><div id='poseThumbNext11'></div></a></li><li><a href='./Pose/splits_front' title="Front Splits"><style>#poseThumbNext12 {background-image: url('./images/thumbnails/splits_front_R-tn.png');}@media screen and (-webkit-min-device-pixel-ratio: 2) {#poseThumbNext12 {background-image: url('./images/thumbnails/splits_front_R-tn@2x.png');}}</style><div id='poseThumbNext12'></div></a></li></ul></section><section class='poseDescription'><ul><li><h3>One Legged Downward-Facing Dog</h3></li><li><h4 class='big'>Eka Pāda Adho Mukha Śvānāsana</h4></li></ul><ul><li><div class='trans'>eka = one</div></li><li><div class='trans'>pāda = foot or leg</div></li><li><div class='trans'>adho = downward</div></li><li><div class='trans'>mukha = facing</div></li><li><div class='trans'>śvāna = dog</div></li><li><div class='trans'>āsana = posture</div></li></ul><ul><li><h5 class='category'>Alt. Name:</h5><span class='cat'>Three Legged Downward-Facing Dog</span></li><li><h5 class='category'>Category:</h5><span class='cat'>Arm and Leg Support / Balancing</span></li><li><h5 class='category'>Difficulty:</h5><span class='cat'>Intermediate</span></li></ul><ul><li><h5>Description:</h5><p class='text'>From <a href='./Pose/downward_dog'>Downward-Facing Dog (Adho Mukha Śvānāsana)</a>, one foot extends up to the sky while the opposite foot is rooted into the earth.  The hips are squared and the toes are active.  The forehead reaches for the earth as the shoulder blades rotate inward.  The gaze is towards the back.</p></li></ul><ul><li><h5>Benefits:</h5><p class='text'>Tones and strengthens the standing leg.  Improves flexibility.  Opens the hips.</p></li></ul></section>        </section>
+
+    </section>
+    </section>
+
+    <footer  >
+    <div>
+		<span>
+			<a href="./PrivacyPolicy">privacy</a> |
+			<a href="./TermsOfUse">terms</a> |
+			© 2018 Rainfrog, LLC. All Rights Reserved.
+		</span>
+	</div>
+</footer>
+
+</body>
+</html>

@@ -1,0 +1,72 @@
+<!doctype html>
+
+
+<html>
+<head>
+	<base href="http://www.pocketyoga.com/">
+	<meta charset="utf-8">                             <!-- needed to display nonEnglish characters -->
+    <title>Yoga Pose: Bound Revolved Side Angle | Pocket Yoga</title>
+    <meta name="description" content= "A detailed description and benefits of the Bound Revolved Side Angle pose including image, sanskrit name, category, difficulty, and a list of variations, previous, and next poses." />
+    <meta name="keywords" content= "yoga pose, Bound Revolved Side Angle, Parivṛtta Baddha Pārśvakoṇāsana" />
+    <link rel="stylesheet" href=./stylesheets/master.css?1501533599 type="text/css" />
+    <link rel="shortcut icon" href="./images/navigation/favicon.ico" />
+    <script type="text/javascript" src="./javascript/jquery-1.8.2.min.js"></script>
+    <script type="text/javascript" src="./javascript/basicFunctions.js"></script>
+    <!-- converts img tags to high resoution images if on retina display -->
+    <script type="text/javascript">
+        $(document).ready(function() {
+            hiResConversion();
+        });
+        window.matchMedia('(-webkit-device-pixel-ratio:1)').addListener(lowResConversion);
+        window.matchMedia('(-webkit-min-device-pixel-ratio:2)').addListener(hiResConversion);
+    </script>
+    <script type="text/javascript">HTML5ieCompatability();</script> <!-- allows HTML5 tags to work on IE 8 or less -->
+</head>
+
+<body>
+    <script type="text/javascript">
+
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-15356291-1']);
+    _gaq.push(['_trackPageview']);
+
+    (function() {
+     var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+     ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+     var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+     })();
+
+</script>    <header >
+    <nav class="head">
+        <!-- floats should come before main text to prevent loading issues -->
+        <ul id="social">
+            <li><a href="http://twitter.com/pocketyogaapp" target="_blank"><img src="./images/navigation/twitter.png" alt="Twitter" width="23" height="20"/></a></li>
+            <li><a href="http://www.facebook.com/pocketyoga" target="_blank"><img src="./images/navigation/facebook.png" alt="Facebook" width="8" height="20"/></a></li>
+        </ul>
+        <a href="./Home"><img id="pocketYogaHeader" src="./images/navigation/pocketYogaHeader.png" alt="Pocket Yoga" width="213" height="25"/></a>
+        <ul>
+        <li><a href='./Home'>Home</a></li><li><a href='./Apps/PocketYoga'>Apps</a></li><li><a href='./Pose'>Poses</a></li><li><a href='./Support/PocketYoga'>Support</a></li>        </ul>
+    </nav>
+</header>
+    
+    <section id="mainSection">
+    <section class="mainContent">
+        
+        <section class="mainProduct">
+        <section class='poseImages'><button id='rotateButton' onclick='switchImage("poseImg")'></button><img id='poseImg' src='./images/poses/warrior_twist_extended_bound_R.png' alt="Yoga Pose: Bound Revolved Side Angle (Parivṛtta Baddha Pārśvakoṇāsana)" height='380'/><h2>Previous Poses</h2><ul><li><a href='./Pose/bird_of_paradise_revolved_preparation' title="Revolved Bird of Paradise (Preparation)"><style>#poseThumbPrev1 {background-image: url('./images/thumbnails/bird_of_paradise_revolved_preparation_L-tn.png');}@media screen and (-webkit-min-device-pixel-ratio: 2) {#poseThumbPrev1 {background-image: url('./images/thumbnails/bird_of_paradise_revolved_preparation_L-tn@2x.png');}}</style><div id='poseThumbPrev1'></div></a></li><li><a href='./Pose/warrior_twist_extended' title="Revolved Side Angle"><style>#poseThumbPrev2 {background-image: url('./images/thumbnails/warrior_twist_extended_R-tn.png');}@media screen and (-webkit-min-device-pixel-ratio: 2) {#poseThumbPrev2 {background-image: url('./images/thumbnails/warrior_twist_extended_R-tn@2x.png');}}</style><div id='poseThumbPrev2'></div></a></li></ul><h2>Next Poses</h2><ul><li><a href='./Pose/bird_of_paradise_revolved_preparation' title="Revolved Bird of Paradise (Preparation)"><style>#poseThumbNext1 {background-image: url('./images/thumbnails/bird_of_paradise_revolved_preparation_L-tn.png');}@media screen and (-webkit-min-device-pixel-ratio: 2) {#poseThumbNext1 {background-image: url('./images/thumbnails/bird_of_paradise_revolved_preparation_L-tn@2x.png');}}</style><div id='poseThumbNext1'></div></a></li><li><a href='./Pose/warrior_twist_extended' title="Revolved Side Angle"><style>#poseThumbNext2 {background-image: url('./images/thumbnails/warrior_twist_extended_R-tn.png');}@media screen and (-webkit-min-device-pixel-ratio: 2) {#poseThumbNext2 {background-image: url('./images/thumbnails/warrior_twist_extended_R-tn@2x.png');}}</style><div id='poseThumbNext2'></div></a></li></ul></section><section class='poseDescription'><ul><li><h3>Bound Revolved Side Angle</h3></li><li><h4 class='big'>Parivṛtta Baddha Pārśvakoṇāsana</h4></li></ul><ul><li><div class='trans'>parivṛtta = revolved</div></li><li><div class='trans'>baddha = bound</div></li><li><div class='trans'>pārśva = side</div></li><li><div class='trans'>koṇa = angle</div></li><li><div class='trans'>āsana = posture</div></li></ul><ul><li><h5 class='category'>Category:</h5><span class='cat'>Standing / Twist</span></li><li><h5 class='category'>Difficulty:</h5><span class='cat'>Expert</span></li></ul><ul><li><h5>Description:</h5><p class='text'>From <a href='./Pose/warrior_II'>Warrior II (Vīrabhadrāsana II)</a>, bend the front knee and spin to the ball of the back foot as the torso lowers down onto the thigh, opening the heart center to the sky and lowering the bottom hand to the inside of the thigh with the palm planted firmly.  At the same time, reach the top arm and hand up and overhead extending in a straight line towards the front.  To take the bind then wrap the top arm around and under the backside of the torso and grasp the bottom hand at the wrist if possible.  Minimize lateral flexion of the spine while rotating the torso open.  Press the elbow and the shoulder against the bent knee in an isometric contraction to keep the knee aligned and leverage the rotation of the torso.  The gaze is to upper fingertips and the neck is relaxed.  As all twists lengthen and soften the belly, extend the spine with each inhalation, and increase the twist as you exhale.</p></li></ul><ul><li><h5>Benefits:</h5><p class='text'>Strengthens and stretches the legs, the knees, and the ankles.  Stretches the groins, the spine, the chest, the lungs, and the shoulders.  Stimulates abdominal organs.  Increases stamina.  Improves digestion and aids elimination.  Improves balance.</p></li></ul></section>        </section>
+
+    </section>
+    </section>
+
+    <footer  >
+    <div>
+		<span>
+			<a href="./PrivacyPolicy">privacy</a> |
+			<a href="./TermsOfUse">terms</a> |
+			© 2018 Rainfrog, LLC. All Rights Reserved.
+		</span>
+	</div>
+</footer>
+
+</body>
+</html>
