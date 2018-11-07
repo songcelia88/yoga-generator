@@ -4,6 +4,8 @@ from flask_sqlalchemy import SQLAlchemy
 # the Flask-SQLAlchemy helper library. On this, we can find the `session`
 # object, where we do most of our interactions (like committing, etc.)
 
+# This assumes the database has been seeded with the seed.py file
+
 db = SQLAlchemy()
 
 ##############################################################################
@@ -14,13 +16,17 @@ class Pose(db.Model):
 
     pose_id = db.Column(db.Integer, primary_key=True, autoincrement=True)
     name = db.Column(db.String(100), nullable=False, unique=True) # required and unique
-    description = db.Column(db.String(1000))
+    sanskrit = db.Column(db.String(100), nullable=True) # sanskrit name
+    description = db.Column(db.String(2000))
     difficulty = db.Column(db.String(20), nullable=False)
     altNames = db.Column(db.String(100), nullable=True)
     benefit = db.Column(db.String(1000), nullable=True)
     img_url = db.Column(db.String(200), nullable=False)
+    next_pose_str = db.Column(db.String(500), nullable=True) # next poses stored as a string for now
+    prev_pose_str = db.Column(db.String(500), nullable=True) # previous poses stored as a string for now
 
     pose_seqs = db.relationship('PoseSeq')
+    pose_categories = db.relationship('PoseCategory')
 
     def __repr__(self):
         """Print out the Pose object nicely"""
@@ -42,6 +48,7 @@ class Sequence(db.Model):
 
 class PoseSeq(db.Model):
     __tablename__ = "poseseqs"
+
     poseseq_id = db.Column(db.Integer, primary_key=True, autoincrement=True)
     pose_id =  db.Column(db.Integer, db.ForeignKey('poses.pose_id'), nullable=False)
     seq_id = db.Column(db.Integer, db.ForeignKey('sequences.seq_id'), nullable=False)
@@ -51,8 +58,34 @@ class PoseSeq(db.Model):
 
     def __repr__(self):
         """Print out the Pose-Sequence object nicely"""
-        return "<PoseSeq pose name = {}, seq_id = {}".format(self.pose.name, self.seq_id)
+        return "<PoseSeq pose name = {}, seq_id = {}>".format(self.pose.name, self.seq_id)
 
+
+class PoseCategory(db.Model):
+    __tablename__ = 'posecategories'
+
+    posecat_id = db.Column(db.Integer, primary_key=True, autoincrement=True)
+    pose_id = db.Column(db.Integer, db.ForeignKey('poses.pose_id'), nullable=False)
+    cat_id = db.Column(db.Integer, db.ForeignKey('categories.cat_id'), nullable=False)
+
+    pose = db.relationship('Pose')
+    category = db.relationship('Category')
+
+    def __repr__(self):
+        return "<PoseCategory id={}, pose={}, category={}>".format(self.posecat_id, self.pose.name, self.category.name)
+
+
+class Category(db.Model):
+    __tablename__ = "categories"
+
+    cat_id = db.Column(db.Integer, primary_key=True, autoincrement=True)
+    name = db.Column(db.String(100), nullable=False, unique=True) # required and unique
+
+    pose_categories = db.relationship('PoseCategory')
+    
+    def __repr__(self):
+        """Print out the category object nicely"""
+        return "<Category cat_id ={}, name={}>".format(self.cat_id, self.name)
 
 ##############################################################################
 # Helper functions
@@ -72,5 +105,6 @@ if __name__ == "__main__":
 
     from server import app
     connect_to_db(app)
-    db.create_all() # create tables so I can work with them
+    db.create_all()
     print("Connected to DB.")
+

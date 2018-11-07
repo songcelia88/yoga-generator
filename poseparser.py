@@ -38,6 +38,11 @@ def parseYogaUrl(url):
     # get the pose name
     data['name'] = htmlsoup.select(".poseDescription h3")[0].get_text()
 
+    # get the sanskrit name
+    sanskrit = htmlsoup.select(".poseDescription h4")
+    if sanskrit:
+        data['sanskrit'] = sanskrit[0].get_text()
+
     # get the pose description
     descStr = htmlsoup.find(string="Description:")
     data['description'] = descStr.parent.next_sibling.get_text()
@@ -51,12 +56,12 @@ def parseYogaUrl(url):
     if altStr: #if it exists
         altText = altStr.parent.next_sibling.get_text()
         altNames = altText.split(" / ")
-        data['altNames'] = altNames
+        data['altNames'] = altText
 
-    # get the category 
+    # get the category
     catStr = htmlsoup.find(string="Category:")
     catText = catStr.parent.next_sibling.get_text()
-    data['categories'] = catText.split(" / ")
+    data['categories'] = catText
 
     # get the benefits
     benStr = htmlsoup.find(string="Benefits:")
@@ -73,30 +78,32 @@ def parseYogaUrl(url):
 
     # download image and save to my static folder
     imgRes = requests.get(fullUrl)
-    with open(data['imgUrl'], 'wb') as f: 
+    with open(data['imgUrl'], 'wb') as f: # open file option b means binary mode e.g. images
         f.write(imgRes.content)
         print("downloaded picture", data['imgUrl'])
 
 
-    # get the previous poses (if they exist)
+    # get the previous poses (if they exist), store as a string for now
     prevTitle = htmlsoup.find(string="Previous Poses")
-    previousPoses = []
+    previousPoses = ""
     if prevTitle:
         prevPoseList = prevTitle.parent.next_sibling.contents # in the form [<li><a></a><li>, <li><a></a><li>]
         for element in prevPoseList: # each element is in the form <li><a></a></li>
-            poseTitle = element.contents[0]['title'] #take the first child
-            previousPoses.append(poseTitle)
-    data['previousPoses'] = previousPoses
+            poseTitle = element.contents[0]['title'] # take the first child
+            previousPoses += poseTitle + "," # e.g. previousPoses = "Warrior 1, Warrior 2, Downward Dog,"
+    
+    data['previousPoses'] = previousPoses[:-1] # chop off the last comma
 
-    # get the next poses (if they exist)
+    # get the next poses (if they exist), store as a string for now
     nextTitle = htmlsoup.find(string="Next Poses")
-    nextPoses = []
+    nextPoses = ""
     if nextTitle:
         nextPoseList = nextTitle.parent.next_sibling.contents # in the form [<li><a></a><li>, <li><a></a><li>]
         for element in nextPoseList: # each element is in the form <li><a></a></li>
             poseTitle = element.contents[0]['title'] #take the first child
-            nextPoses.append(poseTitle)
-    data['nextPoses'] = nextPoses
+            nextPoses += poseTitle + "," # e.g. nextPoses = "Warrior 1, Warrior 2, Downward Dog,"
+
+    data['nextPoses'] = nextPoses[:-1] # chop off the last comma
 
     # print out a status message so I know what's going on
     print('got the data for', data['name'])
@@ -138,6 +145,9 @@ def parseYoga(filename):
 
     # get the pose name
     data['name'] = htmlsoup.select(".poseDescription h3")[0].get_text()
+
+    # get the sanskrit name
+    data['sanskrit'] = htmlsoup.select(".poseDescription h4")[0].get_text()
 
     # get the pose description
     descStr = htmlsoup.find(string="Description:")
