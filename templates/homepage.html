@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+
+{% block title %} Yoga App{% endblock %}
+
+{% block content %}
+
+<form action="/search" method="GET">
+    <h3>Search:</h3>
+    <div>Keyword: <input type="text" name="keyword"></div>
+    <div> 
+        <p><strong>Category:</strong></p>
+        {% for category in categories %}
+        <input type="checkbox" id="{{ category.name }}" name="categories" value="{{ category.cat_id }}">
+        <label for="{{ category.name }}">{{ category.name }}</label><br>
+        {% endfor %}
+    </div>
+    <div>
+        <p><strong>Difficulty:</strong></p>
+        <input type="checkbox" id="beginner" name="difficulty" value="Beginner">
+        <label for="beginner">Beginner</label><br>
+        <input type="checkbox" id="intermediate" name="difficulty" value="Intermediate">
+        <label for="intermediate">Intermediate</label><br>
+        <input type="checkbox" id="expert" name="difficulty" value="Expert">
+        <label for="expert">Expert</label>
+    </div>
+    <div style="padding-top: 10px"><input type="submit" value="Search"></div>
+</form>
+
+<h1>All Poses</h1>
+<ul>
+    {% for pose in all_poses %}
+        <li>
+            <a href="pose/{{ pose.pose_id }}">
+                {{ pose.name }}
+                <!-- <img src="/{{ pose.img_url }}"> -->
+            <a>
+        </li>
+    {% endfor %}
+</ul>
+{% endblock %}

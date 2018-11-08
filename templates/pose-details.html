@@ -1,0 +1,48 @@
+{% extends 'base.html' %}
+
+{% block title %} {{ pose.name }}{% endblock %}
+
+{% block content %}
+
+<h1>{{ pose.name }}</h1>
+
+{% if pose.sanskrit %}
+    <p>Sanskrit Name: {{ pose.sanskrit }}</p>
+{% endif %}
+
+{% if pose.altNames %}
+    <p>AKA: {{ pose.altNames }}</p>
+{% endif %}
+
+<h3>Difficulty: {{ pose.difficulty }}</h3>
+
+<h3>Categories:</h3>
+<ul>
+    {% if pose.pose_categories %}
+        {% for posecat in pose.pose_categories %}
+            <li>{{ posecat.category.name }}</li>
+        {% endfor%}
+    {% endif %}    
+</ul>
+
+<div>
+    <img src="/{{ pose.img_url }}">
+</div>
+<h3>Description: </h3>
+<p>{{ pose.description }}</p>
+
+{% if pose.benefit %}
+    <h3>Benefits: </h3>
+    <p>{{ pose.benefit }}</p>
+{% endif %}
+
+{% if next_poses %}
+    <h3>Next Poses: </h3>
+    <ul>
+    {% for next in next_poses %}
+        <li>{{ next }}</li>
+    {% endfor %}
+    </ul>
+{% endif %}
+
+{% endblock %}
