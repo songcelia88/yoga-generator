@@ -82,6 +82,8 @@ def addPoseWeights():
             db.session.commit()
             print("added next pose for", pose)
 
+# TO DO: refine the data a bit more, make weights better (put in seed file?)
+# TO DO: incorporate yoga journal's data to help refine the data?
 
 if __name__ == "__main__":
     connect_to_db(app)

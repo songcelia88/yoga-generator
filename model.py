@@ -29,7 +29,7 @@ class Pose(db.Model):
     next_poses = db.Column(JSON, nullable=True) # next poses as a JSON {pose_id: weight, pose_id: weight, ....}
 
 
-    pose_seqs = db.relationship('PoseSeq')
+    pose_workout = db.relationship('PoseWorkout')
     pose_categories = db.relationship('PoseCategory')
 
     def getNextPose(self):
@@ -62,32 +62,32 @@ class Pose(db.Model):
         return "<Pose pose_id={}, name={}>".format(self.pose_id, self.name)
 
 
-class Sequence(db.Model):
-    __tablename__ = "sequences"
+class Workout(db.Model):
+    __tablename__ = "workouts"
 
-    seq_id = db.Column(db.Integer, primary_key=True, autoincrement=True)
+    workout_id = db.Column(db.Integer, primary_key=True, autoincrement=True)
     duration = db.Column(db.Integer, nullable=False) # in minutes
 
-    pose_seqs = db.relationship('PoseSeq')
+    pose_workouts = db.relationship('PoseWorkout')
 
     def __repr__(self):
-        """Print out the Sequence Object nicely"""
-        return "<Sequence seq_id={}, duration={}>".format(self.seq_id, self.duration)
+        """Print out the Workout Object nicely"""
+        return "<Workout workout_id={}, duration={}>".format(self.workout_id, self.duration)
 
 
-class PoseSeq(db.Model):
-    __tablename__ = "poseseqs"
+class PoseWorkout(db.Model):
+    __tablename__ = "poseworkouts"
 
-    poseseq_id = db.Column(db.Integer, primary_key=True, autoincrement=True)
+    posework_id = db.Column(db.Integer, primary_key=True, autoincrement=True)
     pose_id =  db.Column(db.Integer, db.ForeignKey('poses.pose_id'), nullable=False)
-    seq_id = db.Column(db.Integer, db.ForeignKey('sequences.seq_id'), nullable=False)
+    workout_id = db.Column(db.Integer, db.ForeignKey('workouts.workout_id'), nullable=False)
 
-    sequence = db.relationship('Sequence')
+    workout = db.relationship('Workout')
     pose = db.relationship('Pose')
 
     def __repr__(self):
-        """Print out the Pose-Sequence object nicely"""
-        return "<PoseSeq pose name = {}, seq_id = {}>".format(self.pose.name, self.seq_id)
+        """Print out the Pose-Workout object nicely"""
+        return "<PoseWorkout pose name = {}, workout_id = {}>".format(self.pose.name, self.workout_id)
 
 
 class PoseCategory(db.Model):
@@ -119,8 +119,31 @@ class Category(db.Model):
 ##############################################################################
 # Helper functions
 # warrior2 = Pose.query.get(187)
-def createWorkout():
-    pass
+def generateWorkout(num_poses):
+    """Generate a list of Poses, take an input the number of poses and returns a 
+    list of Poses, save that result as a Workout object
+    """
+
+    # TO DO: want to incorporate choosing from different pose sets (adjust difficulty, pose types)
+    
+    # start with a pose
+    start_pose = random.choice(Pose.query.all())
+    # start_pose = Pose.query.get(130) # Mountain Pose Id is 130
+    workout_list = [start_pose]
+
+    while len(workout_list) <= num_poses:
+        next_pose = workout_list[-1].getNextPose()
+        workout_list.append(next_pose)
+
+    return workout_list
+
+
+# def saveWorkout(poses_list): (make this a route to save the workout?)
+    # create workout object and commit it
+    # for each pose in the workout list, create PoseWorkout object with the id of that 
+    #     pose and id of the workout
+    # return the workout object
+
 
 def connect_to_db(app):
     """Connect the database to our Flask app."""
