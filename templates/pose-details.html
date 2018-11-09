@@ -36,6 +36,15 @@
     <p>{{ pose.benefit }}</p>
 {% endif %}
 
+{% if prev_poses %}
+    <h3>Previous Poses: </h3>
+    <ul>
+    {% for prev in prev_poses %}
+        <li>{{ prev }}</li>
+    {% endfor %}
+    </ul>
+{% endif %}
+
 {% if next_poses %}
     <h3>Next Poses: </h3>
     <ul>
@@ -44,5 +53,7 @@
     {% endfor %}
     </ul>
 {% endif %}
+
+
 
 {% endblock %}

@@ -1,4 +1,6 @@
 from flask_sqlalchemy import SQLAlchemy
+from sqlalchemy.dialects.postgresql import JSON
+import random
 
 # This is the connection to the PostgreSQL database; we're getting this through
 # the Flask-SQLAlchemy helper library. On this, we can find the `session`
@@ -24,9 +26,36 @@ class Pose(db.Model):
     img_url = db.Column(db.String(200), nullable=False)
     next_pose_str = db.Column(db.String(500), nullable=True) # next poses stored as a string for now
     prev_pose_str = db.Column(db.String(500), nullable=True) # previous poses stored as a string for now
+    next_poses = db.Column(JSON, nullable=True) # next poses as a JSON {pose_id: weight, pose_id: weight, ....}
+
 
     pose_seqs = db.relationship('PoseSeq')
     pose_categories = db.relationship('PoseCategory')
+
+    def getNextPose(self):
+        """
+        Returns a Pose object that would follow based on
+        choosing a pose from the original Pose object's next_poses attribute
+        
+        e.g. 
+        Usage: warrior2.getNextPose() 
+        Output: <Pose name="Warrior I">
+
+        """
+        if self.next_poses: # if the next_poses attribute exists for that pose
+            pose_ids = []
+            pose_weights = []
+            for pose_id, weight in self.next_poses.items(): # pose.next_poses = {id: weight, id: weight ...}
+                pose_ids.append(int(pose_id))
+                pose_weights.append(weight)
+
+        else: # if no next poses exist then choose from some basic ones like Mountain, Down Dog
+            pose_ids =[64,130,32]
+            pose_weights = [2,2,1]
+
+        next_pose_id = random.choices(pose_ids, pose_weights)[0] # random.choices returns a list
+
+        return Pose.query.get(next_pose_id)
 
     def __repr__(self):
         """Print out the Pose object nicely"""
@@ -82,13 +111,16 @@ class Category(db.Model):
     name = db.Column(db.String(100), nullable=False, unique=True) # required and unique
 
     pose_categories = db.relationship('PoseCategory')
-    
+
     def __repr__(self):
         """Print out the category object nicely"""
         return "<Category cat_id ={}, name={}>".format(self.cat_id, self.name)
 
 ##############################################################################
 # Helper functions
+# warrior2 = Pose.query.get(187)
+def createWorkout():
+    pass
 
 def connect_to_db(app):
     """Connect the database to our Flask app."""

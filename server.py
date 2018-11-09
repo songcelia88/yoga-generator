@@ -25,7 +25,7 @@ def searchPoses():
     """Search for poses by keyword (looks through name, alt names, sanskrit), category
     & difficulty
     
-    Shows the poses that meet those search requirements 
+    Lists the poses that meet those search requirements 
     """
 
     # TODO: make keyword search not case sensitive
@@ -37,10 +37,14 @@ def searchPoses():
         difficulty = ['Beginner', 'Intermediate', 'Expert']
 
     categories = request.args.getlist('categories') # list of categories
+    if not categories:
+        all_cat_ids = db.session.query(Category.cat_id).all() # returns a list of tuples of all the ids
+        categories = [category[0] for category in all_cat_ids] # converts that to a list
 
-    all_poses = Pose.query.filter(Pose.name.like(keyword), 
-                                Pose.difficulty.in_(difficulty)).order_by('name').all()
-    # TODO: need to add query for categories
+    all_poses = db.session.query(Pose).join(PoseCategory).filter(Pose.name.like(keyword),
+                                                                Pose.difficulty.in_(difficulty),
+                                                                PoseCategory.cat_id.in_(categories)).all()
+
     all_categories = Category.query.order_by('name').all()
 
     return render_template("homepage.html", all_poses=all_poses, categories=all_categories)
@@ -51,12 +55,18 @@ def showPoseDetails(pose_id):
     """Show the pose details"""
 
     pose = Pose.query.get(pose_id)
-    next_pose_str = pose.next_pose_str
     next_poses = None
-    if next_pose_str:
+    if pose.next_pose_str:
         next_poses = pose.next_pose_str.split(',') # list of next poses
 
-    return render_template("pose-details.html", pose=pose, next_poses=next_poses)
+    prev_poses = None
+    if pose.prev_pose_str:
+        prev_poses = pose.prev_pose_str.split(',') # list of previous poses
+
+    return render_template("pose-details.html", 
+                            pose=pose,
+                            next_poses=next_poses,
+                            prev_poses=prev_poses)
 
 
 if __name__ == "__main__":
