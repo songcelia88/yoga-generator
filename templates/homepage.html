@@ -1,40 +1,47 @@
 {% extends 'base.html' %}
 
-{% block title %} Yoga App{% endblock %}
+{% block title %}Yoga App{% endblock %}
 
 {% block content %}
 
-<form action="/search" method="GET">
-    <h3>Search:</h3>
-    <div>Keyword: <input type="text" name="keyword"></div>
-    <div> 
-        <p><strong>Category:</strong></p>
-        {% for category in categories %}
-        <input type="checkbox" id="{{ category.name }}" name="categories" value="{{ category.cat_id }}">
-        <label for="{{ category.name }}">{{ category.name }}</label><br>
-        {% endfor %}
-    </div>
+<form action="/workout" method="GET" id="create-workout-form">
+    <h3>Length of Workout:</h3>
     <div>
-        <p><strong>Difficulty:</strong></p>
-        <input type="checkbox" id="beginner" name="difficulty" value="Beginner">
-        <label for="beginner">Beginner</label><br>
-        <input type="checkbox" id="intermediate" name="difficulty" value="Intermediate">
-        <label for="intermediate">Intermediate</label><br>
-        <input type="checkbox" id="expert" name="difficulty" value="Expert">
-        <label for="expert">Expert</label>
+        <select name="num_poses" id="num_poses">
+            <option value = "15">15 poses</option>
+            <option value ="30">30 poses</option>
+            <option value="45">45 poses</option>
+        </select>
     </div>
-    <div style="padding-top: 10px"><input type="submit" value="Search"></div>
+    <div style="padding-top: 10px">
+        <input type="submit" value="Create Workout!" id="create-workout-btn">
+    </div>
 </form>
 
-<h1>All Poses</h1>
-<ul>
-    {% for pose in all_poses %}
-        <li>
-            <a href="pose/{{ pose.pose_id }}">
-                {{ pose.name }}
-                <!-- <img src="/{{ pose.img_url }}"> -->
-            <a>
-        </li>
-    {% endfor %}
-</ul>
+<div style="padding-top: 20px">
+    <button id="save-workout">Save this Workout</button>
+</div>
+<div id="errorMessage"></div>
+<div>
+    <!-- make the title hidden until displaying the workout -->
+    <h2 id="workout-title">
+        {% if session['workout'] %}
+            Your Workout
+        {% endif %}
+    </h2> 
+    <div id="yogaposes">
+        {% if session['workout'] %}
+            {% for pose in session['workout'] %}
+                <h3>
+                    <a href="/pose/{{ pose['pose_id'] }}">
+                        {{ loop.index }}. {{ pose['name'] }}<br>
+                    <img src="{{ pose['imgurl'] }}">
+                    <a>
+                </h3>
+            {% endfor %}
+        {% endif %}
+    </div>
+</div>
+
+<script src="static/js/yogaWorkout.js"></script>
 {% endblock %}

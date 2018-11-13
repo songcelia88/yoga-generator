@@ -1,5 +1,5 @@
 from flask_sqlalchemy import SQLAlchemy
-from sqlalchemy.dialects.postgresql import JSON
+from sqlalchemy.dialects.postgresql import JSON, ARRAY
 import random
 
 # This is the connection to the PostgreSQL database; we're getting this through
@@ -121,7 +121,7 @@ class Category(db.Model):
 # warrior2 = Pose.query.get(187)
 def generateWorkout(num_poses):
     """Generate a list of Poses, take an input the number of poses and returns a 
-    list of Poses, save that result as a Workout object
+    list of Pose objects
     """
 
     # TO DO: want to incorporate choosing from different pose sets (adjust difficulty, pose types)
@@ -131,7 +131,7 @@ def generateWorkout(num_poses):
     # start_pose = Pose.query.get(130) # Mountain Pose Id is 130
     workout_list = [start_pose]
 
-    while len(workout_list) <= num_poses:
+    while len(workout_list) < num_poses:
         next_pose = workout_list[-1].getNextPose()
         workout_list.append(next_pose)
 
