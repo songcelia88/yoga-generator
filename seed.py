@@ -86,7 +86,8 @@ def addPoseWeights():
 # TO DO: incorporate yoga journal's data to help refine the data?
 
 if __name__ == "__main__":
-    connect_to_db(app)
+    PRODUCTION_DB_URI = 'postgresql:///yogaposes'
+    connect_to_db(app, PRODUCTION_DB_URI)
 
     # In case tables haven't been created, create them
     db.create_all()

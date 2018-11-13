@@ -118,6 +118,7 @@ class Category(db.Model):
 
 ##############################################################################
 # Helper functions
+
 # warrior2 = Pose.query.get(187)
 def generateWorkout(num_poses):
     """Generate a list of Poses, take an input the number of poses and returns a 
@@ -138,18 +139,12 @@ def generateWorkout(num_poses):
     return workout_list
 
 
-# def saveWorkout(poses_list): (make this a route to save the workout?)
-    # create workout object and commit it
-    # for each pose in the workout list, create PoseWorkout object with the id of that 
-    #     pose and id of the workout
-    # return the workout object
-
-
-def connect_to_db(app):
+def connect_to_db(app, database_uri):
     """Connect the database to our Flask app."""
 
-    # Configure to use our PstgreSQL database
-    app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql:///yogaposes'
+    # Configure to use our PostgreSQL database
+    # production: postgresql:///yogaposes
+    app.config['SQLALCHEMY_DATABASE_URI'] = database_uri
     app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
     db.app = app
     db.init_app(app)
@@ -159,7 +154,8 @@ if __name__ == "__main__":
     # you in a state of being able to work with the database directly.
 
     from server import app
-    connect_to_db(app)
+    PRODUCTION_DB_URI = 'postgresql:///yogaposes'
+    connect_to_db(app, PRODUCTION_DB_URI)
     # db.create_all()
     print("Connected to DB.")
 

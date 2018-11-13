@@ -9,7 +9,6 @@ def getPoseLinks(filename):
 
     # grab all the link elements in the posesDisplay class and make a list of all the urls
     posesDisplay = htmlsoup.select('.posesDisplay li a')
-    # poseUrls = [link['href'] for link in posesDisplay]
 
     # write into text file
     with open("poselinks.txt", "a") as file:

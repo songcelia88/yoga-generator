@@ -126,7 +126,9 @@ if __name__ == "__main__":
     app.debug = True
     app.jinja_env.auto_reload = app.debug
 
-    connect_to_db(app)
+    PRODUCTION_DB_URI = 'postgresql:///yogaposes'
+
+    connect_to_db(app, PRODUCTION_DB_URI)
 
     # Use the DebugToolbar
     DebugToolbarExtension(app)

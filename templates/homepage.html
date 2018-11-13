@@ -25,12 +25,12 @@
 <div>
     <!-- make the title hidden until displaying the workout -->
     <h2 id="workout-title">
-        {% if session['workout'] %}
+        {% if 'workout' in session %}
             Your Workout
         {% endif %}
     </h2> 
     <div id="yogaposes">
-        {% if session['workout'] %}
+        {% if 'workout' in session %}
             {% for pose in session['workout'] %}
                 <h3>
                     <a href="/pose/{{ pose['pose_id'] }}">
