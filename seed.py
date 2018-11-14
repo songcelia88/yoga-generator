@@ -78,6 +78,7 @@ def addPoseWeights():
             for next_pose in next_poses:
                 next_pose_id = db.session.query(Pose.pose_id).filter(Pose.name == next_pose).first()[0]
                 nextpose_dict[next_pose_id] = 1 # set all the weights to 1 for now
+                
             pose.next_poses = nextpose_dict # add the dictionary to the next_poses attribute
             db.session.commit()
             print("added next pose for", pose)

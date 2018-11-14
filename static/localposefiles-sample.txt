@@ -1,7 +1,4 @@
 static/yogaposes/bridge
-static/yogaposes/warrior_II_forward_arm_forward
 static/yogaposes/tree
 static/yogaposes/upward_dog
-static/yogaposes/wild_thing
-static/yogaposes/cat_balance
 static/yogaposes/child

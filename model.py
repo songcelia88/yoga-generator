@@ -125,7 +125,7 @@ def generateWorkout(num_poses):
     list of Pose objects
     """
 
-    # TO DO: want to incorporate choosing from different pose sets (adjust difficulty, pose types)
+    # TO DO: want to incorporate choosing from different pose sets (adjust difficulty, pose types)\
     
     # start with a pose
     start_pose = random.choice(Pose.query.all())
