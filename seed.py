@@ -86,6 +86,12 @@ def addPoseWeights():
 # TO DO: refine the data a bit more, make weights better (put in seed file?)
 # TO DO: incorporate yoga journal's data to help refine the data?
 
+def addNewCategories():
+    """Add more categories (cross referenced by Yoga Journal"""
+
+    new_categories = ["Binding", "Chest Opening", "Core", "Hip Opening", "Restorative", "Strengthening",
+                        "Back Pain", "Carpal Tunnel Syndrome", "Digestion", "Energy", "Fatigue",
+                        "Flexibility", "Headaches", "Insomnia", "Neck Pain", "Pregnancy", "Stress"]
 if __name__ == "__main__":
     PRODUCTION_DB_URI = 'postgresql:///yogaposes'
     connect_to_db(app, PRODUCTION_DB_URI)

@@ -63,11 +63,12 @@
 <h3>Add another Next Pose</h3>
 <form action="/addnextpose" method="POST" id="add-nextpose-form">
     <input type="hidden" name="poseid" value="{{ pose.pose_id }}">
-    <label>Pose Id: </label><input type="number" name="nextposeid"></input> <br>
-    <label>Weight:</label><input type="number" name="weight"></input><br>
+    <label>Pose Id: </label><input type="number" name="nextposeid" id="nextposeid"></input> <br>
+    <label>Weight:</label><input type="number" name="weight" id="weight"></input><br>
     <input id="add-nextpose-btn" type="submit" value="Add Next Pose">
     <button id="remove-nextpose-btn">Remove Next Pose</button>
 </form>
+
 
 <script src="../static/js/editData.js"></script>
 {% endblock %}

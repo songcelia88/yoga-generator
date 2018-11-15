@@ -157,15 +157,29 @@ def addNextPose():
         next_poses = pose.next_poses
         pose.next_poses[next_poseid] = int(weight)
         print(pose.next_poses)
+        flag_modified(pose, 'next_poses') # let database know that this field has been modified
+        db.session.commit()
+
+    url = '/pose/' + str(poseid)
+    return redirect(url)
+
+
+@app.route('/removenextpose', methods=['POST'])
+def removeNextPose():
+    """Takes in a pose id, weight and removes that from the next pose attribute for the 
+    original pose"""
+
+    data = request.get_json() # data = {'pose_id': 2, 'nextposeid': 12, 'weight': 1}
+    print(data)
+    if data['nextposeid']:
+        pose = Pose.query.get(data['pose_id'])
+        next_poses = pose.next_poses
+        del next_poses[data['nextposeid']]
         flag_modified(pose, 'next_poses')
         db.session.commit()
 
     url = '/pose/' + str(poseid)
     return redirect(url)
-    # return "success"
-
-# TODO: have to remove a next pose as well
-
 
 if __name__ == "__main__":
     # We have to set debug=True here, since it has to be True at the

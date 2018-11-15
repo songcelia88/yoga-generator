@@ -41,8 +41,6 @@ function saveWeightsHandler(){
             'pose_id': pose_id,
             'next_poses': next_poses // {pose_id: weight, pose_id: weight ... }
         };
-        console.log("data sent is")
-        console.log(data)
 
         // Ajax call to the server to save to database
         $.ajax({
@@ -75,14 +73,38 @@ function removeNextPoseHandler(){
     // This function takes pose id and weight that the user inputs in the form and removes this from
     // the next poses field for that pose in the database
 
-    $('#add-nextpose-form').on('submit', (evt) =>{
-        evt.preventDefault();
-
+    // TODO validate that the nextposeid is one of the next poses on the page
+    $('#remove-nextpose-btn').on('click', (evt) =>{
+        // evt.preventDefault()
+        console.log("remove button clicked")
         //get the data to send
         const pose_id = $('#pose-title').data('poseid')
+        const nextposeid = $('#nextposeid').val();
+        const weight = $('#weight').val();
+
+        const data = {
+            'pose_id': pose_id,
+            'nextposeid': nextposeid,
+            'weight': weight
+        }
+
+        $.ajax({
+            method: "POST",
+            url: "/removenextpose",
+            data: JSON.stringify(data),
+            contentType: 'application/json',
+            success: (results) => {
+                //update the page with the new weights
+                
+            },
+            error: (xhr, status, error) => {
+                $('#error-message').html("error contacting server to save weights. Try again");
+            }
+        }); //end ajax call
 
     });
 }
 
 editWeightsHandler()
 saveWeightsHandler()
+removeNextPoseHandler()
