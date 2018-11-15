@@ -4,7 +4,7 @@
 
 {% block content %}
 
-<h1>{{ pose.name }}</h1>
+<h1 data-poseid = "{{ pose.pose_id }}" id="pose-title">{{ pose.name }}</h1>
 
 {% if pose.sanskrit %}
     <p>Sanskrit Name: {{ pose.sanskrit }}</p>
@@ -48,12 +48,26 @@
 {% if next_poses %}
     <h3>Next Poses: </h3>
     <ul>
-    {% for next in next_poses %}
-        <li>{{ next }}</li>
+    {% for id, pose in next_poses.items() %}
+        <li class= "next-poses" data-poseid="{{ id }}">
+            <a href="/pose/{{ id }}">{{ pose['name'] }}:</a> 
+            <span class="editable-field">{{ pose['weight'] }}</span>
+        </li>
     {% endfor %}
     </ul>
+    <button id="edit-weight-btn">Edit Weights</button>
+    <button id="save-weight-btn" style="display:none">Save</button>
+    <p id="error-message" style="color:red"></p>
 {% endif %}
 
+<h3>Add another Next Pose</h3>
+<form action="/addnextpose" method="POST" id="add-nextpose-form">
+    <input type="hidden" name="poseid" value="{{ pose.pose_id }}">
+    <label>Pose Id: </label><input type="number" name="nextposeid"></input> <br>
+    <label>Weight:</label><input type="number" name="weight"></input><br>
+    <input id="add-nextpose-btn" type="submit" value="Add Next Pose">
+    <button id="remove-nextpose-btn">Remove Next Pose</button>
+</form>
 
-
+<script src="../static/js/editData.js"></script>
 {% endblock %}

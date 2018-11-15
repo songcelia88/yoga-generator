@@ -78,14 +78,14 @@ class ModelTests(TestCase):
         db.create_all()
 
         #seed the database and add the pose weights
-        samplefile = 'static/localposefiles.txt'
+        samplefile = 'static/localposefiles-sample.txt'
         load_poses(samplefile)
         allposes = Pose.query.all()
         for pose in allposes:
-            pose.next_pose_str = "" # set all next_poses to blank strings for testing
+            pose.next_pose_str = "Bridge" # set all next_poses to Bridge for testing
 
         bridge = Pose.query.get(1) # this is bridge pose according to the sample.txt file   
-        bridge.next_pose_str = "Tree,Extended Child's,Upward-Facing Dog" # manually set the next_pose_str attribute for this test
+        bridge.next_pose_str = "Tree,Upward-Facing Dog" # manually set the next_pose_str attribute for this test
         db.session.commit()
         addPoseWeights()
 
@@ -100,14 +100,17 @@ class ModelTests(TestCase):
         samplepose = Pose.query.get(1)
         next_pose = samplepose.getNextPose()
 
-        self.assertIn(next_pose.pose_id, [2,3,4]) # [1. Bridge, 2. Tree, 3. Extended Child's, 4. Upward Facing Dog]
+        self.assertIn(next_pose.pose_id, [2,3]) # [1. Bridge, 2. Tree, 3. Extended Child's, 4. Upward Facing Dog]
 
 
     def test_generateWorkout(self):
         """Test the generate workout function in the model.py file """
         # select a number of poses
         num_poses = 5
-        # check that it returns a list of Pose Objects and the length of the list is correct
+        workout_list = generateWorkout(num_poses)
+        print(workout_list)
+        self.assertEqual(len(workout_list), 5)
+        self.assertIs(type(workout_list[0]), Pose)
 
 
 if __name__ == "__main__":

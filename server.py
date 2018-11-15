@@ -1,7 +1,8 @@
 from jinja2 import StrictUndefined
 
-from flask import Flask, render_template, redirect, request, flash, session, jsonify
+from flask import Flask, render_template, redirect, request, flash, session, jsonify, json
 from flask_debugtoolbar import DebugToolbarExtension
+from sqlalchemy.orm.attributes import flag_modified
 
 # from model import connect_to_db, db, Pose, Workout, PoseWorkout, PoseCategory, Category, generateWorkout
 from model import * 
@@ -62,8 +63,11 @@ def showPoseDetails(pose_id):
 
     pose = Pose.query.get(pose_id)
     next_poses = None
-    if pose.next_pose_str:
-        next_poses = pose.next_pose_str.split(',') # list of next poses
+    if pose.next_poses: # pose.next_poses = dictionary of next poses {pose_id: weight, pose_id: weight}
+        next_poses = {} # want to compose a dictionary {pose_id: {name: "Down Dog", weight: 1} ... }
+        for p in pose.next_poses:
+            p_name = db.session.query(Pose.name).filter(Pose.pose_id == int(p)).first()[0]
+            next_poses[p] = {"name": p_name, "weight": pose.next_poses[p]}
 
     prev_poses = None
     if pose.prev_pose_str:
@@ -118,6 +122,49 @@ def saveWorkout():
         print("no workout in session")
 
     return jsonify(results)
+
+
+@app.route('/saveweights.json', methods=['POST'])
+def saveWeights():
+    """Takes in a pose (via pose id) and dictionary of next pose ids and weights
+    Updates the database with the new pose weights"""
+
+    data = request.get_json() # data = {'pose_id': 2, 'next_poses': {'12': 1, '13', 2} }
+
+    if data:
+        poseid = data['pose_id']
+        next_poses = data['next_poses']
+        pose = Pose.query.get(poseid)
+        print("pose is ", pose)
+        print("next_poses is", next_poses)
+        pose.next_poses = next_poses
+        db.session.commit()
+
+    return jsonify(next_poses)
+
+
+@app.route('/addnextpose', methods=['POST'])
+def addNextPose():
+    """Takes in a pose id and weight and adds that to the next pose attribute for the
+    original pose
+    """
+    poseid = int(request.form.get('poseid'))
+    next_poseid = request.form.get('nextposeid')
+    weight = request.form.get('weight')
+
+    if next_poseid and weight:
+        pose = Pose.query.get(poseid)
+        next_poses = pose.next_poses
+        pose.next_poses[next_poseid] = int(weight)
+        print(pose.next_poses)
+        flag_modified(pose, 'next_poses')
+        db.session.commit()
+
+    url = '/pose/' + str(poseid)
+    return redirect(url)
+    # return "success"
+
+# TODO: have to remove a next pose as well
 
 
 if __name__ == "__main__":
