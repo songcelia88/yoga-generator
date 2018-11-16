@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+
+{% block title %} {{ category.name }} {% endblock %}
+
+{% block content %}
+<h1>{{ category.name }}</h1>
+<h2>All Poses</h2>
+<ul>
+    {% for pose in all_poses %}
+        <li>
+            <a href="../pose/{{ pose.pose_id }}">
+                {{ pose.name }} ( {{ pose.pose_id }} )
+                <img src="/{{ pose.img_url }}" style="height:100px">
+            </a>
+        </li>
+    {% endfor %}
+</ul>
+
+{% endblock %}

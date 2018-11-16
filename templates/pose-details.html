@@ -20,7 +20,7 @@
 <ul>
     {% if pose.pose_categories %}
         {% for posecat in pose.pose_categories %}
-            <li>{{ posecat.category.name }}</li>
+            <li><a href="/category/{{posecat.cat_id}}">{{ posecat.category.name }}</a></li>
         {% endfor%}
     {% endif %}    
 </ul>

@@ -33,6 +33,7 @@ def searchPoses():
 
     # TODO: make keyword search not case sensitive
     # TODO: make keyword search through the alt names, sanskrit as well
+    # ignoring the weird characters
 
     if request.args:
         keyword = '%' + request.args.get('keyword') + '%'
@@ -46,7 +47,7 @@ def searchPoses():
             all_cat_ids = db.session.query(Category.cat_id).all() # returns a list of tuples of all the ids
             categories = [category[0] for category in all_cat_ids] # converts that to a list
 
-        all_poses = db.session.query(Pose).join(PoseCategory).filter(Pose.name.like(keyword),
+        all_poses = db.session.query(Pose).join(PoseCategory).filter(db.or_(Pose.name.like(keyword), Pose.sanskrit.like(keyword)),
                                                                 Pose.difficulty.in_(difficulty),
                                                                 PoseCategory.cat_id.in_(categories)).all()
     else:
@@ -78,6 +79,16 @@ def showPoseDetails(pose_id):
                             next_poses=next_poses,
                             prev_poses=prev_poses)
 
+
+@app.route('/category/<cat_id>')
+def showCategoryDetails(cat_id):
+    """Show all the poses under that Category"""
+
+    category = Category.query.get(cat_id)
+    # get all the poses under that category
+    all_poses = db.session.query(Pose).join(PoseCategory).filter(PoseCategory.cat_id==cat_id).all()
+
+    return render_template("category-details.html", all_poses=all_poses, category=category)
 
 @app.route('/workout.json')
 def createWorkout():

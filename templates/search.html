@@ -31,9 +31,18 @@
     {% for pose in all_poses %}
         <li>
             <a href="pose/{{ pose.pose_id }}">
-                {{ pose.name }}
-                <!-- <img src="/{{ pose.img_url }}"> -->
-            <a>
+                {{ pose.name }} ( {{ pose.pose_id }} )
+                <img src="/{{ pose.img_url }}" style="height:100px">
+            </a>
+        </li>
+    {% endfor %}
+</ul>
+
+<h1>All Categories</h1>
+<ul>
+    {% for category in categories %}
+        <li>
+            <a href="category/{{ category.cat_id }}"> {{ category.name }} ( {{ category.cat_id }} )</a>
         </li>
     {% endfor %}
 </ul>

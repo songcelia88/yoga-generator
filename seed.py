@@ -88,10 +88,40 @@ def addPoseWeights():
 
 def addNewCategories():
     """Add more categories (cross referenced by Yoga Journal"""
+    new_categories = {
+        "Chest Opening": [10, 19, 31, 34, 78,85,114,116,160,190,170,179,192],
+        "Core & Abs": [6,7,20,22,54,62,60,63,171,98,129,88,142],
+        "Hip Opening":[8,9,29,35,36,72,73,92,93,94,95,76,112,111,128,129,159,168,30,161,163],
+        "Restorative": [27,28,32,33,98,9,95,94,108,135,193,194,161],
+        "Strengthening":[6,22,62,60,64,156,176,132,171,86,96,114,168,136,157,178,138,190,140,182,187,189],
+        "Back":[118,119,10,11,17,19,20,34,60,64,72,156,176,76,78,88,114,129,144,94,21,157,178,160,169,190,131,187],
+        "Digestion":[118,87,6,10,17,31,64,156,176,78,129,21,107,120,145,114,168,128,94,108,157,176,21,81,83,101,153],
+        "Energy": [17,19,31,64,129,133,116,110,112,160,179,190],
+        "Fatigue":[87,8,10,19,27,28,31,32,60,64,78,129,88,98,21,81,114,144,160,83,153,140,131,179,192],
+        "Flexibility": [87,8,28,35,75,64,176,76,86,81,145,146,133,116,168,110,111,128,94,108,178,95,93,83,91,164,140,182,163],
+        "Headaches":[87,17,32,60,64,75,76,81,21,144,108],
+        "Insomnia":[87,17,20,32,34,60,64,73,75,76,21,144,108,81,83,101,153],
+        "Neck Pain": [20,28,32,34,75,176],
+        "Stress": [87,6,28,32,62,132,76,96,98,118,144,81,83,101,153],
+        "Arms": [54,55,62,60,64,74,93,132,77,171,96,133,114,79,80,57,138,101,190,170,150,140,179,131,192],
+        "Shoulders": [87,83,10,19,20,31,34,62,60,72,75,132,77,88,96,133,116,129,162,167,168,144,79,80,128,108,157,138,160,153,170,140,189]
+    }
 
-    new_categories = ["Binding", "Chest Opening", "Core", "Hip Opening", "Restorative", "Strengthening",
-                        "Back Pain", "Carpal Tunnel Syndrome", "Digestion", "Energy", "Fatigue",
-                        "Flexibility", "Headaches", "Insomnia", "Neck Pain", "Pregnancy", "Stress"]
+    for category, id_list in new_categories.items():
+        # create new category object and commit to database
+        new_category = Category(name=category)
+        db.session.add(new_category)
+        db.session.commit()
+
+        # # loop through id list and create PoseCat object for each item with the id and the category id
+        for pose_id in id_list:
+            newPoseCat = PoseCategory(pose_id=pose_id,cat_id=new_category.cat_id)
+            db.session.add(newPoseCat)
+            db.session.commit()
+        #  commit to database
+        print("added category", category)
+
+
 if __name__ == "__main__":
     PRODUCTION_DB_URI = 'postgresql:///yogaposes'
     connect_to_db(app, PRODUCTION_DB_URI)
@@ -103,4 +133,4 @@ if __name__ == "__main__":
     load_poses(filename1)
 
     addPoseWeights()
-
+    addNewCategories()
