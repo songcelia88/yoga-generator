@@ -82,5 +82,5 @@ function displayWorkout(workoutList){
 }
 
 //call the handlers
-createWorkoutHandler();
+// createWorkoutHandler();
 saveWorkoutHandler();

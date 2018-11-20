@@ -19,8 +19,8 @@ def homepage():
     """display homepage"""
 
     # all_poses = Pose.query.order_by('name').all()
-    # all_categories = Category.query.order_by('name').all()
-    return render_template("homepage.html")
+    all_categories = Category.query.order_by('name').all()
+    return render_template("homepage.html", categories=all_categories)
 
 
 @app.route('/search')
@@ -47,7 +47,7 @@ def searchPoses():
             all_cat_ids = db.session.query(Category.cat_id).all() # returns a list of tuples of all the ids
             categories = [category[0] for category in all_cat_ids] # converts that to a list
 
-        all_poses = db.session.query(Pose).join(PoseCategory).filter(db.or_(Pose.name.like(keyword), Pose.sanskrit.like(keyword)),
+        all_poses = db.session.query(Pose).join(PoseCategory).filter(db.or_(Pose.name.ilike(keyword), Pose.sanskrit.ilike(keyword)),
                                                                 Pose.difficulty.in_(difficulty),
                                                                 PoseCategory.cat_id.in_(categories)).all()
     else:
@@ -90,9 +90,11 @@ def showCategoryDetails(cat_id):
 
     return render_template("category-details.html", all_poses=all_poses, category=category)
 
+
 @app.route('/workout.json')
-def createWorkout():
-    """Given a number of poses, return a list of poses with their id, img urls, and name"""
+def createWorkoutJson():
+    """For Ajax calls to create workout
+    Given a number of poses, return a list of poses with their id, img urls, and name"""
     num_poses = int(request.args.get('num_poses'))
     workout_list = generateWorkout(num_poses)
 
@@ -107,6 +109,26 @@ def createWorkout():
     #  it to be associated with a certain user?
 
     return jsonify({'workout_list': workout_jsonlist})
+
+
+@app.route('/workout')
+def createWorkout():
+    """Render the Workout Page
+    Given a number of poses, return a list of poses with their id, img urls, and name"""
+    num_poses = int(request.args.get('num_poses'))
+    workout_list = generateWorkout(num_poses)
+
+    workout_jsonlist = []
+
+    # unpack the workout list to display on the page
+    for i, pose in enumerate(workout_list):
+        workout_jsonlist.append({'pose_id' : pose.pose_id, 'imgurl': pose.img_url, 'name': pose.name})
+    
+    session['workout'] = workout_jsonlist
+    # do I want to create a workout automatically? and then save workout will just be saving
+    #  it to be associated with a certain user?
+
+    return render_template("workout.html", workout_list=workout_jsonlist)
 
 
 @app.route('/saveworkout', methods=['POST'])

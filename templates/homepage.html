@@ -3,45 +3,135 @@
 {% block title %}Yoga App{% endblock %}
 
 {% block content %}
-<p><a href="/search">Search</a></p>
-<form action="/workout" method="GET" id="create-workout-form">
-    <h3>Length of Workout:</h3>
-    <div>
-        <select name="num_poses" id="num_poses">
-            <option value = "15">15 poses</option>
-            <option value ="30">30 poses</option>
-            <option value="45">45 poses</option>
-        </select>
-    </div>
-    <div style="padding-top: 10px">
-        <input type="submit" value="Create Workout!" id="create-workout-btn">
-    </div>
-</form>
+<style>
+  body {
+    background: url('/static/img/yoga-background-transparent.jpg') no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    background-size: cover;
+    -o-background-size: cover;
+    font-family: 'Open Sans', sans-serif;
+  }
+  ul.checkbox li { 
+    border: 1px transparent solid; 
+    display:inline-block;
+    width:18em;
+  }
 
-<div style="padding-top: 20px">
-    <button id="save-workout">Save this Workout</button>
-</div>
-<div id="errorMessage"></div>
-<div>
-    <!-- make the title hidden until displaying the workout -->
-    <h2 id="workout-title">
-        {% if 'workout' in session %}
-            Your Workout
-        {% endif %}
-    </h2> 
-    <div id="yogaposes">
-        {% if 'workout' in session %}
-            {% for pose in session['workout'] %}
-                <h3>
-                    <a href="/pose/{{ pose['pose_id'] }}">
-                        {{ loop.index }}. {{ pose['name'] }}<br>
-                    <img src="{{ pose['imgurl'] }}">
-                    <a>
-                </h3>
-            {% endfor %}
-        {% endif %}
+</style>
+
+<div class="container" style="margin-top: 80px">
+  
+  <!-- Create Workout -->
+  <div class="row">
+    <div class="col-sm-12" style="text-align: center">
+      <form action="/workout" method="GET" id="create-workout-form">
+          <h3>Create Workout</h3>
+          <div class="form-group">
+              <label for="num_poses">Duration</label>
+              <select name="num_poses" id="num_poses">
+                  <option value = "15">15 poses</option>
+                  <option value ="30">30 poses</option>
+                  <option value="45">45 poses</option>
+              </select>
+          </div>
+          <div class="form-group">
+              <label for="difficulty">Difficulty</label>
+              <select name="difficulty" id="difficulty">
+                  <option value = "beginner">Beginner</option>
+                  <option value ="intermediate">Intermediate</option>
+                  <option value="expert">Expert</option>
+              </select>
+          </div>
+          <div class="form-group">
+              <label for="emphasis">Emphasis</label>
+              <select name="emphasis" id="emphasis">
+                  <option value = "abs">Abs/Core</option>
+                  <option value ="item2">Item2</option>
+                  <option value="item3">Item3</option>
+              </select>
+          </div>
+          <div class="form-check form-check-inline">
+            <input class="form-check-input" type="radio" name="timingOption" id="timed" value="timed">
+            <label class="form-check-label" for="timed">Timed</label>
+          </div>
+          <div class="form-check form-check-inline">
+            <input class="form-check-input" type="radio" name="timingOption" id="untimed" value="untimed">
+            <label class="form-check-label" for="untimed">Untimed</label>
+          </div>
+          <div style="padding-top: 10px">
+              <input type="submit" value="Create Workout!" id="create-workout-btn">
+          </div>
+      </form>
+      
+      <div id="errorMessage"></div>
+
     </div>
+  </div> <!-- end row -->
+
+  <!-- Search Poses -->
+  <div class="row" style="margin-top: 50px">
+    <div class="col-sm-12" style="text-align: center">
+      <h3>Browse Poses</h3>
+      <form action="/search" method="GET" id="search-form">
+        <div>Keyword: <input type="text" name="keyword"></div>
+        <h4 style="padding-top: 20px">Filters:</h4>
+        <div> 
+            <p><strong>Category:</strong></p>
+            <ul class="checkbox" style="list-style: none">
+              {% for category in categories %}
+              <li><input type="checkbox" id="{{ category.name }}" name="categories" value="{{ category.cat_id }}">
+              <label for="{{ category.name }}">{{ category.name }}</label>
+              </li>
+              {% endfor %}
+            </ul>
+        </div>
+        <div>
+            <p><strong>Difficulty:</strong></p>
+            <input type="checkbox" id="beginner" name="difficulty" value="Beginner">
+            <label for="beginner">Beginner</label><br>
+            <input type="checkbox" id="intermediate" name="difficulty" value="Intermediate">
+            <label for="intermediate">Intermediate</label><br>
+            <input type="checkbox" id="expert" name="difficulty" value="Expert">
+            <label for="expert">Expert</label>
+        </div>
+        <div style="padding-top: 10px"><input type="submit" value="Search"></div>
+      </form>
+    </div>
+  </div>
+
+  <!-- View Saved Workouts -->
+  <div class="row" style="margin-top: 50px; margin-bottom: 100px">
+    <div class="col-sm-12" style="text-align: center">
+      <h3>Saved Workouts</h3>
+      <button href="/">View</button>
+    </div>
+    
+  </div>
+<!--  
+  <div class="row">
+      <h2 id="workout-title">
+          {% if 'workout' in session %}
+              Your Workout
+          {% endif %}
+      </h2> 
+      <div id="yogaposes">
+          {% if 'workout' in session %}
+              {% for pose in session['workout'] %}
+                  <h3>
+                      <a href="/pose/{{ pose['pose_id'] }}">
+                          {{ loop.index }}. {{ pose['name'] }}<br>
+                      <img src="{{ pose['imgurl'] }}">
+                      <a>
+                  </h3>
+              {% endfor %}
+          {% endif %}
+      </div>
+  </div>
+-->
 </div>
 
 <script src="static/js/yogaWorkout.js"></script>
+<!-- Background Image I might want to use -->
+<!-- <a href="https://stmed.net/wallpaper-187236"><img class="img img-responsive" typeof="foaf:Image" src="https://stmed.net/sites/default/files/yoga-wallpapers-31487-8599331.jpg" width="" height="" alt="Yoga Wallpaper 6 - 1500 X 1000" title="Yoga Wallpaper 6 - 1500 X 1000" /></a> -->
 {% endblock %}
