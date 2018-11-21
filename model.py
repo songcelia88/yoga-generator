@@ -66,7 +66,10 @@ class Workout(db.Model):
     __tablename__ = "workouts"
 
     workout_id = db.Column(db.Integer, primary_key=True, autoincrement=True)
-    duration = db.Column(db.Integer, nullable=False) # in minutes
+    duration = db.Column(db.Integer, nullable=False) # in minutes/num of poses
+    name = db.Column(db.String(200), nullable=True)
+    author = db.Column(db.String(200), nullable=True)
+    description = db.Column(db.String(1000), nullable=True)
 
     pose_workouts = db.relationship('PoseWorkout')
 

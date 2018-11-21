@@ -111,12 +111,15 @@ def createWorkoutJson():
     return jsonify({'workout_list': workout_jsonlist})
 
 
-@app.route('/workout')
+@app.route('/createworkout')
 def createWorkout():
-    """Render the Workout Page
+    """Create the Workout
     Given a number of poses, return a list of poses with their id, img urls, and name"""
-    num_poses = int(request.args.get('num_poses'))
-    workout_list = generateWorkout(num_poses)
+    session['num_poses'] = int(request.args.get('num_poses'))
+    session['difficulty'] = request.args.get('difficulty')
+    session['emphasis'] = request.args.get('emphasis')
+    session['timingOption'] = request.args.get('timingOption')
+    workout_list = generateWorkout(session['num_poses'])
 
     workout_jsonlist = []
 
@@ -125,10 +128,18 @@ def createWorkout():
         workout_jsonlist.append({'pose_id' : pose.pose_id, 'imgurl': pose.img_url, 'name': pose.name})
     
     session['workout'] = workout_jsonlist
+
     # do I want to create a workout automatically? and then save workout will just be saving
     #  it to be associated with a certain user?
 
-    return render_template("workout.html", workout_list=workout_jsonlist)
+    return redirect('/workout') # go to the workout route to display the workout
+
+
+@app.route('/workout')
+def displayWorkout():
+    """Display the workout that is in session onto the Workout page"""
+
+    return render_template("workout.html")
 
 
 @app.route('/saveworkout', methods=['POST'])
@@ -142,7 +153,11 @@ def saveWorkout():
 
     if session.get('workout'):
         results['isInSession'] = True
-        workout = Workout(duration=len(session['workout']))
+        # unpack the other parameters from the form
+        workoutName = request.form.get('workoutName')
+        userName = request.form.get('userName')
+        description = request.form.get('description')
+        workout = Workout(duration=len(session['workout']),name=workoutName,author=userName,description=description)
         db.session.add(workout)
         db.session.commit()
 
@@ -155,6 +170,15 @@ def saveWorkout():
         print("no workout in session")
 
     return jsonify(results)
+
+
+@app.route('/exitworkout', methods=['POST'])
+def exitWorkout():
+    """clears the workout in the session and redirects to the homepage"""
+    session['workout'] = None
+    # should i clear out the other data as well?
+
+    return "True" # do i need to return anything special here?
 
 
 @app.route('/saveweights.json', methods=['POST'])

@@ -1,7 +1,106 @@
 {% extends 'base.html' %}
 
-{% block title %}Yoga App{% endblock %}
+{% block title %}Yoga App - Your Workout{% endblock %}
 
 {% block content %}
+<div class="container" style="margin-top: 80px">
+    <div class="row">
+        <div class="col-md-12">
+            <h2>Your Workout</h2>
+        </div>
+    </div>
 
+    <!-- Display Workout Settings -->
+    <div class="row" style="text-align: center">        
+        <div class="col-md-3">Duration: {{ session.get('num_poses') }} Poses</div>
+        <div class="col-md-3">Difficulty: {% if session['difficulty'] %} 
+                            {{ session['difficulty'] }}
+                        {% else %}
+                            None
+                        {% endif %}</div>
+        <div class="col-md-3">Emphasis: {% if session['emphasis'] %} 
+                            {{ session['emphasis'] }}
+                        {% else %}
+                            None
+                        {% endif %}</div>
+        <div class="col-md-3">{{ session['timingOption'] }}</div>
+    </div>
+
+    <!-- Save and Exit -->
+    <div class="row" style="margin-top: 20px">
+        <div class="col-md-12" style="text-align: center">
+            <button id="exit-workout-btn" class="btn btn-light" style="margin-right: 15px">
+                <i class="far fa-times-circle fa-lg" style="margin-right: 5px"></i>
+                Exit Workout
+            </button>
+            <button id="open-save-modal" class="btn btn-primary" data-toggle="modal" data-target="#saveWorkoutModal">
+                <i class="far fa-heart fa-lg" style="margin-right: 5px"></i>
+                Save Workout
+            </button>
+            <div id="errorMessage" style="padding-top: 5px"></div>
+        </div>
+    </div>
+
+    <!-- Play Controls -->
+    <div class="row" style="margin-top: 20px ">
+        <div class="col-md-12" style="text-align: center">
+            <i class="fas fa-step-backward fa-2x"></i>
+            <i class="fas fa-play-circle fa-2x"></i>
+            <i class="fas fa-pause-circle fa-2x"></i>
+            <i class="fas fa-step-forward fa-2x"></i>
+        </div>
+    </div>
+
+    <!-- Display Poses in the Workout-->
+    <div class="row" style="margin-top: 30px">
+        <div class="col-md-12" style="text-align: center">
+            {% if session['workout'] %}
+            {% for pose in session['workout'] %}
+            <div style="margin-bottom: 30px">
+                <h4>{{ pose['name'] }}</h4>
+                <a href="/pose/{{ pose['pose_id'] }}">
+                    <img src="{{ pose['imgurl'] }}" style="height:300px; border: #d3d3d3 solid 2px; border-radius: 8px;margin-bottom: 10px">
+                <a> 
+            </div>
+            {% endfor %}
+            {% endif %}
+        </div>
+    </div>
+
+</div>
+
+<!-- Modal -->
+<div class="modal fade" id="saveWorkoutModal" tabindex="-1" role="dialog" aria-labelledby="saveWorkoutLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="saveWorkoutTitle">Save Your Workout</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form>
+            <div class="form-group">
+                <label for="workoutName">Workout Name</label>
+                <input type="text" name="workoutName" id="workoutName" class="form-control">
+            </div>
+            <div class="form-group">
+                <label for="userName">Your Name</label>
+                <input type="text" name="userName" id="userName" class="form-control">
+            </div>
+            <div class="form-group">
+                <label for="description">Description</label>
+                <textarea name="description" id="description" class="form-control" rows="3"></textarea>
+            </div>
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            <button type="button" class="btn btn-primary" id="save-workout-btn">Save Workout</button>
+            <div id="errorMessageModal"></div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script src="static/js/yogaWorkout.js"></script>
 {% endblock %}

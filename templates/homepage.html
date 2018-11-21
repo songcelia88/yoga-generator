@@ -25,7 +25,7 @@
   <!-- Create Workout -->
   <div class="row">
     <div class="col-sm-12" style="text-align: center">
-      <form action="/workout" method="GET" id="create-workout-form">
+      <form action="/createworkout" method="GET" id="create-workout-form">
           <h3>Create Workout</h3>
           <div class="form-group">
               <label for="num_poses">Duration</label>
@@ -38,25 +38,25 @@
           <div class="form-group">
               <label for="difficulty">Difficulty</label>
               <select name="difficulty" id="difficulty">
-                  <option value = "beginner">Beginner</option>
-                  <option value ="intermediate">Intermediate</option>
-                  <option value="expert">Expert</option>
+                  <option value = "Beginner">Beginner</option>
+                  <option value ="Intermediate">Intermediate</option>
+                  <option value="Expert">Expert</option>
               </select>
           </div>
           <div class="form-group">
               <label for="emphasis">Emphasis</label>
               <select name="emphasis" id="emphasis">
-                  <option value = "abs">Abs/Core</option>
-                  <option value ="item2">Item2</option>
-                  <option value="item3">Item3</option>
+                  <option value = "Abs">Abs/Core</option>
+                  <option value ="Item2">Item2</option>
+                  <option value="Item3">Item3</option>
               </select>
           </div>
           <div class="form-check form-check-inline">
-            <input class="form-check-input" type="radio" name="timingOption" id="timed" value="timed">
+            <input class="form-check-input" type="radio" name="timingOption" id="timed" value="Timed">
             <label class="form-check-label" for="timed">Timed</label>
           </div>
           <div class="form-check form-check-inline">
-            <input class="form-check-input" type="radio" name="timingOption" id="untimed" value="untimed">
+            <input class="form-check-input" type="radio" name="timingOption" id="untimed" value="Untimed">
             <label class="form-check-label" for="untimed">Untimed</label>
           </div>
           <div style="padding-top: 10px">
@@ -108,30 +108,9 @@
     </div>
     
   </div>
-<!--  
-  <div class="row">
-      <h2 id="workout-title">
-          {% if 'workout' in session %}
-              Your Workout
-          {% endif %}
-      </h2> 
-      <div id="yogaposes">
-          {% if 'workout' in session %}
-              {% for pose in session['workout'] %}
-                  <h3>
-                      <a href="/pose/{{ pose['pose_id'] }}">
-                          {{ loop.index }}. {{ pose['name'] }}<br>
-                      <img src="{{ pose['imgurl'] }}">
-                      <a>
-                  </h3>
-              {% endfor %}
-          {% endif %}
-      </div>
-  </div>
--->
+
 </div>
 
 <script src="static/js/yogaWorkout.js"></script>
-<!-- Background Image I might want to use -->
-<!-- <a href="https://stmed.net/wallpaper-187236"><img class="img img-responsive" typeof="foaf:Image" src="https://stmed.net/sites/default/files/yoga-wallpapers-31487-8599331.jpg" width="" height="" alt="Yoga Wallpaper 6 - 1500 X 1000" title="Yoga Wallpaper 6 - 1500 X 1000" /></a> -->
+
 {% endblock %}

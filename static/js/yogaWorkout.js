@@ -28,12 +28,22 @@ function createWorkoutHandler() {
 
 function saveWorkoutHandler(){
     //event handler for the save workout button on the page
-    $('#save-workout').on('click', (evt)=>{
+    $('#save-workout-btn').on('click', (evt)=>{
+
+        // Do some form validation here
+
+        // unpack the data from the form
+        let data = {
+            'workoutName': document.getElementById('workoutName').value,
+            'userName': document.getElementById('userName').value,
+            'description': document.getElementById('description').value
+        }
+        console.log(data)
 
         $.ajax({
             method: "POST",
             url: "/saveworkout",
-            data: {},
+            data: data,
             success: (results)=>{
                 console.log("workout saved")
                 let resultText = ""
@@ -43,10 +53,16 @@ function saveWorkoutHandler(){
                 else {
                     resultText = "Please create a workout first!"
                 }
+                
+                // clear message in modal
+                document.getElementById('errorMessageModal').innerHTML = ""
+                // close modal then display message
+                $('#saveWorkoutModal').modal('hide')
                 document.getElementById('errorMessage').innerHTML = resultText
             },
             error: (xhr, status, error) =>{
-                document.getElementById('errorMessage').innerHTML = `Error saving workout
+                // display message in the modal itself
+                document.getElementById('errorMessageModal').innerHTML = `Error saving workout
                                                                     please try again`
             }
         }); //end ajax request
@@ -81,6 +97,30 @@ function displayWorkout(workoutList){
 
 }
 
+function exitWorkoutHandler(){
+    // exits the workout and clears it from the session (redirect back to the homepage)
+    $('#exit-workout-btn').on('click', (evt)=>{
+
+        $.ajax({
+            method: "POST",
+            url: "/exitworkout",
+            data: {},
+            success: (results) =>{
+                //do I need to do anything here? go to the homepage?
+                window.location.pathname = '/';
+                console.log('success in clearing workout')
+
+            },
+            error: (xhr, status, error) =>{
+                document.getElementById('errorMessage').innerHTML = `Error exiting out of workout. 
+                                                                    Please try again`
+            }
+        }); //end ajax call
+
+    }); //end click event listener
+}
+
+
 //call the handlers
-// createWorkoutHandler();
 saveWorkoutHandler();
+exitWorkoutHandler();
