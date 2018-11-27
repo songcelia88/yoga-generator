@@ -128,12 +128,16 @@ def createWorkout():
     session['timingOption'] = request.args.get('timingOption')
 
     workout_list = generateWorkout(session['num_poses'], difficulty=session['difficulty'], categories=session['emphasis'])
+    # generateWorkout returns None if it can't find any poses that match the criteria
 
     workout_jsonlist = []
 
     # unpack the workout list to display on the page
-    for i, pose in enumerate(workout_list):
-        workout_jsonlist.append({'pose_id' : pose.pose_id, 'imgurl': pose.img_url, 'name': pose.name})
+    if workout_list:
+        for i, pose in enumerate(workout_list):
+            workout_jsonlist.append({'pose_id' : pose.pose_id, 'imgurl': pose.img_url, 'name': pose.name})
+    else:
+        session['error'] = "No Poses Matched. Try creating another workout"
     
     session['workout'] = workout_jsonlist
 

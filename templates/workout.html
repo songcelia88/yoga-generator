@@ -38,7 +38,11 @@
                 <i class="far fa-heart fa-lg" style="margin-right: 5px"></i>
                 Save Workout
             </button>
-            <div id="errorMessage" style="padding-top: 5px"></div>
+            <div id="errorMessage" style="padding-top: 5px">
+                {% if session['error'] %}
+                {{ session['error'] }}
+                {% endif %}
+            </div>
         </div>
     </div>
 
