@@ -1,6 +1,7 @@
 from flask_sqlalchemy import SQLAlchemy
 from sqlalchemy.dialects.postgresql import JSON, ARRAY
 import random
+import copy
 
 # This is the connection to the PostgreSQL database; we're getting this through
 # the Flask-SQLAlchemy helper library. On this, we can find the `session`
@@ -9,6 +10,9 @@ import random
 # This assumes the database has been seeded with the seed.py file
 
 db = SQLAlchemy()
+
+DIFFICULTIES = ['Beginner', 'Intermediate', 'Expert']
+DEFAULT_POSE_IDS = [64,130,32] #ids for Mountain, Down Dog, and Corpse
 
 ##############################################################################
 # Model classes
@@ -32,20 +36,27 @@ class Pose(db.Model):
     pose_workout = db.relationship('PoseWorkout')
     pose_categories = db.relationship('PoseCategory')
 
-    def getNextPose(self):
+    def getNextPose(self, next_poses=None):
         """
         Returns a Pose object that would follow based on
-        choosing a pose from the original Pose object's next_poses attribute
+        choosing a pose from the original Pose object's next_poses attribute 
+        OR it can take in a user specified next poses dictionary
+
+        next_poses must be a dictionary = {id: weight, id: weight ...} 
         
         e.g. 
         Usage: warrior2.getNextPose() 
         Output: <Pose name="Warrior I">
 
         """
-        if self.next_poses: # if the next_poses attribute exists for that pose
+
+        if next_poses is None: # if no next poses are specified use the ones in the attributefor that pose
+            next_poses = self.next_poses
+
+        if next_poses: # if the next_poses exists for that pose (i.e. it's not an empty dictionary)
             pose_ids = []
             pose_weights = []
-            for pose_id, weight in self.next_poses.items(): # pose.next_poses = {id: weight, id: weight ...}
+            for pose_id, weight in next_poses.items(): # next_poses = {id: weight, id: weight ...}
                 pose_ids.append(int(pose_id))
                 pose_weights.append(weight)
 
@@ -123,20 +134,53 @@ class Category(db.Model):
 # Helper functions
 
 # warrior2 = Pose.query.get(187)
-def generateWorkout(num_poses):
+def generateWorkout(num_poses, difficulty=DIFFICULTIES, categories=None):
     """Generate a list of Poses, take an input the number of poses and returns a 
     list of Pose objects
-    """
 
-    # TO DO: want to incorporate choosing from different pose sets (adjust difficulty, pose types)\
+    num_poses is an integer
+    difficulty is a list of difficulties ['Beginner'] or ['Beginner', 'Intermediate']
+    categories is a list of category ids [2, 4, 6]
+
+    User has ability to adjust difficulty and emphasis in order to adjust the pool of poses
+    that the generator takes from
+
+    E.g generateWorkout(15, ['Beginner', 'Intermediate'], [2,3])
+    => [<Pose>, <Pose>, <Pose>]
+    """
     
+    # get all the poses that meet the criteria of difficulty and categories specified
+    if not categories: # if categories None or an empty list
+        all_cat_ids = db.session.query(Category.cat_id).all() # returns a list of tuples of all the ids
+        categories = [category[0] for category in all_cat_ids] # converts that to a list
+
+    all_poses = db.session.query(Pose).join(PoseCategory).filter(Pose.difficulty.in_(difficulty),
+                                                            PoseCategory.cat_id.in_(categories)).all()
+    
+    # TODO: handle the case where all_poses is an empty list (there are no poses that match the requirements)
+    all_poses_set = set(all_poses)
+    
+    # include the basic easy poses as well in the all_poses list if they're not already there
+    # default poses = Mountain, Downward Dog, Corpse
+    default_poses = [Pose.query.get(pose_id) for pose_id in DEFAULT_POSE_IDS] 
+    for pose in default_poses:
+        if pose not in all_poses_set:
+            all_poses_set.add(pose)
+
+
     # start with a pose
-    start_pose = random.choice(Pose.query.all())
-    # start_pose = Pose.query.get(130) # Mountain Pose Id is 130
+    start_pose = random.choice(all_poses)
     workout_list = [start_pose]
 
     while len(workout_list) < num_poses:
-        next_pose = workout_list[-1].getNextPose()
+        current_pose = workout_list[-1]
+        next_poses = copy.deepcopy(current_pose.next_poses) # make a copy of the next poses and work from that instead
+        next_pose = current_pose.getNextPose(next_poses=next_poses)
+
+        while next_pose not in all_poses_set: # if the next pose isn't in the list of all poses 
+            del next_poses[str(next_pose.pose_id)] # remove that pose from the next poses dictionary
+            next_pose = current_pose.getNextPose(next_poses=next_poses) # generate a new next pose from the updated next poses list
+
         workout_list.append(next_pose)
 
     return workout_list

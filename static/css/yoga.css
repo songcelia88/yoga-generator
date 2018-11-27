@@ -1,0 +1,21 @@
+body {
+    background-color: #fcfcfc;
+    color: #595959;
+    font-family: 'Open Sans', sans-serif;
+}
+
+h4 { 
+    font-size: 1.25em; 
+}
+
+p { 
+    font-size:13px; 
+}
+
+li { 
+    font-size: 13px 
+}
+
+.main-container{
+    margin-top: 80px
+}

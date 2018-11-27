@@ -4,71 +4,94 @@
 
 {% block content %}
 
-<h1 data-poseid = "{{ pose.pose_id }}" id="pose-title">{{ pose.name }}</h1>
+<div class="container main-container" style="margin-top: 80px">
 
-{% if pose.sanskrit %}
-    <p>Sanskrit Name: {{ pose.sanskrit }}</p>
-{% endif %}
+    <div class="row">
+        <div class="col-md-12">
+            <h1 data-poseid = "{{ pose.pose_id }}" id="pose-title">{{ pose.name }}</h1>
 
-{% if pose.altNames %}
-    <p>AKA: {{ pose.altNames }}</p>
-{% endif %}
+            {% if pose.sanskrit %}
+                <p style="margin-bottom: 10px; font-style: italic;">Sanskrit Name: {{ pose.sanskrit }}</p>
+            {% endif %}
 
-<h3>Difficulty: {{ pose.difficulty }}</h3>
+            {% if pose.altNames %}
+                <p style="margin-bottom: 10px">AKA: {{ pose.altNames }}</p>
+            {% endif %}
+            <p style="padding-bottom: 20px; border-bottom: #d3d3d3 solid 1px"></p>
+        </div>
+    </div>
 
-<h3>Categories:</h3>
-<ul>
-    {% if pose.pose_categories %}
-        {% for posecat in pose.pose_categories %}
-            <li><a href="/category/{{posecat.cat_id}}">{{ posecat.category.name }}</a></li>
-        {% endfor%}
-    {% endif %}    
-</ul>
+    <div class="row" style="margin-top: 20px;margin-bottom: 30px">
+        <div class="col-md-6" style="text-align: center">
+            <img src="/{{ pose.img_url }}" style="box-shadow: 1px 1px #d3d3d3; border: #d3d3d3 solid 1px; border-radius: 5px">
+        </div>
 
-<div>
-    <img src="/{{ pose.img_url }}">
+        <div class="col-md-6">
+            <h4>Difficulty: {{ pose.difficulty }}</h4>
+            <div class="row">
+                <div class="col-lg-3">
+                    <h4>Categories:</h4>
+                </div>
+                <div class="col-lg-9">
+                    <ul>
+                    {% if pose.pose_categories %}
+                        {% for posecat in pose.pose_categories %}
+                            <li><a href="/category/{{posecat.cat_id}}">{{ posecat.category.name }}</a></li>
+                        {% endfor%}
+                    {% endif %}    
+                    </ul>
+                </div>
+            </div>
+
+            <h4>Description: </h4>
+            <p style="font-size: 13px">{{ pose.description }}</p>
+
+            {% if pose.benefit %}
+                <h4>Benefits: </h4>
+                <p style="font-size: 13px">{{ pose.benefit }}</p>
+            {% endif %}
+        </div>
+    </div>
+    
+    {% if next_poses %}
+    <h4 style="padding-left: 15px">Next Poses: </h4>
+
+    <div class="row" style="margin-top: 30px; text-align: center;margin-bottom: 30px">
+        {% for id, pose in next_poses.items() %}
+        <div class="col-md-3 col-sm-6 next-poses" data-poseid="{{ id }}" style="margin-bottom: 15px">
+            <a href="/pose/{{ id }}">
+                <img src="/static/img/cat.png" style="height:120px;border:#d3d3d3 solid 1px;border-radius: 5px">
+                <p style="margin-bottom: 0px">{{ pose['name'] }}</p> 
+            </a> 
+                <span class="editable-field">{{ pose['weight'] }}</span>
+        </div>
+        {% endfor %}
+        <div class="col-md-12" style="text-align: left">
+            <button id="edit-weight-btn" class="btn btn-primary" style="margin-left: 15px">Edit Weights</button>
+            <button id="save-weight-btn" class="btn btn-primary" style="display:none; margin-left: 15px">Save</button>
+        </div>
+        <p id="error-message" style="color:red; margin: auto 30px"></p>
+    </div>
+    {% endif %}
+
+    <div class="row" style="margin-bottom: 50px">
+        <div class="col-md-12">
+            <h3>Add another Next Pose</h3>
+            <form action="/addnextpose" method="POST" id="add-nextpose-form">
+                <input type="hidden" name="poseid" value="{{ pose.pose_id }}">
+                <div class="form-group">
+                    <label style="margin-right:15px">Pose Id: </label><input type="number" name="nextposeid" id="nextposeid"></input>
+                </div>
+                <div class="form-group">
+                    <label style="margin-right: 15px">Weight:</label><input type="number" name="weight" id="weight"></input>
+                </div>
+                <input class="btn btn-primary" id="add-nextpose-btn" type="submit" value="Add Next Pose">
+                <button class="btn btn-dark" id="remove-nextpose-btn">Remove Next Pose</button>
+            </form>
+        </div>
+    </div>
+
 </div>
-<h3>Description: </h3>
-<p>{{ pose.description }}</p>
-
-{% if pose.benefit %}
-    <h3>Benefits: </h3>
-    <p>{{ pose.benefit }}</p>
-{% endif %}
-
-{% if prev_poses %}
-    <h3>Previous Poses: </h3>
-    <ul>
-    {% for prev in prev_poses %}
-        <li>{{ prev }}</li>
-    {% endfor %}
-    </ul>
-{% endif %}
-
-{% if next_poses %}
-    <h3>Next Poses: </h3>
-    <ul>
-    {% for id, pose in next_poses.items() %}
-        <li class= "next-poses" data-poseid="{{ id }}">
-            <a href="/pose/{{ id }}">{{ pose['name'] }}:</a> 
-            <span class="editable-field">{{ pose['weight'] }}</span>
-        </li>
-    {% endfor %}
-    </ul>
-    <button id="edit-weight-btn">Edit Weights</button>
-    <button id="save-weight-btn" style="display:none">Save</button>
-    <p id="error-message" style="color:red"></p>
-{% endif %}
-
-<h3>Add another Next Pose</h3>
-<form action="/addnextpose" method="POST" id="add-nextpose-form">
-    <input type="hidden" name="poseid" value="{{ pose.pose_id }}">
-    <label>Pose Id: </label><input type="number" name="nextposeid" id="nextposeid"></input> <br>
-    <label>Weight:</label><input type="number" name="weight" id="weight"></input><br>
-    <input id="add-nextpose-btn" type="submit" value="Add Next Pose">
-    <button id="remove-nextpose-btn">Remove Next Pose</button>
-</form>
-
 
 <script src="../static/js/editData.js"></script>
 {% endblock %}

@@ -31,8 +31,7 @@ def searchPoses():
     Lists the poses that meet those search requirements 
     """
 
-    # TODO: make keyword search not case sensitive
-    # TODO: make keyword search through the alt names, sanskrit as well
+    # TODO: make keyword search through the alt names as well
     # ignoring the weird characters
 
     if request.args:
@@ -49,7 +48,7 @@ def searchPoses():
 
         all_poses = db.session.query(Pose).join(PoseCategory).filter(db.or_(Pose.name.ilike(keyword), Pose.sanskrit.ilike(keyword)),
                                                                 Pose.difficulty.in_(difficulty),
-                                                                PoseCategory.cat_id.in_(categories)).all()
+                                                                PoseCategory.cat_id.in_(categories)).order_by(Pose.name).all()
     else:
         all_poses = Pose.query.order_by('name').all()
 
@@ -116,10 +115,19 @@ def createWorkout():
     """Create the Workout
     Given a number of poses, return a list of poses with their id, img urls, and name"""
     session['num_poses'] = int(request.args.get('num_poses'))
-    session['difficulty'] = request.args.get('difficulty')
-    session['emphasis'] = request.args.get('emphasis')
+    session['difficulty'] = [request.args.get('difficulty')] # for now just putting in 1 difficulty
+    # want difficulty to include beginner & intermediate if intermediate is specified, but how do i skew towards intermediate?
+
+    # what if emphasis is not filled in or empty?
+    emphasis = request.args.get('emphasis')
+    if emphasis == "":
+        session['emphasis'] = []
+    else:
+        session['emphasis'] = [int(emphasis)] # session['emphasis'] is a list of integers
+
     session['timingOption'] = request.args.get('timingOption')
-    workout_list = generateWorkout(session['num_poses'])
+
+    workout_list = generateWorkout(session['num_poses'], difficulty=session['difficulty'], categories=session['emphasis'])
 
     workout_jsonlist = []
 

@@ -10,8 +10,8 @@
     -moz-background-size: cover;
     background-size: cover;
     -o-background-size: cover;
-    font-family: 'Open Sans', sans-serif;
   }
+
   ul.checkbox li { 
     border: 1px transparent solid; 
     display:inline-block;
@@ -20,7 +20,7 @@
 
 </style>
 
-<div class="container" style="margin-top: 80px">
+<div class="container main-container" style="margin-top: 80px">
   
   <!-- Create Workout -->
   <div class="row">
@@ -46,9 +46,10 @@
           <div class="form-group">
               <label for="emphasis">Emphasis</label>
               <select name="emphasis" id="emphasis">
-                  <option value = "Abs">Abs/Core</option>
-                  <option value ="Item2">Item2</option>
-                  <option value="Item3">Item3</option>
+                  <option value = "">None</option>
+                  {% for category in categories %}
+                  <option value = "{{category.cat_id}}">{{category.name}}</option>
+                  {% endfor %}
               </select>
           </div>
           <div class="form-check form-check-inline">
