@@ -136,6 +136,7 @@ def createWorkout():
     if workout_list:
         for i, pose in enumerate(workout_list):
             workout_jsonlist.append({'pose_id' : pose.pose_id, 'imgurl': pose.img_url, 'name': pose.name})
+        session['error'] = ""
     else:
         session['error'] = "No Poses Matched. Try creating another workout"
     

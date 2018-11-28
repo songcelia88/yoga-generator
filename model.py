@@ -12,7 +12,7 @@ import copy
 db = SQLAlchemy()
 
 DIFFICULTIES = ['Beginner', 'Intermediate', 'Expert']
-DEFAULT_POSE_IDS = [64,130,32] #ids for Mountain, Down Dog, and Corpse
+DEFAULT_POSE_IDS = [64,130,32] #ids for Down Dog, Mountain, and Corpse
 
 ##############################################################################
 # Model classes
@@ -50,7 +50,7 @@ class Pose(db.Model):
 
         """
 
-        if next_poses is None: # if no next poses are specified use the ones in the attributefor that pose
+        if next_poses is None: # if no next poses are specified use the ones in the attribute for that pose
             next_poses = self.next_poses
 
         if next_poses: # if the next_poses exists for that pose (i.e. it's not an empty dictionary)
@@ -61,7 +61,7 @@ class Pose(db.Model):
                 pose_weights.append(weight)
 
         else: # if no next poses exist then choose from some basic ones like Mountain, Down Dog
-            pose_ids =[64,130,32]
+            pose_ids =[64,130,32] #ids for Down Dog, Mountain, and Corpse
             pose_weights = [2,2,1]
 
         next_pose_id = random.choices(pose_ids, pose_weights)[0] # random.choices returns a list
@@ -133,7 +133,6 @@ class Category(db.Model):
 ##############################################################################
 # Helper functions
 
-# warrior2 = Pose.query.get(187)
 def generateWorkout(num_poses, difficulty=DIFFICULTIES, categories=None):
     """Generate a list of Poses, take an input the number of poses and returns a 
     list of Pose objects
@@ -179,7 +178,7 @@ def generateWorkout(num_poses, difficulty=DIFFICULTIES, categories=None):
             next_poses = copy.deepcopy(current_pose.next_poses) # make a copy of the next poses and work from that instead
             next_pose = current_pose.getNextPose(next_poses=next_poses)
 
-            while next_pose not in all_poses_set: # if the next pose isn't in the list of all poses 
+            while next_pose not in all_poses_set: # if the next pose isn't in the set of valid poses 
                 del next_poses[str(next_pose.pose_id)] # remove that pose from the next poses dictionary
                 next_pose = current_pose.getNextPose(next_poses=next_poses) # generate a new next pose from the updated next poses list
 
@@ -190,6 +189,56 @@ def generateWorkout(num_poses, difficulty=DIFFICULTIES, categories=None):
     else:
         return None
 
+
+def saveWorkout(workout_list, name=None, author=None, description=None):
+    """Given a list of poses, creates an instance of a Workout object as well as the 
+    associated PoseWorkout objects
+    
+    Can take the output from the generateWorkout function (list of Pose objects)
+    Adapt to take in the json version from the server.py code?
+
+    """
+    workout = Workout(duration=len(workout_list),name=name,author=author,description=description)
+    db.session.add(workout)
+    db.session.commit()
+
+    for pose in workout_list:
+        poseworkout = PoseWorkout(pose_id=pose.pose_id, workout_id=workout.workout_id)
+        db.session.add(poseworkout)
+        db.session.commit()
+
+    return workout
+
+
+# refine weights based on a workout object
+def refineWeights(workout, weight=0.1):
+    """update the weights based on a saved workout"""
+    # get the list of poses in that workout (list PoseWorkout objects)
+
+    pose_workouts = workout.pose_workouts # unpack it so it's not as confusing later
+
+    for i, pose in enumerate(pose_workouts[:-1]): # stop at the next to last pose (don't care about checking the very last pose)
+        current_pose = pose.pose # pose is a PoseWorkout object with attribute pose
+        next_pose = pose_workouts[i+1].pose # get the next pose in the workout
+        print('current pose', current_pose)
+        print('next pose', next_pose)
+        next_poses_copy = copy.deepcopy(current_pose.next_poses) # make a copy so I can modify its contents
+        
+        if str(next_pose.pose_id) in next_poses_copy: # if the pose already is in the next_poses then update its weight
+            next_poses_copy[str(next_pose.pose_id)] += weight # default to add is 0.1
+            # TODO: round to the nearest 0.1 decimal place??
+            print('next pose updated to new weight of', current_pose.next_poses[str(next_pose.pose_id)])
+        else:
+            next_poses_copy[str(next_pose.pose_id)] = 1 # add this to the next_poses with weight 1
+            print('next pose added')
+
+        current_pose.next_poses = next_poses_copy # update next_poses with the new next_poses info
+        db.session.commit()
+        print("--")
+
+
+# refine my data by creating some sequences and workouts (maybe put this in my seed file?)
+# and adjusting the weights based on that (yeah i should put this in my seed file)
 
 def connect_to_db(app, database_uri):
     """Connect the database to our Flask app."""

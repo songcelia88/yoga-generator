@@ -87,7 +87,7 @@ def addPoseWeights():
 # TO DO: incorporate yoga journal's data to help refine the data?
 
 def addNewCategories():
-    """Add more categories (cross referenced by Yoga Journal"""
+    """Add more categories (cross referenced by Yoga Journal)"""
     new_categories = {
         "Chest Opening": [10, 19, 31, 34, 78,85,114,116,160,190,170,179,192],
         "Core & Abs": [6,7,20,22,54,62,60,63,171,98,129,88,142],
@@ -120,6 +120,16 @@ def addNewCategories():
             db.session.commit()
         #  commit to database
         print("added category", category)
+
+
+def addStarterWorkouts():
+    """Function to manually add some workouts to seed the database and adjust the weights accordingly"""
+    sequence1 = []
+
+    # given a list of pose ids, generate a workout
+    # save that workout
+    # refine the weights based on that workout
+
 
 
 if __name__ == "__main__":
