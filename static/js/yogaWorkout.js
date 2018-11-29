@@ -120,7 +120,73 @@ function exitWorkoutHandler(){
     }); //end click event listener
 }
 
-
 //call the handlers
 saveWorkoutHandler();
 exitWorkoutHandler();
+
+////// Code for the Slideshow part of the Workout page //////////////
+
+const slides = document.querySelectorAll('#slides .slide');
+// show the first slide on load
+let currentSlide = 0;
+slides[currentSlide].style.display='block'
+// let slideInterval = setInterval(nextSlide,2000); //nextSlide is a function
+let slideInterval;
+let playing = false;
+const pauseButton = document.getElementById('play-pause');
+const next = document.getElementById('next');
+const previous = document.getElementById('previous');
+
+function nextSlide(){
+    if(currentSlide == slides.length-1){
+        //if we reach the last slide keep on that slide
+        goToSlide(currentSlide); 
+    }
+    else{
+        goToSlide(currentSlide+1);
+    }
+}
+
+function previousSlide(){
+    if(currentSlide == 0){
+        //if we are on the first slide, then, stay on that slide
+        goToSlide(currentSlide);
+    }
+    else{
+        goToSlide(currentSlide-1);
+    }
+}
+
+function goToSlide(n){
+    slides[currentSlide].style.display = 'none'; //change the attribute to display: none
+    currentSlide = n //update the currentSlide
+    slides[currentSlide].style.display = 'block'; //change the new current slide attribute to display:block
+}
+
+function pauseSlideshow(){
+    pauseButton.innerHTML = '<i class="fas fa-play-circle fa-2x"></i>'; // play character
+    playing = false;
+    clearInterval(slideInterval);
+}
+
+function playSlideshow(){
+    pauseButton.innerHTML = '<i class="fas fa-pause-circle fa-2x"></i>'; // pause character
+    playing = true;
+    slideInterval = setInterval(nextSlide,2000);
+}
+
+//event handlers for the player control buttons
+pauseButton.addEventListener('click', (evt)=>{
+    if(playing){ pauseSlideshow(); }
+    else{ playSlideshow(); }
+});
+
+next.addEventListener('click', (evt)=>{
+    pauseSlideshow();
+    nextSlide();
+});
+
+previous.addEventListener('click', (evt)=>{
+    pauseSlideshow();
+    previousSlide();
+});

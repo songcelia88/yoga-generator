@@ -3,7 +3,11 @@
 {% block title %}Yoga App - Your Workout{% endblock %}
 
 {% block content %}
-
+<style>
+    #slides .slide{
+        display: none;
+    }
+</style>
 <div class="container main-container" style="margin-top: 80px">
     <div class="row">
         <div class="col-md-12">
@@ -49,25 +53,25 @@
     <!-- Play Controls -->
     <div class="row" style="margin-top: 20px ">
         <div class="col-md-12" style="text-align: center">
-            <i class="fas fa-step-backward fa-2x"></i>
-            <i class="fas fa-play-circle fa-2x"></i>
-            <i class="fas fa-pause-circle fa-2x"></i>
-            <i class="fas fa-step-forward fa-2x"></i>
+            <button id="previous" class="btn"><i class="fas fa-step-backward fa-2x"></i></button>
+            <button id="play-pause" class="btn"><i class="fas fa-play-circle fa-2x"></i></button>
+            <!-- <i class="fas fa-pause-circle fa-2x"></i> -->
+            <button id='next' class="btn"><i class="fas fa-step-forward fa-2x"></i></button>
         </div>
     </div>
 
     <!-- Display Poses in the Workout-->
     <div class="row" style="margin-top: 30px">
-        <div class="col-md-12" style="text-align: center">
+        <div class="col-md-12" id="slides" style="text-align: center">
             {% if session['workout'] %}
-            {% for pose in session['workout'] %}
-            <div style="margin-bottom: 30px">
-                <h4>{{ pose['name'] }}</h4>
-                <a href="/pose/{{ pose['pose_id'] }}">
-                    <img src="{{ pose['imgurl'] }}" style="height:300px; border: #d3d3d3 solid 2px; border-radius: 8px;margin-bottom: 10px">
-                <a> 
-            </div>
-            {% endfor %}
+                {% for pose in session['workout'] %}
+                <div style="margin-bottom: 30px" class="slide">
+                    <h4>{{ pose['name'] }}</h4>
+                    <a href="/pose/{{ pose['pose_id'] }}">
+                        <img src="{{ pose['imgurl'] }}" style="height:300px; border: #d3d3d3 solid 2px; border-radius: 8px;margin-bottom: 10px">
+                    <a> 
+                </div>
+                {% endfor %}
             {% endif %}
         </div>
     </div>
@@ -108,4 +112,5 @@
 </div>
 
 <script src="static/js/yogaWorkout.js"></script>
+
 {% endblock %}

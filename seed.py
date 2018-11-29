@@ -1,5 +1,6 @@
 from sqlalchemy import func
-from model import Pose, Category, PoseCategory, connect_to_db, db
+# from model import Pose, Category, PoseCategory, Workout, connect_to_db, db, saveWorkout, refineWeights
+from model import * 
 import poseparser
 
 from server import app
@@ -83,8 +84,6 @@ def addPoseWeights():
             db.session.commit()
             print("added next pose for", pose)
 
-# TO DO: refine the data a bit more, make weights better (put in seed file?)
-# TO DO: incorporate yoga journal's data to help refine the data?
 
 def addNewCategories():
     """Add more categories (cross referenced by Yoga Journal)"""
@@ -123,13 +122,77 @@ def addNewCategories():
 
 
 def addStarterWorkouts():
-    """Function to manually add some workouts to seed the database and adjust the weights accordingly"""
-    sequence1 = []
+    """Function to manually add some workouts to seed the database and adjust the weights accordingly
+     Source: https://www.verywellfit.com/yoga-poses-for-every-part-of-your-body-3566692
+    """    
+    all_sequences = {
+        'sequence1': {'poses': [130, 131, 83, 91, 171, 179, 64, 91, 83, 131, 130],
+                    'name': "Sun Salutation A",
+                    'description': "A basic yoga sequence to start your practice. Repeat 3-4 times to warm up."
+        },
+        'sequence2': {'poses': [130, 22, 83, 91, 171,179,64,182,171,179,64,182,171,179,64,91,83,22,130],
+                    'name': 'Sun Salutation B',
+                    'description': "A basic yoga sequence to start your practice. Repeat 3-4 times to warm up."
+        },
+        'sequence3': {'poses': [130, 131, 83, 91, 37, 64, 136, 171, 179, 64, 37, 91, 83, 131, 130],
+                    'name': 'Sun Salutation A - variation',
+                    'description': "A variation on the basic yoga sequence to start your practice. Repeat 3-4 times to warm up."
+        },
+        'sequence4': {'poses': [64, 37, 182, 187, 180, 156, 177, 176, 90, 64],
+                    'name': 'Classic Standing Poses',
+                    'description': 'A series of classic standing poses. Repeat 2-3 times'
+        },
+        'sequence5':{'poses':[22, 72, 175, 116, 189, 164, 88, 89, 90, 83],
+                    'name': 'Core & Standing Poses',
+                    'description': 'A series of standing poses that focus on core.'
+        },
+        'sequence6':{'poses': [130, 182, 185, 187, 180, 189],
+                    'name': 'Warrior Mode',
+                    'description': 'Practice all the warrior poses together'
+        },
+        'sequence7':{'poses': [37, 107, 111, 89, 116, 19, 10, 19],
+                    'name': 'Stretch Your Quads',
+                    'description': 'Stretch your quads'
+        },
+        'sequence8':{'poses': [20, 34, 20, 34, 2, 70, 136, 138, 64, 37, 88, 22, 72, 6],
+                    'name': 'Core Workout',
+                    'description': 'Work your core with this series of poses'
+        },
+        'sequence10':{'poses': [94, 83, 176, 163, 135, 8, 111, 72, 17, 35],
+                    'name': 'Flexibility',
+                    'description': 'Improve your flexibility with these stretches'
+        },
+        'sequence9':{'poses': [64, 136, 138, 139, 136, 171, 179, 68, 67, 137],
+                    'name': 'Triceps/Biceps',
+                    'description': 'Tone your arms with this sequence'
+        },
+        'sequence11': {'poses': [8, 119, 36, 8, 21, 163],
+                    'name': 'Hip Openers',
+                    'description': 'Stretch your hips'
+        },
+        'sequence12':{'poses': [20,34,20,34, 160, 78, 17, 7,84,176, 64],
+                    'name': 'Chest/Shoulder Openers',
+                    'description': 'Perfect for those who sit hunched over a desk all day'
+        },
+        'sequence13':{'poses':[130, 84, 20,34,20,34,17,72,136],
+                    'name': 'Improve Posture',
+                    'description': 'Improve your posture with this chest/shoulder sequence'}
+    }
+    
+    # loop through all the sequences
+    for seq in all_sequences:
+        workout_info = all_sequences[seq] # dictionary: {'poses': [....], 'name': ...., 'description': ...}
 
-    # given a list of pose ids, generate a workout
-    # save that workout
-    # refine the weights based on that workout
+        # make a list of all the poses from the pose ids
+        pose_list = [Pose.query.get(pose_id) for pose_id in workout_info['poses']] 
+        #create and save the workout from the pose list
+        workout = saveWorkout(pose_list, name=workout_info['name'], description=workout_info['description'])
+        print("created workout: ", seq)
 
+        # refine the weights accordingly
+        refineWeights(workout, weight=0.5)
+        print('refined weights for workout')
+        print('--')
 
 
 if __name__ == "__main__":
@@ -144,3 +207,4 @@ if __name__ == "__main__":
 
     addPoseWeights()
     addNewCategories()
+    addStarterWorkouts()

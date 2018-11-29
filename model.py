@@ -86,7 +86,7 @@ class Workout(db.Model):
 
     def __repr__(self):
         """Print out the Workout Object nicely"""
-        return "<Workout workout_id={}, duration={}>".format(self.workout_id, self.duration)
+        return "<Workout workout_id={}, duration={}, name={}>".format(self.workout_id, self.duration, self.name)
 
 
 class PoseWorkout(db.Model):
@@ -220,25 +220,25 @@ def refineWeights(workout, weight=0.1):
     for i, pose in enumerate(pose_workouts[:-1]): # stop at the next to last pose (don't care about checking the very last pose)
         current_pose = pose.pose # pose is a PoseWorkout object with attribute pose
         next_pose = pose_workouts[i+1].pose # get the next pose in the workout
-        print('current pose', current_pose)
-        print('next pose', next_pose)
-        next_poses_copy = copy.deepcopy(current_pose.next_poses) # make a copy so I can modify its contents
+        print('refineweight - current pose', current_pose)
+        print('refineweight - next pose', next_pose)
+        if current_pose.next_poses:
+            next_poses_copy = copy.deepcopy(current_pose.next_poses) # make a copy so I can modify its contents
+        else:
+            next_poses_copy = {} # if the current pose doesn't have a next_poses attribute, initialize this
         
         if str(next_pose.pose_id) in next_poses_copy: # if the pose already is in the next_poses then update its weight
             next_poses_copy[str(next_pose.pose_id)] += weight # default to add is 0.1
             # TODO: round to the nearest 0.1 decimal place??
-            print('next pose updated to new weight of', current_pose.next_poses[str(next_pose.pose_id)])
+            # print('next pose updated to new weight of', current_pose.next_poses[str(next_pose.pose_id)])
         else:
             next_poses_copy[str(next_pose.pose_id)] = 1 # add this to the next_poses with weight 1
-            print('next pose added')
+            # print('next pose added')
 
         current_pose.next_poses = next_poses_copy # update next_poses with the new next_poses info
         db.session.commit()
-        print("--")
+        # print("--")
 
-
-# refine my data by creating some sequences and workouts (maybe put this in my seed file?)
-# and adjusting the weights based on that (yeah i should put this in my seed file)
 
 def connect_to_db(app, database_uri):
     """Connect the database to our Flask app."""

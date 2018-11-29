@@ -170,6 +170,8 @@ def saveWorkout():
         workoutName = request.form.get('workoutName')
         userName = request.form.get('userName')
         description = request.form.get('description')
+
+        #generate a workout and save it
         workout = Workout(duration=len(session['workout']),name=workoutName,author=userName,description=description)
         db.session.add(workout)
         db.session.commit()
@@ -178,6 +180,9 @@ def saveWorkout():
             poseworkout = PoseWorkout(pose_id=pose['pose_id'], workout_id=workout.workout_id)
             db.session.add(poseworkout)
             db.session.commit()
+
+        # refine weights based on that saved workout
+        refineWeights(workout)
 
     else: 
         print("no workout in session")
