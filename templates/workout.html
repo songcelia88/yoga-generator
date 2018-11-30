@@ -7,7 +7,33 @@
     #slides .slide{
         display: none;
     }
+
+    .slider{
+        cursor: pointer;
+    }
+
+    .slider-arrow{
+        cursor: pointer;
+        margin:20px;
+    }
+    .slider-img.active{
+        border:red solid 1px;
+    }
+
+    .slider-img.displayed{
+        display:inline;
+    }
+
+    .slider-img{
+        height:80px;
+        display: none;
+    }
+
+    .slider-img:hover{
+        border:black solid 1px;
+    }
 </style>
+
 <div class="container main-container" style="margin-top: 80px">
     <div class="row">
         <div class="col-md-12">
@@ -17,18 +43,22 @@
 
     <!-- Display Workout Settings -->
     <div class="row" style="text-align: center">        
-        <div class="col-md-3">Duration: {{ session.get('num_poses') }} Poses</div>
-        <div class="col-md-3">Difficulty: {% if session['difficulty'] %} 
+        <div class="col-md-3" id="duration">Duration: {{ session.get('num_poses') }} Poses</div>
+        <div class="col-md-3" id="difficulty">Difficulty: {% if session['difficulty'] %} 
                             {{ session['difficulty'] }}
                         {% else %}
                             None
-                        {% endif %}</div>
-        <div class="col-md-3">Emphasis: {% if session['emphasis'] %} 
+                        {% endif %}
+        </div>
+        <div class="col-md-3" id="emphasis">Emphasis: {% if session['emphasis'] %} 
                             {{ session['emphasis'] }}
                         {% else %}
                             None
-                        {% endif %}</div>
-        <div class="col-md-3">{{ session['timingOption'] }}</div>
+                        {% endif %}
+        </div>
+        <div class="col-md-3" id="timingOption" data-info="{{ session['timingOption']}}">
+            {{ session['timingOption'] }}
+        </div>
     </div>
 
     <!-- Save and Exit -->
@@ -54,8 +84,9 @@
     <div class="row" style="margin-top: 20px ">
         <div class="col-md-12" style="text-align: center">
             <button id="previous" class="btn"><i class="fas fa-step-backward fa-2x"></i></button>
-            <button id="play-pause" class="btn"><i class="fas fa-play-circle fa-2x"></i></button>
-            <!-- <i class="fas fa-pause-circle fa-2x"></i> -->
+            <button id="play-pause" class="btn" style="">
+                <i class="fas fa-play-circle fa-2x"></i>
+            </button>
             <button id='next' class="btn"><i class="fas fa-step-forward fa-2x"></i></button>
         </div>
     </div>
@@ -64,15 +95,24 @@
     <div class="row" style="margin-top: 30px">
         <div class="col-md-12" id="slides" style="text-align: center">
             {% if session['workout'] %}
+                <!-- Pose Slides -->
                 {% for pose in session['workout'] %}
-                <div style="margin-bottom: 30px" class="slide">
+                <div style="margin-bottom: 10px" class="slide">
                     <h4>{{ pose['name'] }}</h4>
                     <a href="/pose/{{ pose['pose_id'] }}">
                         <img src="{{ pose['imgurl'] }}" style="height:300px; border: #d3d3d3 solid 2px; border-radius: 8px;margin-bottom: 10px">
                     <a> 
                 </div>
                 {% endfor %}
+                
+                <!-- Slider Thumbnails -->
+                <span class="slider-arrow"><i class="fas fa-chevron-left fa-2x slider-icon" id="slider-prev"></i></span>
+                {% for pose in session['workout'] %}
+                <span class="slider"><img src="{{ pose['imgurl'] }}" class="slider-img" data-slideindex = "{{ loop.index-1 }}"></span>
+                {% endfor %}
+                <span class="slider-arrow"><i class="fas fa-chevron-right fa-2x slider-icon" id="slider-next"></i></span>
             {% endif %}
+
         </div>
     </div>
 
@@ -112,5 +152,5 @@
 </div>
 
 <script src="static/js/yogaWorkout.js"></script>
-
+<script src="static/js/yogaSlideshow.js"></script>
 {% endblock %}
