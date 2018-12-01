@@ -32,6 +32,47 @@
     .slider-img:hover{
         border:black solid 1px;
     }
+
+    #countdown {
+      position: relative;
+      margin: auto;
+      margin-bottom:10px;
+/*      height: 40px;
+      width: 40px;*/
+      text-align: center;
+    }
+
+    #countdown-number {
+      color: black;
+      display: inline-block;
+      line-height: 40px;
+    }
+
+    svg {
+      top: 0;
+      right: 0;
+      width: 40px;
+      height: 40px;
+    }
+
+    svg circle {
+      stroke-dasharray: 113px;
+      stroke-dashoffset: 0px;
+      stroke-linecap: round;
+      stroke-width: 2px;
+      stroke: black;
+      fill: none;
+      /*animation: countdown 20s linear forwards;*/
+    }
+
+    @keyframes countdown {
+      from {
+        stroke-dashoffset: 0px;
+      }
+      to {
+        stroke-dashoffset: 113px;
+      }
+    }
 </style>
 
 <div class="container main-container" style="margin-top: 80px">
@@ -105,6 +146,19 @@
                 </div>
                 {% endfor %}
                 
+                <!-- Countdown Timer -->
+                <div id="countdown">
+                    <!-- <div id="countdown-number"></div> -->
+                    <svg>
+                        <g>
+                            <g transform="translate(40, 0) scale(-1, 1)">
+                            <circle r="18" cx="20" cy="20" transform="rotate(-90 20 20)"></circle>
+                            </g>
+                            <text id="countdown-number" x="10" y="25" fill="black">20</text>
+                        </g>
+                    </svg>
+                </div>
+
                 <!-- Slider Thumbnails -->
                 <span class="slider-arrow"><i class="fas fa-chevron-left fa-2x slider-icon" id="slider-prev"></i></span>
                 {% for pose in session['workout'] %}
