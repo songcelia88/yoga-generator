@@ -81,6 +81,7 @@ class Workout(db.Model):
     name = db.Column(db.String(200), nullable=True)
     author = db.Column(db.String(200), nullable=True)
     description = db.Column(db.String(1000), nullable=True)
+    # difficulty = db.Column(db.String(50), nullable=True)
 
     pose_workouts = db.relationship('PoseWorkout')
 

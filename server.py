@@ -256,6 +256,40 @@ def removeNextPose():
     url = '/pose/' + str(poseid)
     return redirect(url)
 
+
+@app.route('/saved-workouts')
+def showSavedWorkouts():
+    """Show all the workouts that have been currently saved"""
+    workouts = Workout.query.all()
+
+    return render_template("saved-workouts.html", workouts=workouts)
+
+
+@app.route('/load-workout/<int:workout_id>')
+def loadWorkout(workout_id):
+    """Loads the saved workout to display and be ready to play on the workout page"""
+
+    # get the workout by id and puts that into the session['workout']
+    # also set the emphasis, duration, timing option, emphasis
+    # see the /createworkout route
+    # make sure session['workout'] is in the right format first (make it a function?)
+    workout = Workout.query.get(workout_id)
+    session['num_poses'] = workout.duration
+    session['difficulty'] = [] # for now don't put any difficulty
+    session['emphasis'] = [] # for now don't put any emphasis
+    session['timingOption'] = 'Timed' # always make it timed by default
+
+    workout_jsonlist = []
+
+    # unpack the workout list to display on the page
+    for i, pose_workout in enumerate(workout.pose_workouts):
+        workout_jsonlist.append({'pose_id' : pose_workout.pose.pose_id, 'imgurl': pose_workout.pose.img_url, 'name': pose_workout.pose.name})
+    
+    session['workout'] = workout_jsonlist
+
+    return redirect("/workout")
+
+
 if __name__ == "__main__":
     # We have to set debug=True here, since it has to be True at the
     # point that we invoke the DebugToolbarExtension

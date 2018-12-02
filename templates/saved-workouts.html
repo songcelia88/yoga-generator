@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+
+{% block title %}Yoga App - Saved Workouts {% endblock %}
+
+{% block content %}
+<div class="container main-container" style="margin-top: 80px">
+
+<div class="row">
+    <div class="col-md-12">
+        <h2>Saved Workouts</h2>
+    </div>
+</div>
+
+{% for workout in workouts %}
+<div class="row" style="margin-bottom: 20px">
+    <div class="col-md-12">
+        <h3>{% if workout.name %}
+            {{ workout.name }}
+            {% else %}
+            Workout Number #{{ workout.workout_id }}
+            {% endif %}
+        </h3>
+        <p>User: {{ workout.author }}</p>
+        <p>Total Poses: {{ workout.duration }} poses</p>
+        <p>Description: {{ workout.description }}</p>
+        <p>Sneak Preview:</p>
+        {% for i in range(6) %}
+            <span><img src="{{ workout.pose_workouts[i].pose.img_url }}" style="height:75px"></span>
+        {% endfor %}
+            <span style="margin-left:20px"><i class="fas fa-ellipsis-h fa-2x"></i></span>
+        <div>
+            <a href="/load-workout/{{ workout.workout_id }}"><button class="btn btn-primary">Do This Workout</button></a>
+        </div>
+    </div>
+</div>
+{% endfor %}
+
+</div>
+{% endblock %}
