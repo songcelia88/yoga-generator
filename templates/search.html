@@ -6,45 +6,50 @@
 <div class="container main-container" style="margin-top: 80px">
     
 <div class="row" style="margin-bottom: 50px">
-    <form action="/search" method="GET">
-        <h3>Search:</h3>
-        <div>Keyword: <input type="text" name="keyword"></div>
-        <div> 
-            <p><strong>Category:</strong></p>
-            {% for category in categories %}
-            <input type="checkbox" id="{{ category.name }}" name="categories" value="{{ category.cat_id }}">
-            <label for="{{ category.name }}">{{ category.name }}</label><br>
-            {% endfor %}
-        </div>
+    <div class="col-md-3">
+        <form action="/search" method="GET">
+            <h3>Search:</h3>
+            <div>Keyword: <input type="text" name="keyword"></div>
+            <div> 
+                <p><strong>Category:</strong></p>
+                {% for category in categories %}
+                <input type="checkbox" id="{{ category.name }}" name="categories" value="{{ category.cat_id }}">
+                <label for="{{ category.name }}">{{ category.name }}</label><br>
+                {% endfor %}
+            </div>
+            <div>
+                <p><strong>Difficulty:</strong></p>
+                <input type="checkbox" id="beginner" name="difficulty" value="Beginner">
+                <label for="beginner">Beginner</label><br>
+                <input type="checkbox" id="intermediate" name="difficulty" value="Intermediate">
+                <label for="intermediate">Intermediate</label><br>
+                <input type="checkbox" id="expert" name="difficulty" value="Expert">
+                <label for="expert">Expert</label>
+            </div>
+            <div style="padding-top: 10px"><input type="submit" value="Search" class="btn btn-primary"></div>
+        </form>
+    </div>
+    <div class="col-md-9">
         <div>
-            <p><strong>Difficulty:</strong></p>
-            <input type="checkbox" id="beginner" name="difficulty" value="Beginner">
-            <label for="beginner">Beginner</label><br>
-            <input type="checkbox" id="intermediate" name="difficulty" value="Intermediate">
-            <label for="intermediate">Intermediate</label><br>
-            <input type="checkbox" id="expert" name="difficulty" value="Expert">
-            <label for="expert">Expert</label>
+        <h1>All Poses ({{ all_poses|length }})</h1>
         </div>
-        <div style="padding-top: 10px"><input type="submit" value="Search" class="btn btn-primary"></div>
-    </form>
+
+        <div class="row">
+                
+            {% for pose in all_poses %}
+                <div class="col-md-3 col-sm-6" style="padding-bottom: 20px">
+                    <a href="pose/{{ pose.pose_id }}">
+                        <img src="/{{ pose.img_url }}" style="height:120px;border:#d3d3d3 solid 1px;border-radius: 5px">
+                        <p>{{ pose.name }} [ {{ pose.pose_id }} ]</p>
+                    </a>
+                </div>
+            {% endfor %}
+            
+        </div>
+
+    </div>
 </div>
 
-<div>
-    <h1>All Poses</h1>
-</div>
-
-<div class="row">
-        
-    {% for pose in all_poses %}
-        <div class="col-md-3 col-sm-6" style="padding-bottom: 20px">
-            <a href="pose/{{ pose.pose_id }}">
-                <img src="/{{ pose.img_url }}" style="height:120px;border:#d3d3d3 solid 1px;border-radius: 5px">
-                <p>{{ pose.name }} ( {{ pose.pose_id }} )</p>
-            </a>
-        </div>
-    {% endfor %}
-    
-</div>
 
 <div class="row">
     <div class="col-md-12">

@@ -31,11 +31,8 @@ def searchPoses():
     Lists the poses that meet those search requirements 
     """
 
-    # TODO: make keyword search through the alt names as well
-    # ignoring the weird characters
-
     if request.args:
-        keyword = '%' + request.args.get('keyword') + '%'
+        keyword = request.args.get('keyword')
 
         difficulty = request.args.getlist('difficulty') # list of difficulty
         if not difficulty: # if the list is empty
@@ -45,10 +42,11 @@ def searchPoses():
         if not categories:
             all_cat_ids = db.session.query(Category.cat_id).all() # returns a list of tuples of all the ids
             categories = [category[0] for category in all_cat_ids] # converts that to a list
-
-        all_poses = db.session.query(Pose).join(PoseCategory).filter(db.or_(Pose.name.ilike(keyword), Pose.sanskrit.ilike(keyword)),
-                                                                Pose.difficulty.in_(difficulty),
-                                                                PoseCategory.cat_id.in_(categories)).order_by(Pose.name).all()
+        
+        query = db.session.query(Pose).join(PoseCategory)
+        query = search(query, keyword, sort=True) # sort the search results by ranking
+        all_poses = query.filter(Pose.difficulty.in_(difficulty),PoseCategory.cat_id.in_(categories)).order_by(Pose.name).all()
+    
     else:
         all_poses = Pose.query.order_by('name').all()
 

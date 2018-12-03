@@ -1,7 +1,11 @@
-from flask_sqlalchemy import SQLAlchemy
+from flask_sqlalchemy import SQLAlchemy, BaseQuery
+from sqlalchemy_searchable import SearchQueryMixin
+from sqlalchemy_utils.types import TSVectorType
+from sqlalchemy_searchable import make_searchable, search
 from sqlalchemy.dialects.postgresql import JSON, ARRAY
 import random
 import copy
+
 
 # This is the connection to the PostgreSQL database; we're getting this through
 # the Flask-SQLAlchemy helper library. On this, we can find the `session`
@@ -11,28 +15,36 @@ import copy
 
 db = SQLAlchemy()
 
+make_searchable(db.metadata)
+
 DIFFICULTIES = ['Beginner', 'Intermediate', 'Expert']
 DEFAULT_POSE_IDS = [64,130,32] #ids for Down Dog, Mountain, and Corpse
 
 ##############################################################################
 # Model classes
+class PoseQuery(BaseQuery, SearchQueryMixin):
+    pass
 
 class Pose(db.Model):
+    query_class = PoseQuery
     __tablename__ = "poses"
 
     pose_id = db.Column(db.Integer, primary_key=True, autoincrement=True)
-    name = db.Column(db.String(100), nullable=False, unique=True) # required and unique
-    sanskrit = db.Column(db.String(100), nullable=True) # sanskrit name
-    description = db.Column(db.String(2000))
+    name = db.Column(db.Unicode(100), nullable=False, unique=True) # required and unique, SEARCHABLE
+    sanskrit = db.Column(db.Unicode(100), nullable=True) # sanskrit name with accents (for displaying)
+    sanskrit_unaccented = db.Column(db.Unicode(100), nullable=True) # sanskrti name w/o accents, SEARCHABLE
+    description = db.Column(db.Unicode(2000)) # SEARCHABLE
     difficulty = db.Column(db.String(20), nullable=False)
-    altNames = db.Column(db.String(100), nullable=True)
+    altnames = db.Column(db.Unicode(100), nullable=True) # SEARCHABLE
     benefit = db.Column(db.String(1000), nullable=True)
     img_url = db.Column(db.String(200), nullable=False)
     next_pose_str = db.Column(db.String(500), nullable=True) # next poses stored as a string for now
     prev_pose_str = db.Column(db.String(500), nullable=True) # previous poses stored as a string for now
     next_poses = db.Column(JSON, nullable=True) # next poses as a JSON {pose_id: weight, pose_id: weight, ....}
 
-
+    search_vector = db.Column(TSVectorType('name','sanskrit_unaccented','altnames','description',
+                                         catalog='pg_catalog.simple',
+                                         weights={'name': 'A', 'altnames': 'B', 'sanskrit_unaccented': 'C', 'description':'D'}))
     pose_workout = db.relationship('PoseWorkout')
     pose_categories = db.relationship('PoseCategory')
 

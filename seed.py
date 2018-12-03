@@ -4,6 +4,7 @@ from model import *
 import poseparser
 
 from server import app
+from unidecode import unidecode # for ignoring accents on things 
 # populate my database with the stuff from parseYogaFile (poseparser.py)
 # read the localposefiles.txt file line by line
 # for each url, run parseYogaFile, create instance of Pose, add to database
@@ -28,10 +29,11 @@ def load_poses(filename):
                         img_url=data['imgUrl'])
 
             # get all the optional fields and set them as necessary
-            if data.get('altNames'):
-                pose.altNames = data.get('altNames')
+            if data.get('altnames'):
+                pose.altnames = data.get('altnames')
             if data.get('sanskrit'):
                 pose.sanskrit = data.get('sanskrit')
+                pose.sanskrit_unaccented = unidecode(pose.sanskrit)
             if data.get('nextPoses'):
                 pose.next_pose_str = data.get('nextPoses')
             if data.get('previousPoses'):
@@ -198,6 +200,9 @@ def addStarterWorkouts():
 if __name__ == "__main__":
     PRODUCTION_DB_URI = 'postgresql:///yogaposes'
     connect_to_db(app, PRODUCTION_DB_URI)
+
+    # configure mappers for search (SQLAlchemy-Searchable)
+    db.configure_mappers() 
 
     # In case tables haven't been created, create them
     db.create_all()
