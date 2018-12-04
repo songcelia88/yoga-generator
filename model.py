@@ -3,6 +3,7 @@ from sqlalchemy_searchable import SearchQueryMixin
 from sqlalchemy_utils.types import TSVectorType
 from sqlalchemy_searchable import make_searchable, search
 from sqlalchemy.dialects.postgresql import JSON, ARRAY
+from sqlalchemy import func
 import random
 import copy
 

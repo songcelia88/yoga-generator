@@ -3,6 +3,7 @@ from jinja2 import StrictUndefined
 from flask import Flask, render_template, redirect, request, flash, session, jsonify, json
 from flask_debugtoolbar import DebugToolbarExtension
 from sqlalchemy.orm.attributes import flag_modified
+from sqlalchemy import func
 
 # from model import connect_to_db, db, Pose, Workout, PoseWorkout, PoseCategory, Category, generateWorkout
 from model import * 
@@ -31,6 +32,7 @@ def searchPoses():
     Lists the poses that meet those search requirements 
     """
 
+    # TODO: how to account for substrings too? postgres doesn't seem to do this...maybe algolia is better
     if request.args:
         keyword = request.args.get('keyword')
 
@@ -50,9 +52,26 @@ def searchPoses():
     else:
         all_poses = Pose.query.order_by('name').all()
 
+    # make a dictionary of all the counts for the category and difficulty
+    # TODO: try doing a subquery in SQLAlchemy for better performance?
+    # https://stackoverflow.com/questions/38878897/how-to-make-a-subquery-in-sqlalchemy
+    difficulty_counts = {'Beginner':0, 'Intermediate': 0, 'Expert':0}
+    category_counts = {}
+    for pose in all_poses:
+        difficulty_counts[pose.difficulty] += 1
+        pose_categories = pose.pose_categories # a list of pose_categories
+        for pose_cat in pose_categories:
+            if pose_cat.cat_id not in category_counts:
+                category_counts[pose_cat.cat_id] = 0
+            category_counts[pose_cat.cat_id] +=1
+
     all_categories = Category.query.order_by('name').all()
 
-    return render_template("search.html", all_poses=all_poses, categories=all_categories)
+    return render_template("search.html", 
+                        all_poses=all_poses, 
+                        categories=all_categories,
+                        difficulty_counts=difficulty_counts,
+                        category_counts=category_counts)
 
 
 @app.route('/pose/<pose_id>')

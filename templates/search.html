@@ -9,29 +9,33 @@
     <div class="col-md-3">
         <form action="/search" method="GET">
             <h3>Search:</h3>
-            <div>Keyword: <input type="text" name="keyword"></div>
+            <div>Keyword: <input type="text" name="keyword" id="keyword"></div>
             <div> 
                 <p><strong>Category:</strong></p>
-                {% for category in categories %}
-                <input type="checkbox" id="{{ category.name }}" name="categories" value="{{ category.cat_id }}">
-                <label for="{{ category.name }}">{{ category.name }}</label><br>
-                {% endfor %}
+                <div id="categories-group">
+                    {% for category in categories %}
+                    <input type="checkbox" id="{{ category.name }}" name="categories" value="{{ category.cat_id }}">
+                    <label for="{{ category.name }}">{{ category.name }} ({{ category_counts.get(category.cat_id,0) }})</label><br>
+                    {% endfor %}
+                </div>
             </div>
             <div>
                 <p><strong>Difficulty:</strong></p>
-                <input type="checkbox" id="beginner" name="difficulty" value="Beginner">
-                <label for="beginner">Beginner</label><br>
-                <input type="checkbox" id="intermediate" name="difficulty" value="Intermediate">
-                <label for="intermediate">Intermediate</label><br>
-                <input type="checkbox" id="expert" name="difficulty" value="Expert">
-                <label for="expert">Expert</label>
+                <div id="difficulty-group">
+                    <input type="checkbox" id="beginner" name="difficulty" value="Beginner">
+                    <label for="beginner">Beginner ({{ difficulty_counts.get('Beginner',0) }})</label><br>
+                    <input type="checkbox" id="intermediate" name="difficulty" value="Intermediate">
+                    <label for="intermediate">Intermediate ({{ difficulty_counts.get('Intermediate',0) }})</label><br>
+                    <input type="checkbox" id="expert" name="difficulty" value="Expert">
+                    <label for="expert">Expert ({{ difficulty_counts.get('Expert',0) }})</label>
+                </div>
             </div>
             <div style="padding-top: 10px"><input type="submit" value="Search" class="btn btn-primary"></div>
         </form>
     </div>
     <div class="col-md-9">
         <div>
-        <h1>All Poses ({{ all_poses|length }})</h1>
+        <h1>Results ({{ all_poses|length }})</h1>
         </div>
 
         <div class="row">
@@ -51,7 +55,7 @@
 </div>
 
 
-<div class="row">
+<!-- <div class="row">
     <div class="col-md-12">
         <h1>All Categories</h1>
         <ul>
@@ -62,7 +66,8 @@
             {% endfor %}
         </ul>
     </div>
-</div>
+</div> -->
 
 </div>
+<script src="../static/js/searchPage.js"></script>
 {% endblock %}
