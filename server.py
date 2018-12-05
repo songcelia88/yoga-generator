@@ -83,8 +83,9 @@ def showPoseDetails(pose_id):
     if pose.next_poses: # pose.next_poses = dictionary of next poses {pose_id: weight, pose_id: weight}
         next_poses = {} # want to compose a dictionary {pose_id: {name: "Down Dog", weight: 1} ... }
         for p in pose.next_poses:
-            p_name = db.session.query(Pose.name).filter(Pose.pose_id == int(p)).first()[0]
-            next_poses[p] = {"name": p_name, "weight": pose.next_poses[p]}
+            # p_name = db.session.query(Pose.name).filter(Pose.pose_id == int(p)).first()[0]
+            p_object = Pose.query.get(int(p))
+            next_poses[p] = {"name": p_object.name, "weight": pose.next_poses[p], "img_url": p_object.img_url}
 
     prev_poses = None
     if pose.prev_pose_str:

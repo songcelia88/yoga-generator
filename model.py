@@ -19,7 +19,16 @@ db = SQLAlchemy()
 make_searchable(db.metadata)
 
 DIFFICULTIES = ['Beginner', 'Intermediate', 'Expert']
-DEFAULT_POSE_IDS = [64,130,32] #ids for Down Dog, Mountain, and Corpse
+# DEFAULT_POSE_IDS = [64,130,32] # ids for Down Dog, Mountain, and Corpse
+
+# ids for the 30ish basic poses that can be included in every workout (sorted by difficulty)
+# source: https://greatist.com/move/common-yoga-poses
+BEGINNER_POSE_IDS = [130, 22, 75, 64, 187, 176, 175, 17, 8, 32, 7, 143, 182, 81] 
+INTERMEDIATE_POSE_IDS = [136, 171, 179, 88, 182, 189, 145, 60, 10, 19, 6, 138, 54, 178, 153]
+ADVANCED_POSE_IDS = [96, 132, 190, 101, 154]
+
+DEFAULT_POSE_IDS = [BEGINNER_POSE_IDS, INTERMEDIATE_POSE_IDS, ADVANCED_POSE_IDS] # a list of lists
+
 
 ##############################################################################
 # Model classes
@@ -39,6 +48,7 @@ class Pose(db.Model):
     altnames = db.Column(db.Unicode(100), nullable=True) # SEARCHABLE
     benefit = db.Column(db.String(1000), nullable=True)
     img_url = db.Column(db.String(200), nullable=False)
+    is_leftright = db.Column(db.Boolean, nullable=True) # boolean to indicate whether a pose has left/right version
     next_pose_str = db.Column(db.String(500), nullable=True) # next poses stored as a string for now
     prev_pose_str = db.Column(db.String(500), nullable=True) # previous poses stored as a string for now
     next_poses = db.Column(JSON, nullable=True) # next poses as a JSON {pose_id: weight, pose_id: weight, ....}
@@ -74,7 +84,7 @@ class Pose(db.Model):
                 pose_weights.append(weight)
 
         else: # if no next poses exist then choose from some basic ones like Mountain, Down Dog
-            pose_ids =[64,130,32] #ids for Down Dog, Mountain, and Corpse
+            pose_ids =[64,130,32] # ids for Down Dog, Mountain, and Corpse
             pose_weights = [2,2,1]
 
         next_pose_id = random.choices(pose_ids, pose_weights)[0] # random.choices returns a list
@@ -153,6 +163,7 @@ def generateWorkout(num_poses, difficulty=DIFFICULTIES, categories=None):
 
     num_poses is an integer
     difficulty is a list of difficulties ['Beginner'] or ['Beginner', 'Intermediate']
+    NOTE: right now I'm only inputting a list of one difficulty level!
     categories is a list of category ids [2, 4, 6]
 
     User has ability to adjust difficulty and emphasis in order to adjust the pool of poses
@@ -164,7 +175,7 @@ def generateWorkout(num_poses, difficulty=DIFFICULTIES, categories=None):
     Returns None if it can't find any poses that match the criteria
     """
     
-    # get all the poses that meet the criteria of difficulty and categories specified
+    # RANK 1 - get all the poses that meet the criteria of difficulty and categories specified
     if not categories: # if categories None or an empty list
         all_cat_ids = db.session.query(Category.cat_id).all() # returns a list of tuples of all the ids
         categories = [category[0] for category in all_cat_ids] # converts that to a list
@@ -175,12 +186,29 @@ def generateWorkout(num_poses, difficulty=DIFFICULTIES, categories=None):
     if all_poses:
         all_poses_set = set(all_poses)
         
-        # include the basic easy poses as well in the all_poses list if they're not already there
-        # default poses = Mountain, Downward Dog, Corpse
-        default_poses = [Pose.query.get(pose_id) for pose_id in DEFAULT_POSE_IDS] 
-        for pose in default_poses:
-            if pose not in all_poses_set:
-                all_poses_set.add(pose)
+        diff_index = DIFFICULTIES.index(difficulty[0]) # get the index of the first thing in the difficulty list
+
+        # RANK 2 - create a set of alternate poses that are in the category but are of lower difficulty (1 level below)
+        # e.g. if Expert level, include intermediate poses. if Intermediate level, include Beginner level
+        alternate_poses = []
+        if diff_index > 0: # for Intermediate (index 1) and Expert (index 2) level poses
+            alternate_diff = DIFFICULTIES[diff_index-1] 
+            alternate_poses = db.session.query(Pose).join(PoseCategory).filter(Pose.difficulty.in_([alternate_diff]),
+                                                            PoseCategory.cat_id.in_(categories)).all()
+        alternate_poses_set = set(alternate_poses)
+
+        # RANK 3 - include the basic/standard easy poses as well in the all_poses list if they're not already there
+        # get the default poses to pic from depending on the difficulty level
+        # for level in difficulty, get the index and pull from the default pose id list
+        default_pose_ids = []
+        for i in range(0,diff_index+1):
+            default_pose_ids.extend(DEFAULT_POSE_IDS[i])
+
+        default_poses = [Pose.query.get(pose_id) for pose_id in default_pose_ids] 
+        default_poses_set = set(default_poses)
+        # for pose in default_poses: # this adds the default poses to the overall poses set to choose from
+        #     if pose not in all_poses_set:
+        #         all_poses_set.add(pose)
 
 
         # start with a pose
@@ -191,10 +219,21 @@ def generateWorkout(num_poses, difficulty=DIFFICULTIES, categories=None):
             current_pose = workout_list[-1]
             next_poses = copy.deepcopy(current_pose.next_poses) # make a copy of the next poses and work from that instead
             next_pose = current_pose.getNextPose(next_poses=next_poses)
+            valid_nextpose = False
+            while not valid_nextpose:
+                if next_pose in all_poses_set:
+                    valid_nextpose = True
+                elif next_pose in alternate_poses_set:
+                    valid_nextpose = True
+                elif next_pose in default_poses_set:
+                    valid_nextpose = True
+                else:
+                    del next_poses[str(next_pose.pose_id)]
+                    next_pose = current_pose.getNextPose(next_poses=next_poses)
 
-            while next_pose not in all_poses_set: # if the next pose isn't in the set of valid poses 
-                del next_poses[str(next_pose.pose_id)] # remove that pose from the next poses dictionary
-                next_pose = current_pose.getNextPose(next_poses=next_poses) # generate a new next pose from the updated next poses list
+            # while next_pose not in all_poses_set: # if the next pose isn't in the set of valid poses 
+            #     del next_poses[str(next_pose.pose_id)] # remove that pose from the next poses dictionary
+            #     next_pose = current_pose.getNextPose(next_poses=next_poses) # generate a new next pose from the updated next poses list
 
             workout_list.append(next_pose)
 

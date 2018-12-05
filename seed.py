@@ -196,6 +196,24 @@ def addStarterWorkouts():
         print('refined weights for workout')
         print('--')
 
+def addLeftRightFlags():
+    """ add left/right flags for poses where there is a left and right version
+    i.e. modify the is_leftright column for the pose to be True if there is a left/right version
+    """
+
+    all_pose_ids = [2, 3, 89, 26, 42, 50, 158, 168, 155, 14, 15, 35, 36, 37, 39, 47, 45, 46, 43, 51, 38, 67,
+                68, 72, 74, 156, 139, 93, 95, 76, 79, 134, 162, 117, 12, 115, 119, 88, 97, 116, 118, 120,
+                124, 125, 126, 127, 121, 122, 123, 128, 129, 16, 18, 56, 61, 70, 110, 112, 111, 137, 141,
+                191, 194, 145, 147, 146, 44, 52, 180, 4, 5, 24, 25, 40, 48, 49, 41, 71, 80, 90, 157, 167,
+                178, 57, 58, 63, 138, 142, 159, 92, 99, 100, 113, 164, 94, 135, 161, 175, 176, 177, 182,
+                185, 186, 187, 188, 189, 183, 184, 181, 192]
+
+    for pose_id in all_pose_ids:
+        pose = Pose.query.get(pose_id)
+        pose.is_leftright = True
+
+    print("added left right flags")
+
 
 if __name__ == "__main__":
     PRODUCTION_DB_URI = 'postgresql:///yogaposes'
@@ -213,3 +231,4 @@ if __name__ == "__main__":
     addPoseWeights()
     addNewCategories()
     addStarterWorkouts()
+    addLeftRightFlags()

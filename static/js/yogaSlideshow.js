@@ -49,7 +49,7 @@ function nextSlide(){
         goToSlide(currentSlide+1);
     } 
 
-    if(isTimed){
+    if(isTimed && playing){
         startCountdownTimer();
     }
 }

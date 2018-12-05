@@ -4,7 +4,7 @@
 
 {% block content %}
 
-<div class="container main-container" style="margin-top: 80px">
+<div class="container main-container" style="margin-top: 80px; margin-bottom: 50px">
 
     <div class="row">
         <div class="col-md-12">
@@ -60,7 +60,7 @@
         {% for id, pose in next_poses.items() %}
         <div class="col-md-3 col-sm-6 next-poses" data-poseid="{{ id }}" style="margin-bottom: 15px">
             <a href="/pose/{{ id }}">
-                <img src="/static/img/cat.png" style="height:120px;border:#d3d3d3 solid 1px;border-radius: 5px">
+                <img src="/{{ pose['img_url'] }}" style="height:120px;border:#d3d3d3 solid 1px;border-radius: 5px">
                 <p style="margin-bottom: 0px">{{ pose['name'] }}</p> 
             </a> 
                 <span class="editable-field">{{ pose['weight'] }}</span>
