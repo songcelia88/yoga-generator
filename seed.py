@@ -211,6 +211,7 @@ def addLeftRightFlags():
     for pose_id in all_pose_ids:
         pose = Pose.query.get(pose_id)
         pose.is_leftright = True
+        db.session.commit()
 
     print("added left right flags")
 

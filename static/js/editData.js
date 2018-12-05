@@ -6,12 +6,14 @@
 function editWeightsHandler(){
     // This function makes the weights editable fields when the user clicks on the
     // edit weights button
+
+    //TODO check that the weights entered are greater than 0
     $('#edit-weight-btn').on('click', (evt) => {
         // change the editable fields into input fields
         let editableFields = document.getElementsByClassName('editable-field')
         for (let i=0; i<editableFields.length; i++){
             let value = parseInt(editableFields[i].innerHTML);
-            editableFields[i].innerHTML = `<input type=number value=${value}>`
+            editableFields[i].innerHTML = `<input type=number min=0 value=${value} >`
         }
         $('#edit-weight-btn').hide();
         $('#save-weight-btn').show();
@@ -23,7 +25,7 @@ function saveWeightsHandler(){
     // This function takes the weights that are input in the editable fields and 
     // saves those to the database
 
-    // TO DO form validation: check for blank fields and invalid entries
+    // TO DO form validation: check for blank fields and invalid entries (like negative numbers)
 
     $('#save-weight-btn').on('click', (evt) => {
         // get the data to send to the server: need the original pose id, next pose ids and new weights

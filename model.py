@@ -275,6 +275,8 @@ def refineWeights(workout, weight=0.1):
         next_pose = pose_workouts[i+1].pose # get the next pose in the workout
         print('refineweight - current pose', current_pose)
         print('refineweight - next pose', next_pose)
+
+        # TODO use flag_modified instead of making a copy of it (see addnextpose route in the server.py file)
         if current_pose.next_poses:
             next_poses_copy = copy.deepcopy(current_pose.next_poses) # make a copy so I can modify its contents
         else:

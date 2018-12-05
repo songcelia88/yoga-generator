@@ -153,7 +153,7 @@ def createWorkout():
     # unpack the workout list to display on the page
     if workout_list:
         for i, pose in enumerate(workout_list):
-            workout_jsonlist.append({'pose_id' : pose.pose_id, 'imgurl': pose.img_url, 'name': pose.name})
+            workout_jsonlist.append({'pose_id' : pose.pose_id, 'imgurl': pose.img_url, 'name': pose.name, 'is_leftright': pose.is_leftright})
         session['error'] = ""
     else:
         session['error'] = "No Poses Matched. Try creating another workout"
@@ -247,7 +247,8 @@ def addNextPose():
 
     if next_poseid and weight:
         pose = Pose.query.get(poseid)
-        next_poses = pose.next_poses
+        if not pose.next_poses:
+            pose.next_poses = {}
         pose.next_poses[next_poseid] = int(weight)
         print(pose.next_poses)
         flag_modified(pose, 'next_poses') # let database know that this field has been modified
@@ -301,7 +302,10 @@ def loadWorkout(workout_id):
 
     # unpack the workout list to display on the page
     for i, pose_workout in enumerate(workout.pose_workouts):
-        workout_jsonlist.append({'pose_id' : pose_workout.pose.pose_id, 'imgurl': pose_workout.pose.img_url, 'name': pose_workout.pose.name})
+        workout_jsonlist.append({'pose_id' : pose_workout.pose.pose_id, 
+                                'imgurl': pose_workout.pose.img_url, 
+                                'name': pose_workout.pose.name,
+                                'is_leftright': pose_workout.pose.is_leftright})
     
     session['workout'] = workout_jsonlist
 
@@ -319,6 +323,6 @@ if __name__ == "__main__":
     connect_to_db(app, PRODUCTION_DB_URI)
 
     # Use the DebugToolbar
-    DebugToolbarExtension(app)
+    # DebugToolbarExtension(app)
 
     app.run(host='0.0.0.0')

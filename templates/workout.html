@@ -135,6 +135,9 @@
                     <a href="/pose/{{ pose['pose_id'] }}">
                         <img src="{{ pose['imgurl'] }}" style="height:300px; border: #d3d3d3 solid 2px; border-radius: 8px;margin-bottom: 10px">
                     <a> 
+                    {% if pose['is_leftright'] %}
+                    <p>Repeat this pose on the other side before moving on</p>    
+                    {% endif %}
                 </div>
                 {% endfor %}
                 
