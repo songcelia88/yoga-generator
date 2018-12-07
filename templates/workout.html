@@ -8,6 +8,26 @@
         display: none;
     }
 
+    .slide{
+        border: #d3d3d3 solid 1px;
+        box-shadow: rgba(0, 0, 0, 0.06) 0px 3px 5px 0px;
+        border-radius: 4px;
+        width:50%;
+        margin:auto;
+        padding-top:30px;
+        padding-bottom: 30px;
+        background-color:#fff;
+    }
+
+    @media (max-width: 768px){
+        .slide{ width:100%; }
+    }
+
+    .slide img{
+        height:350px;
+        margin-bottom: 10px;
+    }
+
     .slider{
         cursor: pointer;
     }
@@ -17,7 +37,10 @@
         margin:20px;
     }
     .slider-img.active{
-        border:red solid 1px;
+        height:100px;
+        border:#E5B500 solid 1px;
+        box-shadow: rgba(0, 0, 0, 0.06) 0px 4px 6px 0px;
+
     }
 
     .slider-img.displayed{
@@ -25,12 +48,14 @@
     }
 
     .slider-img{
-        height:80px;
+        height:90px;
         display: none;
+        border-radius:3px;
     }
 
     .slider-img:hover{
-        border:black solid 1px;
+        border:#d3d3d3 solid 1px;
+        box-shadow: rgba(0, 0, 0, 0.06) 0px 3px 5px 0px;
     }
 
     #countdown {
@@ -43,7 +68,7 @@
     }
 
     #countdown-number {
-      color: black;
+      color: #575757;
       display: inline-block;
       line-height: 40px;
     }
@@ -60,13 +85,13 @@
       stroke-dashoffset: 0px;
       stroke-linecap: round;
       stroke-width: 2px;
-      stroke: black;
+      stroke: #575757;
       fill: none;
     }
 
 </style>
 
-<div class="container main-container" style="margin-top: 80px; margin-bottom: 80px">
+<div class="container main-container" style="margin-top: 100px; margin-bottom: 80px">
     <div class="row">
         <div class="col-md-12">
             <h2>Your Workout</h2>
@@ -74,36 +99,41 @@
     </div>
 
     <!-- Display Workout Settings -->
-    <div class="row" style="text-align: center">        
-        <div class="col-md-3" id="duration">Duration: {{ session.get('num_poses') }} Poses</div>
-        <div class="col-md-3" id="difficulty">Difficulty: {% if session['difficulty'] %} 
-                            {{ session['difficulty'][0] }}
-                        {% else %}
-                            None
-                        {% endif %}
-        </div>
-        <div class="col-md-3" id="emphasis">Emphasis: {% if session['emphasis'] %} 
+    <div class="row" style="margin-top:15px;">        
+        <div class="col-md-7 col-sm-12" style="padding:5px">
+            <button id="duration" class="btn btn-info-yoga">{{ session.get('num_poses') }} Poses</button>
+            <button id="difficulty" class="btn btn-info-yoga">
+                {% if session['difficulty'] %} 
+                    {{ session['difficulty'][0] }}
+                {% else %}
+                    None
+                {% endif %}
+            </button>
+            <button id="emphasis" class="btn btn-info-yoga">{% if session['emphasis'] %} 
                             {{ session['emphasis'] }}
                         {% else %}
-                            None
+                            Balanced
                         {% endif %}
+            </button>
+            <button id="timingOption" data-info="{{ session['timingOption']}}" class="btn btn-info-yoga">
+            {{ session['timingOption'] }}</button>
         </div>
-        <div class="col-md-3" id="timingOption" data-info="{{ session['timingOption']}}">
-            {{ session['timingOption'] }}
+        <div class="col-md-5 col-sm-12" style="text-align: right">
+            <button id="exit-workout-btn" class="btn btn-info-yoga" style="margin-right: 15px">
+                <i class="far fa-times-circle fa-lg" style="margin-right: 5px"></i>
+                Exit Workout
+            </button>
+            <button id="open-save-modal" class="btn btn-info-yoga yoga-yellow" data-toggle="modal" data-target="#saveWorkoutModal">
+                <i class="far fa-heart fa-lg" style="margin-right: 5px"></i>
+                Save Workout
+            </button>
         </div>
     </div>
 
     <!-- Save and Exit -->
-    <div class="row" style="margin-top: 20px">
+    <div class="row">
         <div class="col-md-12" style="text-align: center">
-            <button id="exit-workout-btn" class="btn btn-light" style="margin-right: 15px">
-                <i class="far fa-times-circle fa-lg" style="margin-right: 5px"></i>
-                Exit Workout
-            </button>
-            <button id="open-save-modal" class="btn btn-primary" data-toggle="modal" data-target="#saveWorkoutModal">
-                <i class="far fa-heart fa-lg" style="margin-right: 5px"></i>
-                Save Workout
-            </button>
+            
             <div id="errorMessage" style="padding-top: 5px">
                 {% if session['error'] %}
                 {{ session['error'] }}
@@ -113,13 +143,13 @@
     </div>
 
     <!-- Play Controls -->
-    <div class="row" style="margin-top: 20px ">
+    <div class="row" style="margin-top: 20px">
         <div class="col-md-12" style="text-align: center">
-            <button id="previous" class="btn"><i class="fas fa-step-backward fa-2x"></i></button>
-            <button id="play-pause" class="btn" style="">
+            <button id="previous" class="btn btn-player"><i class="fas fa-step-backward fa-2x"></i></button>
+            <button id="play-pause" class="btn btn-player">
                 <i class="fas fa-play-circle fa-2x"></i>
             </button>
-            <button id='next' class="btn"><i class="fas fa-step-forward fa-2x"></i></button>
+            <button id='next' class="btn btn-player"><i class="fas fa-step-forward fa-2x"></i></button>
             <!-- <button id="repeat" class="btn"><i class="fas fa-redo-alt fa-2x"></i></button> -->
         </div>
     </div>
@@ -133,7 +163,7 @@
                 <div style="margin-bottom: 10px" class="slide">
                     <h4>{{ pose['name'] }}</h4>
                     <a href="/pose/{{ pose['pose_id'] }}">
-                        <img src="{{ pose['imgurl'] }}" style="height:300px; border: #d3d3d3 solid 2px; border-radius: 8px;margin-bottom: 10px">
+                        <img src="{{ pose['imgurl'] }}" style="">
                     <a> 
                     {% if pose['is_leftright'] %}
                     <p>Repeat this pose on the other side before moving on</p>    
@@ -149,7 +179,7 @@
                             <g transform="translate(40, 0) scale(-1, 1)">
                             <circle r="18" cx="20" cy="20" transform="rotate(-90 20 20)"></circle>
                             </g>
-                            <text id="countdown-number" x="10" y="25" fill="black">20</text>
+                            <text id="countdown-number" x="10" y="25" fill="#575757">20</text>
                         </g>
                     </svg>
                 </div>
@@ -191,8 +221,8 @@
                 <label for="description">Description</label>
                 <textarea name="description" id="description" class="form-control" rows="3"></textarea>
             </div>
-            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-            <button type="button" class="btn btn-primary" id="save-workout-btn">Save Workout</button>
+            <button type="button" class="btn btn-outline-yoga" data-dismiss="modal">Close</button>
+            <button type="button" class="btn yoga-btn-primary" id="save-workout-btn">Save Workout</button>
             <div id="errorMessageModal"></div>
         </form>
       </div>
