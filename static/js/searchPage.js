@@ -26,9 +26,43 @@ function fillSearchBar(){
         }
     }
 }
-// function to update 
-// getting facet counts:
 
+function showCategoryFilters(){
+    // function to show or hide the category filters
+    const categoryButton = document.getElementById('category-dropdown')
+    let showing = true;
+    const categoryFields = document.getElementById('categories-group')
+    categoryButton.addEventListener('click', (evt)=>{
+        //console.log("clicked!")
+        if (showing){
+            categoryFields.style.display="none";
+            showing = false;
+        }
+        else{
+            categoryFields.style.display="block";
+            showing=true
+        }
+    });
+}
 
+function showDifficultyFilters(){
+    // function to show or hide the category filters
+    const difficultyButton = document.getElementById('difficulty-dropdown')
+    let showing = true;
+    const difficultyFields = document.getElementById('difficulty-group')
+    difficultyButton.addEventListener('click', (evt)=>{
+        //console.log("clicked!")
+        if (showing){
+            difficultyFields.style.display="none";
+            showing = false;
+        }
+        else{
+            difficultyFields.style.display="block";
+            showing=true
+        }
+    });
+}
 
 fillSearchBar();
+showCategoryFilters();
+showDifficultyFilters()

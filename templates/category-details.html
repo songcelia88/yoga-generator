@@ -3,17 +3,24 @@
 {% block title %} {{ category.name }} {% endblock %}
 
 {% block content %}
-<h1>{{ category.name }}</h1>
-<h2>All Poses</h2>
-<ul>
-    {% for pose in all_poses %}
-        <li>
-            <a href="../pose/{{ pose.pose_id }}">
-                {{ pose.name }} ( {{ pose.pose_id }} )
-                <img src="/{{ pose.img_url }}" style="height:100px">
-            </a>
-        </li>
-    {% endfor %}
-</ul>
+<div class="container main-container" style="margin-top: 100px">
+    <div class="row">
+        <div class="col-md-12" style="margin-bottom:20px">
+            <h2>{{ category.name }} Poses</h2>
+        </div>
+    </div>
+    <div class="row">   
+        {% for pose in all_poses %}
+            <div class="col-md-3 col-sm-6" style="padding-bottom: 20px">
+                <div style="" class="search-pose-thumbnail">
+                <a href="../pose/{{ pose.pose_id }}" class="yoga-link">
+                    <img src="/{{ pose.img_url }}" style="height:120px;">
+                    <p class="thumbnail-text">{{ pose.name }}</p>
+                </a>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+</div>
 
 {% endblock %}

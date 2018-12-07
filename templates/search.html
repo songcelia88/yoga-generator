@@ -3,24 +3,20 @@
 {% block title %}Yoga App - Search {% endblock %}
 
 {% block content %}
-<div class="container main-container" style="margin-top: 80px">
+<div class="container main-container" style="margin-top: 100px">
     
 <div class="row" style="margin-bottom: 50px">
     <div class="col-md-3">
-        <form action="/search" method="GET">
-            <h3>Search:</h3>
-            <div>Keyword: <input type="text" name="keyword" id="keyword"></div>
-            <div> 
-                <p><strong>Category:</strong></p>
-                <div id="categories-group">
-                    {% for category in categories %}
-                    <input type="checkbox" id="{{ category.name }}" name="categories" value="{{ category.cat_id }}">
-                    <label for="{{ category.name }}">{{ category.name }} ({{ category_counts.get(category.cat_id,0) }})</label><br>
-                    {% endfor %}
-                </div>
-            </div>
+        <form action="/search" method="GET" class="search-form">
+            <h4 class="search-header" style="margin-bottom:20px">Search:</h4>
             <div>
-                <p><strong>Difficulty:</strong></p>
+                <!-- <label for="keyword">Keyword: </label> -->
+                <input type="text" name="keyword" id="keyword" class="form-control" placeholder="Keyword">
+            </div>
+            <div style="margin-top: 20px">
+                <h4>Difficulty:
+                    <span id="difficulty-dropdown"><i class="fas fa-caret-down"></i></span>
+                </h4>
                 <div id="difficulty-group">
                     <input type="checkbox" id="beginner" name="difficulty" value="Beginner">
                     <label for="beginner">Beginner ({{ difficulty_counts.get('Beginner',0) }})</label><br>
@@ -30,25 +26,42 @@
                     <label for="expert">Expert ({{ difficulty_counts.get('Expert',0) }})</label>
                 </div>
             </div>
-            <div style="padding-top: 10px"><input type="submit" value="Search" class="btn btn-primary"></div>
+            <div style="margin-top:20px"> 
+                <h4>Category
+                    <span id="category-dropdown"><i class="fas fa-caret-down"></i></span>
+                </h4>
+                
+                <div id="categories-group">
+                    {% for category in categories %}
+                    <div>
+                    <input class="search-checkbox" type="checkbox" id="{{ category.name }}" name="categories" value="{{ category.cat_id }}">
+                    <label for="{{ category.name }}" class="search-label">
+                        {{ category.name }} ({{ category_counts.get(category.cat_id,0) }})
+                    </label>
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+
+            <div style="padding-top: 10px"><input type="submit" value="Search" class="btn yoga-btn-primary"></div>
         </form>
     </div>
     <div class="col-md-9">
-        <div>
-        <h1>Results ({{ all_poses|length }})</h1>
+        <div style="margin-bottom:20px">
+        <h2>Results ({{ all_poses|length }})</h2>
         </div>
 
-        <div class="row">
-                
+        <div class="row">   
             {% for pose in all_poses %}
                 <div class="col-md-3 col-sm-6" style="padding-bottom: 20px">
-                    <a href="pose/{{ pose.pose_id }}">
-                        <img src="/{{ pose.img_url }}" style="height:120px;border:#d3d3d3 solid 1px;border-radius: 5px">
-                        <p>{{ pose.name }} [ {{ pose.pose_id }} ]</p>
+                    <div style="" class="search-pose-thumbnail">
+                    <a href="pose/{{ pose.pose_id }}" class="yoga-link">
+                        <img src="/{{ pose.img_url }}" style="height:120px;">
+                        <p class="thumbnail-text">{{ pose.name }}</p>
                     </a>
+                    </div>
                 </div>
             {% endfor %}
-            
         </div>
 
     </div>

@@ -1,3 +1,4 @@
+/* Overall Styling Across Website */
 body {
     background-color: #fcfcfc;
     color: #595959;
@@ -8,6 +9,9 @@ h4 {
     font-size: 1.25em; 
 }
 
+h3 { 
+    font-size: 1.5rem; 
+}
 p { 
     font-size:13px; 
 }
@@ -17,7 +21,7 @@ li {
 }
 
 .main-container{
-    margin-top: 50px
+    margin-top: 100px
 }
 
 footer{
@@ -50,6 +54,88 @@ footer{
     background-color:#fcfcfc;
 }
 
+/* Search Page Styles */
+.search-pose-thumbnail{
+    border: #d3d3d3 solid 1px;
+    border-radius: 5px;
+    height: 170px;
+    text-align: center;
+    margin: auto;
+    background-color: #fff;
+    box-shadow: rgba(0, 0, 0, 0.06) 0px 3px 5px 0px;
+    padding-bottom:10px;
+    padding-left: 8px;
+    padding-right: 8px;
+    font-weight: 600;
+}
+
+.thumbnail-text{
+    margin-top: 5px;
+    margin-bottom:10px;
+}
+
+a.yoga-link{
+    color: #0093AB;
+}
+
+a.yoga-link:hover{
+    color: #002F46;
+    text-decoration: none;
+}
+
+a.yoga-link-alt{
+    color: #575757;
+}
+
+a.yoga-link-alt:hover{
+    color: #002F46;
+    text-decoration: none;
+}
+
+.search-form{
+    padding-top:4px;
+    padding-right: 10px;
+}
+
+.search-label{
+    margin-left:5px;
+    /*float:left;*/
+}
+
+.search-checkbox{
+    float:left;
+    margin-top: 3px;
+    margin-right: 3px;
+}
+
+#category-dropdown, #difficulty-dropdown{
+    cursor: pointer;
+}
+
+/* Saved Workout Styles */
+.workout-info{
+    font-size:14px;
+    font-weight:600;
+}
+
+.workout-desc{
+    font-style: italic;
+}
+
+.saved-workout-card{
+    background-color: #fff;
+    box-shadow: rgba(0, 0, 0, 0.06) 0px 3px 5px 0px;
+    padding: 20px;
+    border: #E4E4E4 solid 1px;
+    border-radius: 5px;
+    width: 60%;
+}
+
+@media (max-width: 768px){
+        .saved-workout-card{ width:100%; }
+    }
+
+/* Button Styling */
 .btn-outline-yoga{
     color: #595959;
     background-color: #fff;
@@ -94,8 +180,8 @@ footer{
 
 .yoga-btn-secondary{
     padding:10px 30px;
-    background-color: #538278;
-    border-color: #538278;
+    background-color: #0093AB;
+    border-color: #0093AB;
     color: #fff;
 }
 

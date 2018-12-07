@@ -4,7 +4,7 @@
 
 {% block content %}
 
-<div class="container main-container" style="margin-top: 80px; margin-bottom: 50px">
+<div class="container main-container" style="margin-top: 100px; margin-bottom: 50px">
 
     <div class="row">
         <div class="col-md-12">
@@ -33,13 +33,12 @@
                     <h4>Categories:</h4>
                 </div>
                 <div class="col-lg-9">
-                    <ul>
                     {% if pose.pose_categories %}
                         {% for posecat in pose.pose_categories %}
-                            <li><a href="/category/{{posecat.cat_id}}">{{ posecat.category.name }}</a></li>
+                            <div><a class="yoga-link" href="/category/{{posecat.cat_id}}">{{ posecat.category.name }}</a></div>
                         {% endfor%}
                     {% endif %}    
-                    </ul>
+                    
                 </div>
             </div>
 
@@ -58,17 +57,17 @@
 
     <div class="row" style="margin-top: 30px; text-align: center;margin-bottom: 30px">
         {% for id, pose in next_poses.items() %}
-        <div class="col-md-3 col-sm-6 next-poses" data-poseid="{{ id }}" style="margin-bottom: 15px">
-            <a href="/pose/{{ id }}">
-                <img src="/{{ pose['img_url'] }}" style="height:120px;border:#d3d3d3 solid 1px;border-radius: 5px">
+        <div class="col-md-3 col-sm-6 search-pose-thumnbnail next-poses" data-poseid="{{ id }}" style="margin-bottom: 15px">
+            <a href="/pose/{{ id }}" class="yoga-link">
+                <img src="/{{ pose['img_url'] }}" style="height:120px;border:#d3d3d3 solid 1px;border-radius: 5px;box-shadow: rgba(0, 0, 0, 0.06) 0px 3px 5px 0px;">
                 <p style="margin-bottom: 0px">{{ pose['name'] }} [ {{ id }} ]</p> 
             </a> 
                 <span class="editable-field">{{ pose['weight'] }}</span>
         </div>
         {% endfor %}
         <div class="col-md-12" style="text-align: left">
-            <button id="edit-weight-btn" class="btn btn-primary" style="margin-left: 15px">Edit Weights</button>
-            <button id="save-weight-btn" class="btn btn-primary" style="display:none; margin-left: 15px">Save</button>
+            <button id="edit-weight-btn" class="btn yoga-btn-primary" style="margin-left: 15px">Edit Weights</button>
+            <button id="save-weight-btn" class="btn yoga-btn-primary" style="display:none; margin-left: 15px">Save</button>
         </div>
         <p id="error-message" style="color:red; margin: auto 30px"></p>
     </div>
@@ -85,8 +84,8 @@
                 <div class="form-group">
                     <label style="margin-right: 15px">Weight:</label><input type="number" name="weight" id="weight"></input>
                 </div>
-                <input class="btn btn-primary" id="add-nextpose-btn" type="submit" value="Add Next Pose">
-                <button class="btn btn-dark" id="remove-nextpose-btn">Remove Next Pose</button>
+                <input class="btn yoga-btn-primary" id="add-nextpose-btn" type="submit" value="Add Next Pose">
+                <button class="btn btn-outline-yoga" id="remove-nextpose-btn">Remove Next Pose</button>
             </form>
         </div>
     </div>

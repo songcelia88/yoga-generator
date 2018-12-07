@@ -3,33 +3,41 @@
 {% block title %}Yoga App - Saved Workouts {% endblock %}
 
 {% block content %}
-<div class="container main-container" style="margin-top: 80px">
+<div class="container main-container" style="margin-top: 100px">
 
 <div class="row">
-    <div class="col-md-12">
+    <div class="col-md-12" style="margin-bottom:20px">
         <h2>Saved Workouts</h2>
     </div>
 </div>
 
 {% for workout in workouts %}
-<div class="row" style="margin-bottom: 20px">
+<div class="row" style="margin-bottom: 40px">
     <div class="col-md-12">
-        <h3>{% if workout.name %}
-            {{ workout.name }}
-            {% else %}
-            Workout Number #{{ workout.workout_id }}
-            {% endif %}
-        </h3>
-        <p>User: {{ workout.author }}</p>
-        <p>Total Poses: {{ workout.duration }} poses</p>
-        <p>Description: {{ workout.description }}</p>
-        <p>Sneak Preview:</p>
-        {% for i in range(6) %}
-            <span><img src="{{ workout.pose_workouts[i].pose.img_url }}" style="height:75px"></span>
-        {% endfor %}
-            <span style="margin-left:20px"><i class="fas fa-ellipsis-h fa-2x"></i></span>
-        <div>
-            <a href="/load-workout/{{ workout.workout_id }}"><button class="btn btn-primary">Do This Workout</button></a>
+        <div class="saved-workout-card">
+            <h3><a href="/load-workout/{{ workout.workout_id }}" class="yoga-link-alt">{% if workout.name %}
+                {{ workout.name }}
+                {% else %}
+                Workout Number #{{ workout.workout_id }}
+                {% endif %}</a>
+            </h3>
+            <div>
+            {% for i in range(6) %}
+                <span><img src="{{ workout.pose_workouts[i].pose.img_url }}" style="height:75px"></span>
+            {% endfor %}
+                <span style="margin-left:20px"><i class="fas fa-ellipsis-h fa-2x"></i></span>
+            </div>
+            <div class="workout-info">
+                {% if workout.author %}
+                    By: {{ workout.author }}
+                {% endif %}
+            </div>
+            <div class="workout-info">{{ workout.duration }} poses</div>
+            <div class="workout-desc workout-info">{{ workout.description }}</div>
+            
+            <div style="margin-top:15px">
+                <a href="/load-workout/{{ workout.workout_id }}"><button class="btn yoga-btn-primary">Do This Workout</button></a>
+            </div>
         </div>
     </div>
 </div>
