@@ -19,12 +19,12 @@
     <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
     <link rel="stylesheet" href="/static/css/yoga.css">
 
-
 </head>
 
 <body>
     <!-- Navigation -->
-    <nav class="navbar fixed-top navbar-expand-lg navbar-light fixed-top" style="background-color: rgba(0, 168, 194, 1);">
+    <!-- rgba(255,255,255,0) -->
+    <nav class="navbar fixed-top navbar-expand-lg navbar-light yoga-nav-home" style="">
       <div class="container">
         <a class="navbar-brand" href="/" style="color: rgba(0,0,0,.5)">Yoga App</a>
         <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
@@ -32,28 +32,48 @@
         </button>
         <div class="collapse navbar-collapse" id="navbarResponsive">
           <ul class="navbar-nav ml-auto">
-            <!-- <li class="nav-item">
-              <a class="nav-link" href="">Login</a>
-            </li> -->
             <li class="nav-item">
-              <a class="nav-link" href="/search">Search</a>
+              <form action="/search" method="GET" id="search-form" class="form-inline">
+                <div class="input-group mb-2 mr-sm-2">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text" style="background-color: #fff;border-right: 0px;padding-right: 5px;">
+                      <i class="fas fa-search"></i>
+                    </span>
+                  </div>
+                  <input class="form-control mr-sm-2" type="text" name="keyword" placeholder="Search Poses" style="border-radius:2px;padding-left: 5px;border-left: 0px;">
+                  <input type="submit" value="Search" class="btn btn-outline-yoga" style="display:none"
+                </div>
+              </form>
             </li>
-            <li class="nav-item">
-              <a class="nav-link" href="/saved-workouts">Saved Workouts</a>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Workouts
+              </a>
+              <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                <a class="dropdown-item" href="/">Create Workout</a>
+                <a class="dropdown-item" href="/saved-workouts">Saved Workouts</a>
+              </div>
             </li>
-            <!-- <li class="nav-item">
-              <a class="nav-link" href="">Browse</a>
-            </li> -->
           </ul>
         </div>
       </div>
     </nav>
+
     {% block content %} {% endblock %}
 
+    <footer>
+      <a href="/" class="yoga-footer-link"><i class="fab fa-github fa-2x"></i></a>
+    </footer>
+
+      
 <!-- Bootstrap Javascript -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
-
+<script>
+    //function for toggling nav bar color
+    $(window).scroll(function(){
+      $('nav').toggleClass('scrolled', $(this).scrollTop() > 50);
+    });
+</script>
 </body>
 
 

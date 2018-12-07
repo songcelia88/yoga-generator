@@ -4,12 +4,63 @@
 
 {% block content %}
 <style>
-  body {
-    background: url('/static/img/yoga-background-transparent.jpg') no-repeat center center fixed;
+/*  body {
+    background: url('/static/img/yoga-background-transparent-flipped.jpg') no-repeat center center fixed;
+    background: url('/static/img/yoga-wallpapers-02-transparent.jpg') no-repeat center center fixed;
     -webkit-background-size: cover;
     -moz-background-size: cover;
     background-size: cover;
     -o-background-size: cover;
+  }*/
+
+  .jumbotron {
+    background: url('/static/img/yoga-background-transparent-flipped.jpg') no-repeat center center;
+    /*background: url('/static/img/yoga-wallpapers-02-transparent.jpg') no-repeat center center fixed;*/
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    background-size: cover;
+    -o-background-size: cover;
+  }
+
+  .yoga-form-column{
+    padding-left: 30px;
+    padding-right: 30px;
+  }
+
+  #create-workout-form{
+    background-color: #fff;
+    border-radius: 5px;
+    border: #fcfcfc solid 1px;
+    padding: 40px;
+    box-shadow: 0 16px 40px rgba(0,0,0,0.12);
+  }
+
+  .yoga-form-submit{
+    text-align: center;
+  }
+
+  .yoga-btn-primary{
+    padding:10px 30px;
+    background-color: #E5B500;
+    border-color: #E5B500;
+    color: #fff;
+  }
+
+  .yoga-btn-primary:hover{
+    background-color: #eac332;
+    border-color: #eac332;
+  }
+
+  .yoga-btn-secondary{
+    padding:10px 30px;
+    background-color: #538278;
+    border-color: #538278;
+    color: #fff;
+  }
+
+  .yoga-btn-secondary:hover{
+    background-color: #68a396;
+    border-color: #68a396;
   }
 
   ul.checkbox li { 
@@ -18,98 +69,102 @@
     width:18em;
   }
 
+  h3 {
+    color: #002F46;
+  }
+
 </style>
 
-<div class="container main-container" style="margin-top: 80px">
-  
-  <!-- Create Workout -->
-  <div class="row">
-    <div class="col-sm-12" style="text-align: center">
-      <form action="/createworkout" method="GET" id="create-workout-form">
-          <h3>Create Workout</h3>
-          <div class="form-group">
-              <label for="num_poses">Duration</label>
-              <select name="num_poses" id="num_poses">
-                  <option value = "15">15 poses</option>
-                  <option value ="30">30 poses</option>
-                  <option value="45">45 poses</option>
-              </select>
-          </div>
-          <div class="form-group">
-              <label for="difficulty">Difficulty</label>
-              <select name="difficulty" id="difficulty">
+
+<div class="jumbotron jumbotron-fluid">
+  <div class="container main-container">
+
+    <!-- Create Workout -->
+    <div class="row" style="text-align: left">
+      <div class="col-md-6 col-sm-12 yoga-form-column">
+        <form action="/createworkout" method="GET" id="create-workout-form">
+            <h3>Start a Yoga Workout</h3>
+            <div class="form-group">
+              <div class="" style="margin-top: 20px">
+                <label for="num_poses">Duration</label>
+                <select name="num_poses" class="form-control" id="num_poses">
+                    <option value="15">5 min</option>
+                    <option value = "45" selected>15 min</option>
+                    <option value ="90">30 min</option>
+                    <option value="135">45 min</option>
+                </select>
+              </div>
+              <div class="" style="margin-top: 20px">
+                <label for="difficulty">Difficulty</label>
+                <select name="difficulty" id="difficulty" class="form-control">
                   <option value = "Beginner">Beginner</option>
                   <option value ="Intermediate">Intermediate</option>
                   <option value="Expert">Expert</option>
               </select>
-          </div>
-          <div class="form-group">
-              <label for="emphasis">Emphasis</label>
-              <select name="emphasis" id="emphasis">
-                  <option value = "">None</option>
-                  {% for category in categories %}
-                  <option value = "{{category.cat_id}}">{{category.name}}</option>
-                  {% endfor %}
-              </select>
-          </div>
-          <div class="form-check form-check-inline">
-            <input class="form-check-input" type="radio" name="timingOption" id="timed" value="Timed">
-            <label class="form-check-label" for="timed">Timed</label>
-          </div>
-          <div class="form-check form-check-inline">
-            <input class="form-check-input" type="radio" name="timingOption" id="untimed" value="Untimed">
-            <label class="form-check-label" for="untimed">Untimed</label>
-          </div>
-          <div style="padding-top: 10px">
-              <input type="submit" value="Create Workout!" id="create-workout-btn" class="btn btn-primary">
-          </div>
-      </form>
-      
-      <div id="errorMessage"></div>
+              </div>
+              <div class="" style="margin-top: 20px">
+                <label for="emphasis">Emphasis</label>
+                <select name="emphasis" id="emphasis" class="form-control">
+                    <option value = "">None</option>
+                    {% for category in categories %}
+                    <option value = "{{category.cat_id}}">{{category.name}}</option>
+                    {% endfor %}
+                </select>
+              </div>
+              <div class="" style="margin-top: 20px">
+                <label>Timing Option:</label>
+                <div class="form-check">
+                  <span style="margin-right:30px">
+                    <input class="form-check-input" type="radio" name="timingOption" id="timed" value="Timed" checked>
+                    <label class="form-check-label" for="timed">Timed</label>
+                  </span>
+                  <span>
+                    <input class="form-check-input" type="radio" name="timingOption" id="untimed" value="Untimed">
+                    <label class="form-check-label" for="untimed">Untimed</label>
+                  </span>
+                </div>
+              </div>
 
-    </div>
-  </div> <!-- end row -->
+            </div>
+            
+            <div style="padding-top: 10px" class="yoga-form-submit">
+                <input type="submit" value="Start Workout!" id="create-workout-btn" class="btn yoga-btn-primary">
+            </div>
+        </form>
+        
+        <div id="errorMessage"></div>
+        
+        <div style="margin-top: 20px;text-align: center">
+          <p style="margin-bottom: 5px">Don't want to take your chances? View some of our favorite workouts!</p>
+          <a href="/saved-workouts"><button class="btn yoga-btn-secondary">View Saved Workouts</button></a>
+        </div>
+      </div>
+    </div> <!-- end row -->
+  </div>
+</div> <!-- end Jumbotron -->
+
+
+<!-- After the Jumbotron -->
+<div class="container main-container" style="margin-top: 100px; margin-bottom: 80px">
 
   <!-- Search Poses -->
-  <div class="row" style="margin-top: 50px">
+  <div class="row" style="margin-top: 80px">
     <div class="col-sm-12" style="text-align: center">
-      <h3>Browse Poses</h3>
+      <h3>Pose Dictionary</h3>
+      <p>Search for a pose to find out more about it</p>
       <form action="/search" method="GET" id="search-form">
-        <div>Keyword: <input type="text" name="keyword"></div>
-        <h4 style="padding-top: 20px">Filters:</h4>
-        <div> 
-            <p><strong>Category:</strong></p>
-            <ul class="checkbox" style="list-style: none">
-              {% for category in categories %}
-              <li><input type="checkbox" id="{{ category.name }}" name="categories" value="{{ category.cat_id }}">
-              <label for="{{ category.name }}">{{ category.name }}</label>
-              </li>
-              {% endfor %}
-            </ul>
+        <input class="form-control" type="text" name="keyword" placeholder="Keyword" style="margin: auto;width: 50%;display:inline">
+        <div style="padding-top: 10px;margin-bottom: 20px;display:inline">
+          <input type="submit" value="Search" class="btn yoga-btn-primary" style="padding:10px 30px;margin-bottom: 5px">
         </div>
-        <div>
-            <p><strong>Difficulty:</strong></p>
-            <input type="checkbox" id="beginner" name="difficulty" value="Beginner">
-            <label for="beginner">Beginner</label><br>
-            <input type="checkbox" id="intermediate" name="difficulty" value="Intermediate">
-            <label for="intermediate">Intermediate</label><br>
-            <input type="checkbox" id="expert" name="difficulty" value="Expert">
-            <label for="expert">Expert</label>
-        </div>
-        <div style="padding-top: 10px;margin-bottom: 20px"><input type="submit" value="Search" class="btn btn-primary"></div>
       </form>
-      <a href="/search"><button class="btn btn-primary">Browse All Poses</button></a>
+
+      <div style="margin-top:20px">
+        <a href="/search"><button class="btn yoga-btn-secondary">Browse All Poses</button></a>
+      </div>
     </div>
   </div>
 
-  <!-- View Saved Workouts -->
-  <div class="row" style="margin-top: 50px; margin-bottom: 100px">
-    <div class="col-sm-12" style="text-align: center">
-      <h3>Saved Workouts</h3>
-      <a href="/saved-workouts"><button class="btn btn-primary">View</button></a>
-    </div>
-    
-  </div>
 
 </div>
 
