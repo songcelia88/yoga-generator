@@ -1,3 +1,4 @@
+import os
 from jinja2 import StrictUndefined
 
 from flask import Flask, render_template, redirect, request, flash, session, jsonify, json
@@ -311,7 +312,7 @@ def loadWorkout(workout_id):
 
     return redirect("/workout")
 
-PRODUCTION_DB_URI = 'postgresql:///yogaposes'
+PRODUCTION_DB_URI = os.environ.get('DATABASE_URL','postgresql:///yogaposes')
 connect_to_db(app, PRODUCTION_DB_URI)
 
 if __name__ == "__main__":
@@ -319,7 +320,6 @@ if __name__ == "__main__":
     # point that we invoke the DebugToolbarExtension
     app.debug = False
     app.jinja_env.auto_reload = app.debug
-    """postgres://xhifftqckhpjyt:8ee54e2927aa1d660bbad1f574c8860b85c9f61c1d252f3f3eeeaf4364073c98@ec2-54-243-150-10.compute-1.amazonaws.com:5432/db81e789f1ddn7""" 
     
     # Use the DebugToolbar
     # DebugToolbarExtension(app)
