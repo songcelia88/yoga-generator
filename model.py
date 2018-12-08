@@ -310,6 +310,7 @@ if __name__ == "__main__":
     # you in a state of being able to work with the database directly.
 
     from server import app
+    
     PRODUCTION_DB_URI = 'postgresql:///yogaposes'
     connect_to_db(app, PRODUCTION_DB_URI)
     # db.create_all()

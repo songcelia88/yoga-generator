@@ -311,17 +311,16 @@ def loadWorkout(workout_id):
 
     return redirect("/workout")
 
+PRODUCTION_DB_URI = 'postgresql:///yogaposes'
+connect_to_db(app, PRODUCTION_DB_URI)
 
 if __name__ == "__main__":
     # We have to set debug=True here, since it has to be True at the
     # point that we invoke the DebugToolbarExtension
-    app.debug = True
+    app.debug = False
     app.jinja_env.auto_reload = app.debug
-
-    PRODUCTION_DB_URI = 'postgresql:///yogaposes'
-
-    connect_to_db(app, PRODUCTION_DB_URI)
-
+    """postgres://xhifftqckhpjyt:8ee54e2927aa1d660bbad1f574c8860b85c9f61c1d252f3f3eeeaf4364073c98@ec2-54-243-150-10.compute-1.amazonaws.com:5432/db81e789f1ddn7""" 
+    
     # Use the DebugToolbar
     # DebugToolbarExtension(app)
 

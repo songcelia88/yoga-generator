@@ -1,3 +1,4 @@
 env/
 *pycache*
 .DS_STORE*
+.env
