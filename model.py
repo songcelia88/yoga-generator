@@ -206,10 +206,6 @@ def generateWorkout(num_poses, difficulty=DIFFICULTIES, categories=None):
 
         default_poses = [Pose.query.get(pose_id) for pose_id in default_pose_ids] 
         default_poses_set = set(default_poses)
-        # for pose in default_poses: # this adds the default poses to the overall poses set to choose from
-        #     if pose not in all_poses_set:
-        #         all_poses_set.add(pose)
-
 
         # start with a pose
         start_pose = random.choice(all_poses)
