@@ -19,6 +19,6 @@ SQLAlchemy==1.2.13
 SQLAlchemy-Searchable==1.0.3
 SQLAlchemy-Utils==0.33.8
 Unidecode==1.0.23
-urllib3==1.24.1
+urllib3==1.26.5
 validators==0.12.3
 Werkzeug==0.14.1
